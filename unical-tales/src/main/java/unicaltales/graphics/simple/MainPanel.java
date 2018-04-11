@@ -20,7 +20,7 @@ public class MainPanel extends JPanel {
 	 */
 	public MainPanel() {
 		// setto il background
-		setBackground(new Color(0, 0, 0));
+		setBackground(new Color(129, 201, 246));
 		
 		repaint();
 	}
@@ -33,7 +33,7 @@ public class MainPanel extends JPanel {
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		
-		g.drawString("Weeeeeee", 10, 10);
+		g.drawString("TEST", 10, 10);
 		g.drawRect(100, 100, 300, 300);
 		g.drawLine(0, 0, 150, 150); // linea di esempio
 	}

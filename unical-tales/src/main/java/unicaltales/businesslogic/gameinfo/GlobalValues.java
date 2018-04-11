@@ -28,7 +28,7 @@ public class GlobalValues {
 	/**
 	 * Window full screen enabled value
 	 */
-	public static final boolean FULL_SCREEN = true;
+	public static final boolean FULL_SCREEN = false;
 	
 	/**
 	 * Title of window game
