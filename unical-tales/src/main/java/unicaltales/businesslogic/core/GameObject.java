@@ -42,13 +42,6 @@ public abstract class GameObject {
 		this.size = new Size(width,height);
 	}
 
-
-
-	/**
-	 * Abstract method to draw an Object (it depends by the framework)
-	 */
-	abstract void draw();
-
 	/**
 	 * Setter And Getter 
 	 */

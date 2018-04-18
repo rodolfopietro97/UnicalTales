@@ -34,5 +34,10 @@ public class GlobalValues {
 	 * Title of window game
 	 */
 	public static final String WINDOW_TITLE = "Unical Tales";
+	
+	/**
+	 * Ci dice se il gioco è terminato o meno
+	 */
+	public static boolean EXIT_GAME = false;
 
 }

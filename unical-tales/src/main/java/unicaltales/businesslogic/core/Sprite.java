@@ -5,7 +5,7 @@ package unicaltales.businesslogic.core;
 
 /**
  * @author Camillo
- * Sprite model
+ * Sprite model.
  */
 
 public abstract class Sprite extends GameObject{
@@ -63,9 +63,5 @@ public abstract class Sprite extends GameObject{
 	public void setPath(String path) {
 		this.path = path;
 	}
-	
-	
-	
-	
 	
 }

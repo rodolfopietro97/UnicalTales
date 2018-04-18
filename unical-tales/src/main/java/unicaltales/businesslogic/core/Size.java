@@ -5,6 +5,7 @@ package unicaltales.businesslogic.core;
  * Class that rapresent a size
  */
 public class Size {
+	
 	/**
 	 * Width and Height of element
 	 */

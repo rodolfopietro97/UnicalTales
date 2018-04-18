@@ -46,8 +46,13 @@ public class MainFrame extends JFrame{
 			setLocation((int) (screenSize.getWidth() - tempWindowWidth)/2, 
 					    (int) (screenSize.getHeight() - tempWindowHeight)/2);
 		}
-		// setto il pannello di disegno
+		/*
+		 * Setto il pannello di gioco del progetto.
+		 */
 		setContentPane(new MainPanel());
+
+	
+
 		
 	}
 }
