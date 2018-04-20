@@ -45,7 +45,9 @@ public class MainFrame extends JFrame{
 			// la posiziono al centro
 			setLocation((int) (screenSize.getWidth() - tempWindowWidth)/2, 
 					    (int) (screenSize.getHeight() - tempWindowHeight)/2);
+			//setResizable(false);
 		}
+
 		/*
 		 * Setto il pannello di gioco del progetto.
 		 */

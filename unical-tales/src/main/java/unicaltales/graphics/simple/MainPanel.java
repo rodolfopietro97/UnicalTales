@@ -44,14 +44,11 @@ public class MainPanel extends JPanel {
 		spriteDraw = new SpriteDraw(new Drawer() {
 			
 			@Override
-			public void onDrawText(Sprite s, Object drawerComponent) {
-				// TODO Auto-generated method stub
-				
+			public void onDrawText(Sprite s, Object drawerComponent) {				
 			}
 			
 			@Override
 			public void onDrawImage(Sprite s, Object drawerComponent) {
-				// TODO Auto-generated method stub
 				if(drawerComponent instanceof Graphics) {
 					Graphics g = (Graphics) drawerComponent;
 					g.drawImage(Toolkit.getDefaultToolkit().getImage(s.getPath()), (int) s.getPosition().getX(), (int) s.getPosition().getY(), (int) s.getSize().getWidth(), (int) s.getSize().getHeight(), Color.BLACK, null);
@@ -65,7 +62,7 @@ public class MainPanel extends JPanel {
 	 * @throws InterruptedException - if there are problems with {@code Thread.sleep(long millis)} 
 	 */
 	private void loop() throws InterruptedException {
-		Thread.sleep((long) 10);
+		Thread.currentThread().sleep(1000);
 		repaint();
 	}
 
@@ -79,7 +76,7 @@ public class MainPanel extends JPanel {
 		super.paintComponent(g);
 		// graphics part
 		//...
-		MyImage prova = new MyImage(0, 0, GlobalValues.SIZE_WINDOW.getWidth(), GlobalValues.SIZE_WINDOW.getHeight(), "/home/rodolfo/Scrivania/photo_2018-04-18_16-08-50.jpg");
+		MyImage prova = new MyImage(0, 0, getWidth(), getHeight(), "/home/rodolfo/Scrivania/photo_2018-04-18_16-08-50.jpg");
 		spriteDraw.drawImage(prova, g);
 
 		// loop
