@@ -4,6 +4,8 @@
 package unicaltales.businesslogic.draw;
 
 import unicaltales.businesslogic.core.Sprite;
+import unicaltales.businesslogic.gamecomponents.MyImage;
+import unicaltales.businesslogic.gamecomponents.MyText;
 
 /**
  * @author rodolfo
@@ -25,12 +27,21 @@ public class SpriteDraw {
 	}
 
 	/**
-	 * This function draw an Sprite on the screen
+	 * This function draw an Image on the screen
 	 * @param image to draw
 	 * @param drawerComponent to used for the framework. (For example awt used Graphics for drawing)
 	 */
-	public void drawImage(Sprite image, Object drawerComponent) {
+	public void drawImage(MyImage image, Object drawerComponent) {
 		howToDraw.onDrawImage(image, drawerComponent);
+	}
+	
+	/**
+	 * This function draw Text on the screen
+	 * @param text to draw
+	 * @param drawerComponent to used for the framework. (For example awt used Graphics for drawing)
+	 */
+	public void drawText(MyText text, Object drawerComponent) {
+		howToDraw.onDrawText(text, drawerComponent);
 	}
 	
 }

@@ -39,5 +39,10 @@ public class GlobalValues {
 	 * Ci dice se il gioco è terminato o meno
 	 */
 	public static boolean EXIT_GAME = false;
+	
+	/**
+	 * The type of Screen that "say us" in wich screen we are
+	 */
+	public static ScreenTipe SCREEN_TIPE = ScreenTipe.INITIAL;
 
 }

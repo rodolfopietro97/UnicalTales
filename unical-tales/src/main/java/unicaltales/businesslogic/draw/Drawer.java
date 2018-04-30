@@ -4,6 +4,8 @@
 package unicaltales.businesslogic.draw;
 
 import unicaltales.businesslogic.core.Sprite;
+import unicaltales.businesslogic.gamecomponents.MyImage;
+import unicaltales.businesslogic.gamecomponents.MyText;
 
 /**
  * @author rodolfo
@@ -13,15 +15,15 @@ import unicaltales.businesslogic.core.Sprite;
 public interface Drawer {
 	/**
 	 * This is how to draw images
-	 * @param s - Sprite of the image to draw
+	 * @param image - Sprite of the image to draw
 	 * @param drawerComponent to used for the framework. (For example awt used Graphics for drawing)
 	 */
-	void onDrawImage(Sprite s, Object drawerComponent);
+	void onDrawImage(MyImage image, Object drawerComponent);
 	
 	/**
 	 * This is how to draw images
-	 * @param s - Sprite of the image to draw
+	 * @param text - Sprite of the image to draw
 	 * @param drawerComponent to used for the framework. (For example awt used Graphics for drawing)
 	 */
-	void onDrawText(Sprite s, Object drawerComponent);
+	void onDrawText(MyText text, Object drawerComponent);
 }

@@ -9,37 +9,42 @@ public class MyText extends Sprite{
 	 * Text that appear
 	 */
 	private String text;
+	
+	/*
+	 * Font size
+	 */
+	private float fontSize;
 
 	
 	public MyText() {
 		super();
 		this.text = "";
+		this.fontSize = 10;
 	}
 
 	/**
 	 * Parameters Constructor
 	 * @param x of the text
 	 * @param y of the text
-	 * @param width of the text
-	 * @param height of the text
-	 * @param path of the font 
+	 * @param fontSize of Text
 	 * @param text of the text
 	 */
-	public MyText(float x, float y, float width, float height, String path, String text) {
-		super(x, y, width, height, path);
+	public MyText(float x, float y, float fontSize, String text) {
+		super(x, y, 0, 0, "/");
 		this.text = text;
+		this.fontSize = fontSize;
 	}
 
 	/**
 	 * Parameter Constructor
 	 * @param position of the text
 	 * @param size of the font
-	 * @param path of the font
 	 * @param text of text
 	 */
-	public MyText(Position position, Size size, String path, String text) {
-		super(position, size, path);
+	public MyText(Position position, float fontSize, String text) {
+		super(position, new Size(), "/");
 		this.text = text;
+		this.fontSize = fontSize;
 	}
 	
 	/**
@@ -59,6 +64,21 @@ public class MyText extends Sprite{
 	public void setText(String text) {
 		this.text = text;
 	}
+
+	/**
+	 * @return the fontSize
+	 */
+	public float getFontSize() {
+		return fontSize;
+	}
+
+	/**
+	 * @param fontSize the fontSize to set
+	 */
+	public void setFontSize(float fontSize) {
+		this.fontSize = fontSize;
+	}
+	
 	
 	
 }

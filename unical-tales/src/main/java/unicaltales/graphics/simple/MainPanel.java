@@ -4,6 +4,7 @@
 package unicaltales.graphics.simple;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -12,10 +13,14 @@ import java.sql.Time;
 import javax.swing.JPanel;
 import javax.xml.bind.annotation.XmlElementDecl.GLOBAL;
 
+import unicaltales.businesslogic.core.GameObject;
+import unicaltales.businesslogic.core.Position;
 import unicaltales.businesslogic.core.Sprite;
+import unicaltales.businesslogic.core.player.Player;
 import unicaltales.businesslogic.draw.Drawer;
 import unicaltales.businesslogic.draw.SpriteDraw;
 import unicaltales.businesslogic.gamecomponents.MyImage;
+import unicaltales.businesslogic.gamecomponents.MyText;
 import unicaltales.businesslogic.gameinfo.GlobalValues;
 
 /**
@@ -23,12 +28,11 @@ import unicaltales.businesslogic.gameinfo.GlobalValues;
  * MainPanel of Swing and Awt 2d Simple Graphics implementation
  */
 public class MainPanel extends JPanel {
+
 	/**
-	 * Sprite drawer component.
-	 * It is initializzed dependently by the framework
+	 * The Player that make the gme with business logic component's, indipendently by framework
 	 */
-	SpriteDraw spriteDraw;
-	
+	Player game;	
 	/**
 	 * Empty Constructor
 	 * @throws InterruptedException - Se non funziona lo sleep
@@ -37,32 +41,40 @@ public class MainPanel extends JPanel {
 		// setto il background
 		setBackground(new Color(129, 201, 246));
 		
-		/*
-		 * We create a SpriteDraw.
-		 * It draw Sprites, dipendently by the interface we passed from argument
-		 */
-		spriteDraw = new SpriteDraw(new Drawer() {
+		game = new Player(new SpriteDraw(new Drawer() {
 			
 			@Override
-			public void onDrawText(Sprite s, Object drawerComponent) {				
-			}
-			
-			@Override
-			public void onDrawImage(Sprite s, Object drawerComponent) {
+			public void onDrawText(MyText text, Object drawerComponent) {
 				if(drawerComponent instanceof Graphics) {
 					Graphics g = (Graphics) drawerComponent;
-					g.drawImage(Toolkit.getDefaultToolkit().getImage(s.getPath()), (int) s.getPosition().getX(), (int) s.getPosition().getY(), (int) s.getSize().getWidth(), (int) s.getSize().getHeight(), Color.BLACK, null);
-				}
+					Font f = new Font("Dialog", Font.BOLD, (int) text.getFontSize());
+					g.setFont(f);
+					g.drawString(text.getText(), (int) text.getPosition().getX(), (int) text.getPosition().getY());
+				}				
 			}
-		});
+			
+			@Override
+			public void onDrawImage(MyImage image, Object drawerComponent) {
+				if(drawerComponent instanceof Graphics) {
+					Graphics g = (Graphics) drawerComponent;
+					g.drawImage(Toolkit.getDefaultToolkit().getImage(image.getPath()), (int) image.getPosition().getX(), (int) image.getPosition().getY(), (int) image.getSize().getWidth(), (int) image.getSize().getHeight(), Color.BLACK, null);
+				}				
+			}
+		}));
 	}
 	
 	/**
-	 * Principal loop of the game. with this function the game became asynchronous
-	 * @throws InterruptedException - if there are problems with {@code Thread.sleep(long millis)} 
+	 * Principal refreshment of the Gameloop
 	 */
-	private void loop() throws InterruptedException {
-		Thread.currentThread().sleep(1000);
+	private void refresh() {
+		try {
+			Thread.currentThread().sleep(10);
+		} catch (InterruptedException e) {
+			System.err.println("Impossibile eseguire il loop dle gioco!");
+			e.printStackTrace();
+			GlobalValues.EXIT_GAME = true; // STOPPA IL GIOCO
+		}
+
 		repaint();
 	}
 
@@ -70,23 +82,14 @@ public class MainPanel extends JPanel {
 	/* (non-Javadoc)
 	 * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
 	 */
-	int i=0;
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		// graphics part
-		//...
-		MyImage prova = new MyImage(0, 0, getWidth(), getHeight(), "/home/rodolfo/Scrivania/photo_2018-04-18_16-08-50.jpg");
-		spriteDraw.drawImage(prova, g);
-
-		// loop
-		try {
-			loop();
-		} catch (InterruptedException e) {
-			System.err.println("Impossibile eseguire il loop dle gioco!");
-			e.printStackTrace();
-			GlobalValues.EXIT_GAME = true; // STOPPA IL GIOCO
-		}
+		
+		game.loop(g);
+		
+		// Refreshment
+		refresh();
 	}
 	
 	
