@@ -28,6 +28,7 @@ public class InitialScreenPlayer {
 	 * @param spriteDraw to use. For example Awt use Graphics
 	 */
 	public InitialScreenPlayer(SpriteDraw spriteDraw) {
+		
 		this.spriteDraw = spriteDraw;
 		
 		background = new MyImage(
@@ -35,7 +36,7 @@ public class InitialScreenPlayer {
 				0, 
 				GlobalValues.SIZE_WINDOW.getWidth(), 
 				GlobalValues.SIZE_WINDOW.getHeight(),
-				"/home/rodolfo/Scrivania/photo_2018-04-18_16-08-50.jpg");
+				"../resources/logo.jpg");
 		bottonePlay = new MyImage(
 				0, 
 				0, 
