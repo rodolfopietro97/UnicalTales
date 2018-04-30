@@ -36,18 +36,19 @@ public class InitialScreenPlayer {
 				0, 
 				GlobalValues.SIZE_WINDOW.getWidth(), 
 				GlobalValues.SIZE_WINDOW.getHeight(),
-				"../resources/logo.jpg");
+				"C:/Users/Camillo/git/UnicalTales/unical-tales/src/main/resources/logo.jpg");
 		bottonePlay = new MyImage(
-				0, 
-				0, 
-				GlobalValues.SIZE_WINDOW.getWidth(), 
-				GlobalValues.SIZE_WINDOW.getHeight(),
-				"/home/rodolfo/Scrivania/photo_2018-04-18_16-08-50.jpg");
+				(GlobalValues.SIZE_WINDOW.getWidth() - GlobalValues.SIZE_WINDOW.getWidth()/4)/2, 
+				GlobalValues.SIZE_WINDOW.getHeight() - 150, 
+				GlobalValues.SIZE_WINDOW.getWidth() /4, 
+				50,
+				"C:/Users/Camillo/git/UnicalTales/unical-tales/src/main/resources/button.png");
 		//testo = new MyText(new Position(25, 25), 30, "weeeee");
 	}
 	
 	void loop(Object drawerComponent) {
 		this.spriteDraw.drawImage(background, drawerComponent);
+		this.spriteDraw.drawImage(bottonePlay, drawerComponent);
 		//spriteDraw.drawText(testo, drawerComponent);
 	}
 

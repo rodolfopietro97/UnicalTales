@@ -31,6 +31,11 @@ public class GlobalValues {
 	public static final boolean FULL_SCREEN = false;
 	
 	/**
+	 * If we want a resizable window
+	 */
+	public static final boolean RESIZABLE = false;
+	
+	/**
 	 * Title of window game
 	 */
 	public static final String WINDOW_TITLE = "Unical Tales";
