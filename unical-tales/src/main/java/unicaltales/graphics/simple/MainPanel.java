@@ -5,6 +5,7 @@ package unicaltales.graphics.simple;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -44,12 +45,23 @@ public class MainPanel extends JPanel {
 		game = new Player(new SpriteDraw(new Drawer() {
 			
 			@Override
-			public void onDrawText(MyText text, Object drawerComponent) {
+			public void onDrawText(MyText text, Object drawerComponent, boolean centred) {
 				if(drawerComponent instanceof Graphics) {
 					Graphics g = (Graphics) drawerComponent;
 					Font f = new Font("Dialog", Font.BOLD, (int) text.getFontSize());
 					g.setFont(f);
-					g.drawString(text.getText(), (int) text.getPosition().getX(), (int) text.getPosition().getY());
+					g.setColor(Color.BLACK);
+
+					if(centred) {
+					    FontMetrics fm = g.getFontMetrics();
+					    int x = (int) ((GlobalValues.SIZE_WINDOW.getWidth() - fm.stringWidth(text.getText())) / 2);
+					    int y = (int) (fm.getAscent() + (GlobalValues.SIZE_WINDOW.getHeight() - (fm.getAscent() + fm.getDescent())) / 2);						
+						g.drawString(text.getText(), x, (int) text.getPosition().getY());
+
+					}
+					else {
+						g.drawString(text.getText(), (int) text.getPosition().getX(), (int) text.getPosition().getY());
+					}
 				}				
 			}
 			

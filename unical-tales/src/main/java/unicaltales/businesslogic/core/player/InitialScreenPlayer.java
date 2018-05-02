@@ -21,7 +21,12 @@ public class InitialScreenPlayer {
 	 * Background image of game
 	 */
 	MyImage background;
+	
+	/**
+	 * Play button (image and text)
+	 */
 	MyImage bottonePlay;
+	MyText playTesto;
 	
 	/**
 	 * Constructor with parameters
@@ -36,20 +41,24 @@ public class InitialScreenPlayer {
 				0, 
 				GlobalValues.SIZE_WINDOW.getWidth(), 
 				GlobalValues.SIZE_WINDOW.getHeight(),
-				"C:/Users/Camillo/git/UnicalTales/unical-tales/src/main/resources/logo.jpg");
+				"/home/rodolfo/git/UnicalTales/unical-tales/src/main/resources/logo.jpg");
 		bottonePlay = new MyImage(
 				(GlobalValues.SIZE_WINDOW.getWidth() - GlobalValues.SIZE_WINDOW.getWidth()/4)/2, 
 				GlobalValues.SIZE_WINDOW.getHeight() - 150, 
 				GlobalValues.SIZE_WINDOW.getWidth() /4, 
 				50,
-				"C:/Users/Camillo/git/UnicalTales/unical-tales/src/main/resources/button.png");
-		//testo = new MyText(new Position(25, 25), 30, "weeeee");
+				"/home/rodolfo/git/UnicalTales/unical-tales/src/main/resources/button.png");
+		playTesto = new MyText(
+				GlobalValues.SIZE_WINDOW.getWidth() /4, 
+				GlobalValues.SIZE_WINDOW.getHeight() - 115, 
+				30, 
+				"Play");
 	}
 	
 	void loop(Object drawerComponent) {
 		this.spriteDraw.drawImage(background, drawerComponent);
 		this.spriteDraw.drawImage(bottonePlay, drawerComponent);
-		//spriteDraw.drawText(testo, drawerComponent);
+		this.spriteDraw.drawText(playTesto, true, drawerComponent);
 	}
 
 }
