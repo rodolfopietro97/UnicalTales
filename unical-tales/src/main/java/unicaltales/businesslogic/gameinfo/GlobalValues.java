@@ -49,5 +49,14 @@ public class GlobalValues {
 	 * The type of Screen that "say us" in wich screen we are
 	 */
 	public static ScreenTipe SCREEN_TIPE = ScreenTipe.INITIAL;
+	
+	/**
+	 * This function get the path of resources of a file
+	 * @param asset in which find the complete path
+	 * @return the complete path of sprite
+	 */
+	public String getResource(String asset) {
+		return getClass().getClassLoader().getResource(asset).toString().substring(5, getClass().getClassLoader().getResource(asset).toString().length());
+	}
 
 }

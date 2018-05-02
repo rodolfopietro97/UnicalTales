@@ -7,6 +7,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.Toolkit;
+import java.io.File;
+import java.net.URL;
 
 import javax.swing.JFrame;
 
@@ -22,6 +24,7 @@ public class MainFrame extends JFrame{
 	 * Empty Constructor
 	 */
 	public MainFrame() {
+		
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setTitle(GlobalValues.WINDOW_TITLE);
 		// prendo le dimensioni dello schermo
@@ -52,9 +55,6 @@ public class MainFrame extends JFrame{
 		 * Setto il pannello di gioco del progetto.
 		 */
 		setContentPane(new MainPanel());
-
-	
-
 		
 	}
 }

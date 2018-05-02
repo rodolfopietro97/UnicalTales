@@ -41,13 +41,13 @@ public class InitialScreenPlayer {
 				0, 
 				GlobalValues.SIZE_WINDOW.getWidth(), 
 				GlobalValues.SIZE_WINDOW.getHeight(),
-				"/home/rodolfo/git/UnicalTales/unical-tales/src/main/resources/logo.jpg");
+				new GlobalValues().getResource("logo.jpg"));
 		bottonePlay = new MyImage(
 				(GlobalValues.SIZE_WINDOW.getWidth() - GlobalValues.SIZE_WINDOW.getWidth()/4)/2, 
 				GlobalValues.SIZE_WINDOW.getHeight() - 150, 
 				GlobalValues.SIZE_WINDOW.getWidth() /4, 
 				50,
-				"/home/rodolfo/git/UnicalTales/unical-tales/src/main/resources/button.png");
+				new GlobalValues().getResource("button.png"));
 		playTesto = new MyText(
 				GlobalValues.SIZE_WINDOW.getWidth() /4, 
 				GlobalValues.SIZE_WINDOW.getHeight() - 115, 
