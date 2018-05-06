@@ -3,6 +3,16 @@
  */
 package unicaltales.businesslogic.gameinfo;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URISyntaxException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+import org.apache.commons.io.IOUtils;
+
 import unicaltales.businesslogic.core.Size;
 
 /**
@@ -54,9 +64,21 @@ public class GlobalValues {
 	 * This function get the path of resources of a file
 	 * @param asset in which find the complete path
 	 * @return the complete path of sprite
+	 * @throws URISyntaxException 
 	 */
-	public String getResource(String asset) {
+	public String getResource(String asset) {// throws URISyntaxException {
+//		InputStream is = getClass().getClassLoader().getResourceAsStream(asset);
+//		byte[] bar = readQuietly(is);
+		
 		return getClass().getClassLoader().getResource(asset).toString().substring(5, getClass().getClassLoader().getResource(asset).toString().length());
 	}
+
+//	private byte[] readQuietly(InputStream is) {
+//		try {
+//			return IOUtils.toByteArray(is);
+//		} catch (IOException e) {
+//			throw new RuntimeException(e);
+//		}
+//	}
 
 }
