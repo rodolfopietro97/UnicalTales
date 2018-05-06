@@ -7,7 +7,7 @@ import unicaltales.businesslogic.core.Sprite;
  * Class that manage SpriteEvents, such as collision between two Sprites
  */
 public class SpriteEvents {
-
+	
 	/**
 	 * Collision on x axis between two sprites
 	 * @param s1 sprite 1
@@ -54,4 +54,26 @@ public class SpriteEvents {
 		return false;
 	}
 	
+	/**
+	 * Verify if mouse is hover a sprite
+	 * @param s the sprite
+	 * @param h hardware events manager
+	 * @return if the mouse is hover a sprite
+	 */
+	public boolean isHover(Sprite s, HardwareEvents h) {
+		return h.getInputX() >= s.getPosition().getX() 
+			&& h.getInputX() <= s.getPosition().getX() + s.getSize().getWidth()
+			&& h.getInputY() >= s.getPosition().getY() 
+					&& h.getInputY() <= s.getPosition().getY() + s.getSize().getHeight();
+	}
+	
+	/**
+	 * Verify if mouse/touch click a sprite
+	 * @param s the sprite
+	 * @param h hardware events manager
+	 * @return if mouse/touch click a sprite
+	 */
+	public boolean isClick(Sprite s, HardwareEvents h) {
+		return isHover(s, h) && h.isClick();
+	}
 }

@@ -54,7 +54,9 @@ public class MainFrame extends JFrame{
 		/*
 		 * Setto il pannello di gioco del progetto.
 		 */
-		setContentPane(new MainPanel());
+		MainPanel gamePanel = new MainPanel();
+		gamePanel.setFocusable(true);
+		setContentPane(gamePanel);
 		
 	}
 }

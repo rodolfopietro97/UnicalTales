@@ -5,6 +5,7 @@ package unicaltales.businesslogic.core.player;
 
 import unicaltales.businesslogic.core.Position;
 import unicaltales.businesslogic.draw.SpriteDraw;
+import unicaltales.businesslogic.events.HardwareEvents;
 import unicaltales.businesslogic.gamecomponents.MyImage;
 import unicaltales.businesslogic.gamecomponents.MyText;
 import unicaltales.businesslogic.gameinfo.GlobalValues;
@@ -24,22 +25,32 @@ public class Player {
 	 */
 	private InitialScreenPlayer initialScreenPlayer;
 	
+	/**
+	 * Hardware Events of player 
+	 */
+	HardwareEvents hardwareEvents;
+	
 
 	/**
 	 * Empty Constructor
 	 * @param spriteDraw that depend by framework we use
+	 * @param hardwareEvents that depend by framwrork
 	 */
-	public Player(SpriteDraw spriteDraw) {
+	public Player(SpriteDraw spriteDraw , HardwareEvents hardwareEvents) {
 		/*
 		 * Set the sprite draw
 		 */
 		this.spriteDraw = spriteDraw;
 		
 		/*
+		 * Set the hardware events
+		 */
+		this.hardwareEvents = hardwareEvents;
+		
+		/*
 		 * Initializze the tipe of screen players
 		 */
-		initialScreenPlayer = new InitialScreenPlayer(this.spriteDraw);
-		
+		initialScreenPlayer = new InitialScreenPlayer(this.spriteDraw, this.hardwareEvents);
 
 	}
 
@@ -51,6 +62,24 @@ public class Player {
 		switch (GlobalValues.SCREEN_TIPE) {
 		case INITIAL:
 			initialScreenPlayer.loop(drawerComponent);
+			break;
+		
+		case PLAY:
+			break;
+
+		default:
+			break;
+		}
+	}
+	
+	/**
+	 * Function that refresh input on every iteration of loop
+	 * @param hardwareEvents that we refresh every cycle of loop
+	 */
+	public void refreshInput(HardwareEvents hardwareEvents) {
+		switch (GlobalValues.SCREEN_TIPE) {
+		case INITIAL:
+			initialScreenPlayer.refreshInput(hardwareEvents);
 			break;
 		
 		case PLAY:
