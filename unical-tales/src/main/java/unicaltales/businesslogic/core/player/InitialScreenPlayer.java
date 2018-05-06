@@ -26,6 +26,8 @@ public class InitialScreenPlayer {
 	 * Play button (image and text)
 	 */
 	MyImage bottonePlay;
+	MyImage bottoneExit;
+	MyImage bottoneSettings;
 	MyText playTesto;
 	
 	/**
@@ -48,6 +50,21 @@ public class InitialScreenPlayer {
 				GlobalValues.SIZE_WINDOW.getWidth() /4, 
 				50,
 				new GlobalValues().getResource("button.png"));
+		
+		bottoneExit = new MyImage(
+				(GlobalValues.SIZE_WINDOW.getWidth() - 75),
+				(GlobalValues.SIZE_WINDOW.getHeight())/76,
+				60,
+				60,
+				new GlobalValues().getResource("exit.jpg"));
+		
+		bottoneSettings = new MyImage(
+				(GlobalValues.SIZE_WINDOW.getWidth() - 75),
+				(GlobalValues.SIZE_WINDOW.getHeight()) - 100,
+				60,
+				60,
+				new GlobalValues().getResource("impostazioni.png"));
+		
 		playTesto = new MyText(
 				GlobalValues.SIZE_WINDOW.getWidth() /4, 
 				GlobalValues.SIZE_WINDOW.getHeight() - 115, 
@@ -59,6 +76,8 @@ public class InitialScreenPlayer {
 		this.spriteDraw.drawImage(background, drawerComponent);
 		this.spriteDraw.drawImage(bottonePlay, drawerComponent);
 		this.spriteDraw.drawText(playTesto, true, drawerComponent);
+		this.spriteDraw.drawImage(bottoneExit, drawerComponent);
+		this.spriteDraw.drawImage(bottoneSettings, drawerComponent);
 	}
 
 }
