@@ -24,7 +24,6 @@ public interface Drawer {
 	 * This is how to draw images
 	 * @param text - Sprite of the image to draw
 	 * @param drawerComponent to used for the framework. (For example awt used Graphics for drawing)
-	 * @param centred, say to us if text is centred
 	 */
-	void onDrawText(MyText text, Object drawerComponent, boolean centred);
+	void onDrawText(MyText text, Object drawerComponent);
 }

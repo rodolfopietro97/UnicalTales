@@ -3,91 +3,104 @@
  */
 package unicaltales.businesslogic.core.player;
 
-import unicaltales.businesslogic.core.Position;
+import java.awt.Image;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import unicaltales.businesslogic.core.Sprite;
 import unicaltales.businesslogic.draw.SpriteDraw;
 import unicaltales.businesslogic.events.HardwareEvents;
+import unicaltales.businesslogic.events.SpriteEvents;
 import unicaltales.businesslogic.gamecomponents.MyImage;
 import unicaltales.businesslogic.gamecomponents.MyText;
+import unicaltales.businesslogic.gameguis.SettingsGui;
 import unicaltales.businesslogic.gameinfo.GlobalValues;
+import unicaltales.businesslogic.gameinfo.ScreenTipe;
 
 /**
- * @author rodolfo This class Represent the player indipendently of the
- *         framework. It use the business logic to make the principal Game
+ * @author rodolfo
+ * General definition of a Player, which will be implemented by differents players.
  */
-public class Player {
+public abstract class Player {
 	/**
 	 * Sprite Drawer part that depends by framework
 	 */
-	private SpriteDraw spriteDraw;
-	
-	/**
-	 * Player of initial screen
-	 */
-	private InitialScreenPlayer initialScreenPlayer;
-	
-	/**
-	 * Hardware Events of player 
-	 */
-	HardwareEvents hardwareEvents;
-	
+	protected SpriteDraw spriteDraw;
 
 	/**
-	 * Empty Constructor
-	 * @param spriteDraw that depend by framework we use
+	 * HardwareEvents that depend bye framework 
+	 */
+	protected HardwareEvents hardwareEvents;
+	
+	/**
+	 * Manage the Sprite Events
+	 */
+	protected SpriteEvents spriteEvents;
+	
+	/**
+	 * Maps of Sprites that will be used by Player derivates class
+	 */
+	protected ArrayList<Sprite> sprites;
+	
+	
+	/**
+	 * Constructor with parameters
+	 * @param spriteDraw to use. For example Awt use Graphics
 	 * @param hardwareEvents that depend by framwrork
 	 */
 	public Player(SpriteDraw spriteDraw , HardwareEvents hardwareEvents) {
 		/*
-		 * Set the sprite draw
+		 * Init members dipendently framework
 		 */
 		this.spriteDraw = spriteDraw;
-		
-		/*
-		 * Set the hardware events
-		 */
 		this.hardwareEvents = hardwareEvents;
 		
 		/*
-		 * Initializze the tipe of screen players
+		 * Init members INdipendently by framework
 		 */
-		initialScreenPlayer = new InitialScreenPlayer(this.spriteDraw, this.hardwareEvents);
-
+		sprites = new ArrayList<>(10);
+		spriteEvents = new SpriteEvents();
 	}
-
+	
 	/**
-	 * Loop part of the game
-	 * @param drawerComponent to use. For example Awt use Graphics
+	 * loop of initial screen
+	 * @param drawerComponent to use for draw
 	 */
 	public void loop(Object drawerComponent) {
-		switch (GlobalValues.SCREEN_TIPE) {
-		case INITIAL:
-			initialScreenPlayer.loop(drawerComponent);
-			break;
-		
-		case PLAY:
-			break;
+		draw(drawerComponent);
+		manageEvents();
+	}
+	
+	/**
+	 * Draw part of loop
+	 * @param drawerComponent to use for draw
+	 */
+	public void draw(Object drawerComponent) {
+		for(Sprite s : sprites) {
+			/*
+			 * Disegna un' immagine
+			 */
+			if(s instanceof MyImage) this.spriteDraw.drawImage((MyImage) s, drawerComponent);
+			/*
+			 * Disegna un testo
+			 */
+			if(s instanceof MyText) this.spriteDraw.drawText((MyText) s, drawerComponent);
 
-		default:
-			break;
 		}
 	}
 	
 	/**
-	 * Function that refresh input on every iteration of loop
+	 * Event part of loop
+	 */
+	public abstract void manageEvents();
+	
+	/**
+	 * Function that refresh Hardware Events on every iteration of loop
 	 * @param hardwareEvents that we refresh every cycle of loop
 	 */
-	public void refreshInput(HardwareEvents hardwareEvents) {
-		switch (GlobalValues.SCREEN_TIPE) {
-		case INITIAL:
-			initialScreenPlayer.refreshInput(hardwareEvents);
-			break;
-		
-		case PLAY:
-			break;
-
-		default:
-			break;
-		}
+	public void refreshHardwareEvents(HardwareEvents hardwareEvents) {
+		this.hardwareEvents = hardwareEvents;
 	}
 
+	
 }

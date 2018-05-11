@@ -1,7 +1,7 @@
 /**
  * 
  */
-package unicaltales.graphics.simple;
+package unicaltales.graphics.swingawt;
 
 import java.awt.Color;
 import java.awt.Dimension;

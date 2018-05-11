@@ -1,7 +1,7 @@
 package unicaltales.main;
 
 import unicaltales.businesslogic.gameinfo.GlobalValues;
-import unicaltales.graphics.simple.MainFrame;
+import unicaltales.graphics.swingawt.MainFrame;
 
 public class UnicalTalesMain {
 	

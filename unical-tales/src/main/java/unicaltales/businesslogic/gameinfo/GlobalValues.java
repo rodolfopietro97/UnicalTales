@@ -34,7 +34,7 @@ public class GlobalValues {
 	/**
 	 * If we want a resizable window
 	 */
-	public static final boolean RESIZABLE = false;
+	public static final boolean RESIZABLE = true;
 	
 	/**
 	 * Title of window game

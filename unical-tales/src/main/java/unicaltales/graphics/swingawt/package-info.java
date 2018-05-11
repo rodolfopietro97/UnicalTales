@@ -5,4 +5,4 @@
  * @author rodolfo
  * Simple graphics with swing and awt library 
  */
-package unicaltales.graphics.simple;
+package unicaltales.graphics.swingawt;

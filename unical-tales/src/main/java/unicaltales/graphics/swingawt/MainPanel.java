@@ -1,7 +1,7 @@
 /**
  * 
  */
-package unicaltales.graphics.simple;
+package unicaltales.graphics.swingawt;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -25,7 +25,7 @@ import javafx.collections.ListChangeListener.Change;
 import unicaltales.businesslogic.core.GameObject;
 import unicaltales.businesslogic.core.Position;
 import unicaltales.businesslogic.core.Sprite;
-import unicaltales.businesslogic.core.player.Player;
+import unicaltales.businesslogic.core.player.PlayerManager;
 import unicaltales.businesslogic.draw.Drawer;
 import unicaltales.businesslogic.draw.SpriteDraw;
 import unicaltales.businesslogic.events.HardwareEvents;
@@ -42,10 +42,10 @@ public class MainPanel extends JPanel {
 	 * The Player that make the game with business logic component's, indipendently
 	 * by framework
 	 */
-	Player game;
+	PlayerManager playerScreenManager;
 
 	/**
-	 * HardwareEvents that we {@link Change} in runtime with MouseListener and
+	 * HardwareEvents that we Change in runtime with MouseListener, MouseMotionListener and
 	 * KeyListener
 	 */
 	HardwareEvents hardwareEvents;
@@ -69,17 +69,17 @@ public class MainPanel extends JPanel {
 		// Inizializzo l' hardware events
 		hardwareEvents = new HardwareEvents();
 
-		game = new Player(new SpriteDraw(new Drawer() {
+		playerScreenManager = new PlayerManager(new SpriteDraw(new Drawer() {
 
 			@Override
-			public void onDrawText(MyText text, Object drawerComponent, boolean centred) {
+			public void onDrawText(MyText text, Object drawerComponent) {
 				if (drawerComponent instanceof Graphics) {
 					Graphics g = (Graphics) drawerComponent;
 					Font f = new Font("Dialog", Font.BOLD, (int) text.getFontSize());
 					g.setFont(f);
 					g.setColor(Color.BLACK);
 
-					if (centred) {
+					if (text.isCentred()) {
 						FontMetrics fm = g.getFontMetrics();
 						int x = (int) ((GlobalValues.SIZE_WINDOW.getWidth() - fm.stringWidth(text.getText())) / 2);
 						int y = (int) (fm.getAscent()
@@ -178,6 +178,14 @@ public class MainPanel extends JPanel {
 		 * Esegue il repaint
 		 */
 		repaint();
+		
+		/*
+		 * Refreeshing delle globalvalues
+		 */
+		if(GlobalValues.RESIZABLE) {
+			GlobalValues.SIZE_WINDOW.setWidth((int)getWidth());
+			GlobalValues.SIZE_WINDOW.setHeight((int)getHeight());
+		}
 	}
 	
 	/**
@@ -188,8 +196,8 @@ public class MainPanel extends JPanel {
 		super.paintComponent(g);
 
 		if(!GlobalValues.EXIT_GAME) {
-			game.loop(g);
-			game.refreshInput(hardwareEvents);
+			playerScreenManager.loop(g);
+			playerScreenManager.refreshHardwareEvents(hardwareEvents);
 		}
 		else System.exit(0);
 

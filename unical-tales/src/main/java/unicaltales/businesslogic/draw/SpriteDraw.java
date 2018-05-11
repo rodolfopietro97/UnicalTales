@@ -38,11 +38,10 @@ public class SpriteDraw {
 	/**
 	 * This function draw Text on the screen
 	 * @param text to draw
-	 * @param centred, say to us if text is centred
 	 * @param drawerComponent to used for the framework. (For example awt used Graphics for drawing)
 	 */
-	public void drawText(MyText text, boolean centred, Object drawerComponent) {
-		howToDraw.onDrawText(text, drawerComponent, centred);
+	public void drawText(MyText text, Object drawerComponent) {
+		howToDraw.onDrawText(text, drawerComponent);
 	}
 	
 }
