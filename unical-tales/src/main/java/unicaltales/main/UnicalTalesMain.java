@@ -1,6 +1,7 @@
 package unicaltales.main;
 
 import unicaltales.businesslogic.gameinfo.GlobalValues;
+import unicaltales.graphics.javafx.MainFrameFX;
 import unicaltales.graphics.swingawt.MainFrame;
 
 public class UnicalTalesMain {
@@ -15,6 +16,11 @@ public class UnicalTalesMain {
 			swingAwtImplemtation.setVisible(true);
 			break;
 
+		case GlobalValues.JAVAFX_IMPLEMENTATION:
+			MainFrameFX mainFrameFX = new MainFrameFX();
+			mainFrameFX.launch();
+			break;
+			
 		case GlobalValues.LIBGDX_IMPLEMENTATION:
 			break;
 			
