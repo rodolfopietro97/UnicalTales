@@ -40,7 +40,9 @@ public abstract class Player {
 	/**
 	 * Maps of Sprites that will be used by Player derivates class
 	 */
-	protected ArrayList<Sprite> sprites;
+	private HashMap<String, Sprite> spriteMap;
+	
+	//protected ArrayList<Sprite> sprites;
 	
 	
 	/**
@@ -56,10 +58,13 @@ public abstract class Player {
 		this.hardwareEvents = hardwareEvents;
 		
 		/*
-		 * Init members INdipendently by framework
+		 * Init members Indipendently by framework
 		 */
-		sprites = new ArrayList<>(10);
+		//sprites = new ArrayList<>(10);
+		spriteMap = new HashMap<>();
+		
 		spriteEvents = new SpriteEvents();
+		
 	}
 	
 	/**
@@ -69,6 +74,7 @@ public abstract class Player {
 	public void loop(Object drawerComponent) {
 		draw(drawerComponent);
 		manageEvents();
+		if(GlobalValues.RESIZABLE) onWindowsSizeChange();
 	}
 	
 	/**
@@ -76,21 +82,32 @@ public abstract class Player {
 	 * @param drawerComponent to use for draw
 	 */
 	public void draw(Object drawerComponent) {
-		for(Sprite s : sprites) {
+//		for(Sprite s : sprites) {
+//			/*
+//			 * Disegna un' immagine
+//			 */
+//			if(s instanceof MyImage) this.spriteDraw.drawImage((MyImage) s, drawerComponent);
+//			/*
+//			 * Disegna un testo
+//			 */
+//			if(s instanceof MyText) this.spriteDraw.drawText((MyText) s, drawerComponent);
+//
+//		}
+		
+		for(String s : spriteMap.keySet()) {
 			/*
-			 * Disegna un' immagine
+			 * Draw a image sprite
 			 */
-			if(s instanceof MyImage) this.spriteDraw.drawImage((MyImage) s, drawerComponent);
+			if(spriteMap.get(s) instanceof MyImage) spriteDraw.drawImage((MyImage) spriteMap.get(s), drawerComponent);
 			/*
-			 * Disegna un testo
+			 * Draw s text sprite
 			 */
-			if(s instanceof MyText) this.spriteDraw.drawText((MyText) s, drawerComponent);
-
+			if(spriteMap.get(s) instanceof MyText) spriteDraw.drawText((MyText) spriteMap.get(s), drawerComponent);
 		}
 	}
 	
 	/**
-	 * Event part of loop
+	 * Event Handler part of loop
 	 */
 	public abstract void manageEvents();
 	
@@ -101,6 +118,31 @@ public abstract class Player {
 	public void refreshHardwareEvents(HardwareEvents hardwareEvents) {
 		this.hardwareEvents = hardwareEvents;
 	}
+	
+	/**
+	 * Put a Sprite in the spriteMap
+	 * @param name of sprite
+	 * @param s to put
+	 */
+	protected void putSprite(String name, Sprite s) {
+		spriteMap.put(name, s);
+	}
+	
+	/**
+	 * Get a Sprite from the spriteMap
+	 * @param name of the sprite to get
+	 * @return the sprite
+	 */
+	protected Sprite getSprite(String name) {
+		return spriteMap.get(name);
+	}
+	
+	/**
+	 * What to do on Resize Window Event
+	 */
+	public abstract void onWindowsSizeChange();
+	
+	
 
 	
 }

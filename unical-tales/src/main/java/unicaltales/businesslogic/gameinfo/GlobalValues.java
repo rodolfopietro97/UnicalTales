@@ -4,6 +4,8 @@
 package unicaltales.businesslogic.gameinfo;
 
 
+import java.io.Serializable;
+
 import unicaltales.businesslogic.core.Size;
 
 /**
@@ -11,7 +13,7 @@ import unicaltales.businesslogic.core.Size;
  * Class that contain static game information such as:
  * Window size, game API, scores, and global informations...
  */
-public class GlobalValues {
+public class GlobalValues implements Serializable {
 	
 	/**
 	 * Size of game window
@@ -22,7 +24,7 @@ public class GlobalValues {
 	 * Describe the game implementation of business logic.
 	 * For example we know if is Swing/Awt Implementation, LibGDX Implementation, and others...
 	 */
-	public static int IMPLEMENTATION = 1; // Swing And Awt of Default
+	public static int IMPLEMENTATION = 0; // Swing And Awt of Default
 	public static final int SWING_AWT_IMPLEMENTATION = 0;
 	public static final int JAVAFX_IMPLEMENTATION = 1;
 	public static final int LIBGDX_IMPLEMENTATION = 2;

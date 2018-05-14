@@ -25,11 +25,19 @@ public class MainFrameFX extends Application{
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		primaryStage.setScene(new Scene(new Group()));
-		primaryStage.setFullScreen(GlobalValues.FULL_SCREEN);
-		primaryStage.setTitle("Unical Tales");
-		primaryStage.setWidth(800);
-		primaryStage.setHeight(600);
+//		primaryStage.setFullScreen(GlobalValues.FULL_SCREEN);
+//		primaryStage.setTitle("Unical Tales");
+//		primaryStage.setWidth(800);
+//		primaryStage.setHeight(600);
+//		
+//		   Group root = new Group();
+//		    Scene theScene = new Scene( root );
+//		    theStage.setScene( theScene );
+//		 
+//		    Canvas canvas = new Canvas( 512, 512 );
+//		    root.getChildren().add( canvas );
+//		 
+//		    GraphicsContext gc = canvas.getGraphicsContext2D();
 		
 	}
 
