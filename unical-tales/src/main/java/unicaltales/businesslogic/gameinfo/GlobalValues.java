@@ -58,7 +58,13 @@ public class GlobalValues {
 	 * @return the complete path of sprite
 	 */
 	public String getResourcePath(String asset) {
-		return getClass().getClassLoader().getResource(asset).getPath();
+		if (GlobalValues.IMPLEMENTATION == SWING_AWT_IMPLEMENTATION) {
+			return getClass().getClassLoader().getResource(asset).getPath();	
+		}
+		else if(GlobalValues.IMPLEMENTATION == JAVAFX_IMPLEMENTATION) {
+			return asset;
+		}
+		return asset;
 	}
 
 
