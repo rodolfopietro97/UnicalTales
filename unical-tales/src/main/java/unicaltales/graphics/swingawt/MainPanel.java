@@ -52,15 +52,6 @@ public class MainPanel extends JPanel {
 
 	/**
 	 * Empty Constructor
-	 * 
-	 * @throws InterruptedException
-	 *             - Se non funziona lo sleep
-	 */
-	/**
-	 * 
-	 */
-	/**
-	 * 
 	 */
 	public MainPanel() {
 		// setto il background

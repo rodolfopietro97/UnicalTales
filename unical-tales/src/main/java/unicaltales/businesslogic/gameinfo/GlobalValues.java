@@ -4,6 +4,8 @@
 package unicaltales.businesslogic.gameinfo;
 
 
+import java.io.Serializable;
+
 import unicaltales.businesslogic.core.Size;
 
 /**
@@ -11,7 +13,7 @@ import unicaltales.businesslogic.core.Size;
  * Class that contain static game information such as:
  * Window size, game API, scores, and global informations...
  */
-public class GlobalValues {
+public class GlobalValues implements Serializable {
 	
 	/**
 	 * Size of game window
