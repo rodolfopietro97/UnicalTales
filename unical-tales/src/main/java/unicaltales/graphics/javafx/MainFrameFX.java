@@ -2,12 +2,15 @@ package unicaltales.graphics.javafx;
 
 import javafx.scene.canvas.*;
 
-
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -42,6 +45,11 @@ public class MainFrameFX extends Application{
 	 * Player Manager of Game
 	 */
 	private PlayerManager playerScreenManager;
+	
+	/**
+	 * Scene of the game
+	 */
+	Scene scene;
 	
 	
 	@Override
@@ -80,7 +88,7 @@ public class MainFrameFX extends Application{
 				}
 			}
 		}), hardwareEvents);
-
+		
 	}
 
 
@@ -88,7 +96,7 @@ public class MainFrameFX extends Application{
 	public void start(Stage primaryStage) throws Exception {
 
 	    StackPane root = new StackPane();
-	    Scene scene = new Scene( root );
+	    scene = new Scene( root );
 		primaryStage.setScene(scene);
 		primaryStage.setFullScreen(GlobalValues.FULL_SCREEN);
 		primaryStage.setTitle(GlobalValues.WINDOW_TITLE);
@@ -116,9 +124,51 @@ public class MainFrameFX extends Application{
 	    		
 				playerScreenManager.loop(g);
 				playerScreenManager.refreshHardwareEvents(hardwareEvents);
+				new Thread() {
+					@Override
+					public void run() {
+						// TODO Auto-generated method stub
+						super.run();
+						hardwareEvents.reset();
+						try {
+							sleep(10);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+				}.start();
 			}
 		}.start();
 
+		
+		scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
+			
+			public void handle(KeyEvent e) {
+				if(e.getCode() == KeyCode.ESCAPE) hardwareEvents.pressEsc();
+				else if(e.getCode() == KeyCode.LEFT) hardwareEvents.pressLeft();
+				else if(e.getCode() == KeyCode.RIGHT) hardwareEvents.pressRight();
+				else if(e.getCode() == KeyCode.DOWN) hardwareEvents.pressDown();
+				else if(e.getCode() == KeyCode.UP) hardwareEvents.pressUp();
+				else if(e.getCode() == KeyCode.SPACE) hardwareEvents.pressSpace();
+			}
+		});
+		
+		scene.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			
+			public void handle(MouseEvent e) {
+				hardwareEvents.click();
+			}
+		});
+		
+		scene.setOnMouseMoved(new EventHandler<MouseEvent>() {
+			
+			public void handle(MouseEvent e) {
+				hardwareEvents.setInputX((float)e.getX());
+				hardwareEvents.setInputY((float)e.getY());
+				System.err.println(hardwareEvents.getInputX() + " " + hardwareEvents.getInputY() + " " + hardwareEvents.isClick());
+			}
+		});
 		
 		primaryStage.show();
 	}
