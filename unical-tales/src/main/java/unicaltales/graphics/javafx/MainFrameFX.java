@@ -111,7 +111,6 @@ public class MainFrameFX extends Application{
 			public void handle(long now) {
 				g.clearRect(0, 0, 0, 0);
 				g.setFill( new Color(1, 1, 1, 1) );
-	            
 	    		/*
 	    		 * Refreeshing delle globalvalues
 	    		 */
@@ -122,22 +121,13 @@ public class MainFrameFX extends Application{
 	    			gameCanvas.setHeight(GlobalValues.SIZE_WINDOW.getHeight());
 	    		}
 	    		
-				playerScreenManager.loop(g);
-				playerScreenManager.refreshHardwareEvents(hardwareEvents);
-				new Thread() {
-					@Override
-					public void run() {
-						// TODO Auto-generated method stub
-						super.run();
-						hardwareEvents.reset();
-						try {
-							sleep(10);
-						} catch (InterruptedException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-					}
-				}.start();
+	    		if(!GlobalValues.EXIT_GAME) {
+	    			playerScreenManager.loop(g);
+	    			playerScreenManager.refreshHardwareEvents(hardwareEvents);
+	    		}
+	    		else System.exit(0);
+
+				hardwareEvents.reset();		
 			}
 		}.start();
 
@@ -166,7 +156,6 @@ public class MainFrameFX extends Application{
 			public void handle(MouseEvent e) {
 				hardwareEvents.setInputX((float)e.getX());
 				hardwareEvents.setInputY((float)e.getY());
-				System.err.println(hardwareEvents.getInputX() + " " + hardwareEvents.getInputY() + " " + hardwareEvents.isClick());
 			}
 		});
 		

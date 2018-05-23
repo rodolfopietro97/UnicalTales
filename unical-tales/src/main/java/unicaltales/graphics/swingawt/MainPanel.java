@@ -161,14 +161,16 @@ public class MainPanel extends JPanel {
 			e.printStackTrace();
 			GlobalValues.EXIT_GAME = true; // STOPPA IL GIOCO
 		}
-		/*
-		 * Resetta l' hardware event
-		 */
-		hardwareEvents.reset();
+
 		/*
 		 * Esegue il repaint
 		 */
 		repaint();
+		
+		/*
+		 * Resetta l' hardware event
+		 */
+		hardwareEvents.reset();
 		
 		/*
 		 * Refreeshing delle globalvalues
