@@ -66,7 +66,7 @@ public class PlayerManager {
 			break;
 		
 		case PLAY:
-			System.out.println("palyyy");
+			//System.out.println("palyyy");
 			break;
 
 		default:

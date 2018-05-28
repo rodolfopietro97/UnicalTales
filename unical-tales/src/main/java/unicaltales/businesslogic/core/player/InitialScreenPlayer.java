@@ -50,6 +50,13 @@ public class InitialScreenPlayer extends Player {
 				50,
 				new GlobalValues().getResourcePath("button.png")));
 		
+		putSprite("btnMultiplayer", new MyImage(
+				(GlobalValues.SIZE_WINDOW.getWidth() - GlobalValues.SIZE_WINDOW.getWidth()/4)/2, 
+				GlobalValues.SIZE_WINDOW.getHeight() - 150 + 70, 
+				GlobalValues.SIZE_WINDOW.getWidth() /4, 
+				50,
+				new GlobalValues().getResourcePath("button.png")));
+		
 		putSprite("btnExit", new MyImage(
 				(GlobalValues.SIZE_WINDOW.getWidth() - 75),
 				15,
@@ -59,17 +66,25 @@ public class InitialScreenPlayer extends Player {
 		
 		putSprite("btnSettings", new MyImage(
 				(GlobalValues.SIZE_WINDOW.getWidth() - 75),
-				(GlobalValues.SIZE_WINDOW.getHeight()) - 100,
+				(GlobalValues.SIZE_WINDOW.getHeight()) - 75,
 				60,
 				60,
 				new GlobalValues().getResourcePath("impostazioni.png")));
 		
 		putSprite("playText", new MyText(
 				GlobalValues.SIZE_WINDOW.getWidth() /2, 
-				GlobalValues.SIZE_WINDOW.getHeight() - 115, 
-				30, 
-				"Play",
+				GlobalValues.SIZE_WINDOW.getHeight() - 119, 
+				18, 
+				"Single Player",
 				true));
+		
+		putSprite("multiplayerText", new MyText(
+				GlobalValues.SIZE_WINDOW.getWidth() /2, 
+				GlobalValues.SIZE_WINDOW.getHeight() - 119 + 70, 
+				18, 
+				"Multiplayer",
+				true));
+		
 		
 	}
 
@@ -97,9 +112,18 @@ public class InitialScreenPlayer extends Player {
 		getSprite("btnPlay").setPosition(new Position((GlobalValues.SIZE_WINDOW.getWidth() - GlobalValues.SIZE_WINDOW.getWidth()/4)/2, 
 				GlobalValues.SIZE_WINDOW.getHeight() - 150));
 		
+		getSprite("btnMultiplayer").setSize(new Size(GlobalValues.SIZE_WINDOW.getWidth() /4, 
+				50));
+		
+		getSprite("btnMultiplayer").setPosition(new Position((GlobalValues.SIZE_WINDOW.getWidth() - GlobalValues.SIZE_WINDOW.getWidth()/4)/2, 
+				GlobalValues.SIZE_WINDOW.getHeight() - 150 + 70));
+		
 		getSprite("playText").setPosition(new Position(GlobalValues.SIZE_WINDOW.getWidth() /2, 
-				GlobalValues.SIZE_WINDOW.getHeight() - 115));
-	
+				GlobalValues.SIZE_WINDOW.getHeight() - 119));
+		
+		getSprite("multiplayerText").setPosition(new Position(GlobalValues.SIZE_WINDOW.getWidth() /2, 
+				GlobalValues.SIZE_WINDOW.getHeight() - 119 + 70));
+			
 	}
 	
 

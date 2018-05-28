@@ -100,6 +100,8 @@ public class MainFrameFX extends Application{
 		primaryStage.setScene(scene);
 		primaryStage.setFullScreen(GlobalValues.FULL_SCREEN);
 		primaryStage.setTitle(GlobalValues.WINDOW_TITLE);
+		primaryStage.setMinWidth(GlobalValues.MIN_SIZE_WINDOW.getWidth());
+		primaryStage.setMinHeight(GlobalValues.MIN_SIZE_WINDOW.getHeight());
 		primaryStage.setWidth(GlobalValues.SIZE_WINDOW.getWidth());
 		primaryStage.setHeight(GlobalValues.SIZE_WINDOW.getHeight());
 		primaryStage.setResizable(GlobalValues.RESIZABLE);

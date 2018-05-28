@@ -3,6 +3,7 @@ package unicaltales.businesslogic.gameguis;
 import java.io.IOException;
 
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -20,7 +21,7 @@ public class SettingsGui extends Application {
 	 * Scene of Settings GUI
 	 */
 	Scene scene;
-	
+		
 	
 	@Override
 	public void start(Stage primaryStage) {
@@ -48,6 +49,24 @@ public class SettingsGui extends Application {
 	 * Launch Settings GUI
 	 */
 	public void launch() {
-		launch(null);
+		if (GlobalValues.IMPLEMENTATION == GlobalValues.JAVAFX_IMPLEMENTATION) {
+			try {
+				Stage temp = new Stage();
+				Parent r = FXMLLoader.load(getClass().getClassLoader().getResource("SettingsGui.fxml"));
+				Scene s = new Scene(r);
+				temp.setScene(s);
+				temp.setTitle("Unical Tales Settings");
+				temp.setWidth(GlobalValues.SIZE_WINDOW.getWidth());
+				temp.setHeight(GlobalValues.SIZE_WINDOW.getHeight());
+				temp.setFullScreen(GlobalValues.FULL_SCREEN);
+				temp.setResizable(GlobalValues.RESIZABLE);
+				temp.show();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		}
+		else launch(null);
 	}
 }

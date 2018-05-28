@@ -49,6 +49,8 @@ public class MainFrame extends JFrame{
 			setLocation((int) (screenSize.getWidth() - tempWindowWidth)/2, 
 					    (int) (screenSize.getHeight() - tempWindowHeight)/2);
 			setResizable(GlobalValues.RESIZABLE);
+			setMinimumSize(new Dimension((int) GlobalValues.MIN_SIZE_WINDOW.getWidth(),(int) GlobalValues.MIN_SIZE_WINDOW.getHeight()));
+
 		}
 
 		/*

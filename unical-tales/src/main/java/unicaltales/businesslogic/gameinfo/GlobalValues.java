@@ -21,6 +21,11 @@ public class GlobalValues implements Serializable {
 	public static Size SIZE_WINDOW = new Size(800, 600);
 	
 	/**
+	 * Minimum size of game window
+	 */
+	public static Size MIN_SIZE_WINDOW = new Size(600, 480);
+	
+	/**
 	 * Describe the game implementation of business logic.
 	 * For example we know if is Swing/Awt Implementation, LibGDX Implementation, and others...
 	 */
@@ -50,7 +55,8 @@ public class GlobalValues implements Serializable {
 	public static boolean EXIT_GAME = false;
 	
 	/**
-	 * The type of Screen that "say us" in wich screen we are
+	 * The type of Screen that "say us" in wi			primaryStage.setMinWidth();
+			primaryStage.setMinHeight();ch screen we are
 	 */
 	public static ScreenTipe SCREEN_TIPE = ScreenTipe.INITIAL;
 	
