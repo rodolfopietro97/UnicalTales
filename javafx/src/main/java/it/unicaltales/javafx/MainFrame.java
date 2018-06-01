@@ -1,0 +1,212 @@
+/**
+ * package of java fx graphics implementation
+ */
+package it.unicaltales.javafx;
+
+
+
+import javafx.scene.canvas.*;
+
+import javafx.animation.AnimationTimer;
+import javafx.application.Application;
+import javafx.event.EventHandler;
+import javafx.scene.Scene;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.TextAlignment;
+import javafx.stage.Stage;
+import it.unicaltales.businesslogic.drawer.Drawer;
+import it.unicaltales.businesslogic.drawer.SpriteDraw;
+import it.unicaltales.businesslogic.eventhandlers.HardwareEvents;
+import it.unicaltales.businesslogic.gamecomponents.MyImage;
+import it.unicaltales.businesslogic.gamecomponents.MyText;
+import it.unicaltales.businesslogic.gameinfo.GlobalValues;
+import it.unicaltales.businesslogic.players.PlayerManager;
+
+
+/**
+ * @author rodolfo
+ * 
+ */
+public class MainFrame extends Application{
+
+	/**
+	 * Canvas component which we used to draw
+	 */
+	private Canvas gameCanvas;
+	
+	/**
+	 * Graphics context of game
+	 */
+	private GraphicsContext g;
+	
+	/**
+	 * Hardware Events Manager
+	 */
+	private HardwareEvents hardwareEvents;
+	
+	/**
+	 * Player Manager of Game
+	 */
+	private PlayerManager playerScreenManager;
+	
+	/**
+	 * Scene of the game
+	 */
+	Scene scene;
+	
+	
+	@Override
+	public void init() throws Exception {
+		super.init();
+		
+		gameCanvas = new Canvas(GlobalValues.SIZE_WINDOW.getWidth(), GlobalValues.SIZE_WINDOW.getHeight());
+		gameCanvas.setStyle("-fx-margin: 0px;");
+		g = gameCanvas.getGraphicsContext2D();
+		
+		hardwareEvents = new HardwareEvents();
+		
+		playerScreenManager = new PlayerManager(new SpriteDraw(new Drawer() {
+			
+			public void onDrawText(MyText text, Object drawerComponent) {
+
+				if(drawerComponent instanceof GraphicsContext) {
+					GraphicsContext g = (GraphicsContext) drawerComponent;
+		            g.setFill( Color.BLACK );
+					Font f = new Font("Dialog",  (int) text.getFontSize());
+					if(text.isCentred()) g.setTextAlign(TextAlignment.CENTER);
+					g.setFont(f);
+					g.fillText(text.getText(), text.getPosition().getX(), text.getPosition().getY());
+				}
+				
+			}
+			
+			public void onDrawImage(MyImage image, Object drawerComponent) {
+				if(drawerComponent instanceof GraphicsContext) {
+					GraphicsContext g = (GraphicsContext) drawerComponent;
+					g.drawImage(new Image(image.getPath()), 
+							image.getPosition().getX(), 
+							image.getPosition().getY(),
+							image.getSize().getWidth(),
+							image.getSize().getHeight());
+				}
+				
+			}
+		}), hardwareEvents);
+		
+	}
+
+
+	@Override
+	public void start(final Stage primaryStage) throws Exception {
+
+	    StackPane root = new StackPane();
+	    scene = new Scene( root );
+		primaryStage.setScene(scene);
+		primaryStage.setFullScreen(GlobalValues.FULL_SCREEN);
+		primaryStage.setTitle(GlobalValues.WINDOW_TITLE);
+		primaryStage.setMinWidth(GlobalValues.MIN_SIZE_WINDOW.getWidth());
+		primaryStage.setMinHeight(GlobalValues.MIN_SIZE_WINDOW.getHeight());
+		primaryStage.setWidth(GlobalValues.SIZE_WINDOW.getWidth());
+		primaryStage.setHeight(GlobalValues.SIZE_WINDOW.getHeight());
+		primaryStage.setResizable(GlobalValues.RESIZABLE);
+		root.getChildren().add(gameCanvas);
+		
+		new AnimationTimer() {
+			
+			@Override
+			public void handle(long now) {
+				updateDraw();
+	    		/*
+	    		 * Refreeshing delle globalvalues
+	    		 */
+	    		if(GlobalValues.RESIZABLE) {
+	    			GlobalValues.SIZE_WINDOW.setWidth((float) primaryStage.getWidth());
+	    			GlobalValues.SIZE_WINDOW.setHeight((float) primaryStage.getHeight());
+	    			gameCanvas.setWidth(GlobalValues.SIZE_WINDOW.getWidth());
+	    			gameCanvas.setHeight(GlobalValues.SIZE_WINDOW.getHeight());
+	    		}
+	    		
+	    		if(!GlobalValues.EXIT_GAME) {
+	    			playerScreenManager.loop(g);
+	    			playerScreenManager.refreshHardwareEvents(hardwareEvents);
+	    		}
+	    		else System.exit(0);
+
+				hardwareEvents.reset();	
+				
+			}
+		}.start();
+		
+
+		scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
+			
+			public void handle(KeyEvent e) {
+				if(e.getCode() == KeyCode.ESCAPE) hardwareEvents.pressEsc();
+				else if(e.getCode() == KeyCode.LEFT) hardwareEvents.pressLeft();
+				else if(e.getCode() == KeyCode.RIGHT) hardwareEvents.pressRight();
+				else if(e.getCode() == KeyCode.DOWN) hardwareEvents.pressDown();
+				else if(e.getCode() == KeyCode.UP) hardwareEvents.pressUp();
+				else if(e.getCode() == KeyCode.SPACE) hardwareEvents.pressSpace();
+			}
+		});
+		
+		scene.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			
+			public void handle(MouseEvent e) {
+				hardwareEvents.click();
+			}
+		});
+		
+		scene.setOnMouseMoved(new EventHandler<MouseEvent>() {
+			
+			public void handle(MouseEvent e) {
+				hardwareEvents.setInputX((float)e.getX());
+				hardwareEvents.setInputY((float)e.getY());
+			}
+		});
+		
+		primaryStage.show();
+	}
+
+
+	@Override
+	public void stop() throws Exception {
+		super.stop();
+	}
+	
+	/**
+	 * Launch Settings GUI
+	 */
+	public void launch() {
+		launch(null);
+	}
+
+	
+	/**
+	 * Reset draw
+	 */
+	public void updateDraw() {
+		g.clearRect(0, 0, 0, 0);
+		g.setFill(Color.WHITE);
+		g.fillRect(0,0,
+				GlobalValues.SIZE_WINDOW.getWidth(),
+				GlobalValues.SIZE_WINDOW.getHeight());
+	}
+	
+	
+	public static void main(String[] args) {
+		GlobalValues.IMPLEMENTATION = GlobalValues.JAVAFX_IMPLEMENTATION;
+		
+		MainFrame mainFrame = new MainFrame();
+		launch(args);
+	}
+	
+	
+}
