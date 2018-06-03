@@ -66,4 +66,5 @@
     </dependency>
   </dependencies>
   
+  <description>Java Fx Graphics implementation of project</description>
 </project>

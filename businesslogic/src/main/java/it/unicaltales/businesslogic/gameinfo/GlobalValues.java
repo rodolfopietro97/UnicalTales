@@ -31,7 +31,11 @@ public class GlobalValues implements Serializable {
 	public static int IMPLEMENTATION = 1; // Swing And Awt of Default
 	public static final int SWING_AWT_IMPLEMENTATION = 0;
 	public static final int JAVAFX_IMPLEMENTATION = 1;
-	public static final int LIBGDX_IMPLEMENTATION = 2;
+
+	/**
+	 * The delay of game loop
+	 */
+	public static long GAME_LOOP_DELAY = 10;
 	
 	/**
 	 * Window full screen enabled value
@@ -58,6 +62,11 @@ public class GlobalValues implements Serializable {
 			primaryStage.setMinHeight();ch screen we are
 	 */
 	public static ScreenTipe SCREEN_TIPE = ScreenTipe.INITIAL;
+	
+	/**
+	 * The speed of Character
+	 */
+	public static int CHARACTER_SPEED = 5;
 	
 	/**
 	 * This function get the path of resources of a file

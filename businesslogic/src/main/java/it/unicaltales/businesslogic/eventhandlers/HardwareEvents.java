@@ -9,6 +9,10 @@ package it.unicaltales.businesslogic.eventhandlers;
  *         framework. It is refresheed ciclically because every time we know if
  *         a key is pressed, if mouse is clicked, ... this class contains all
  *         events we need for game
+ *         
+ * @see { justPressed and pressed are different! }       
+ * 
+ * 
  */
 public class HardwareEvents {
 	/**
@@ -22,24 +26,176 @@ public class HardwareEvents {
 	private boolean click;
 
 	/**
-	 * type of keys (true: pressed, false: not pressed)
+	 * type of keys PRESSED (true: pressed, false: not pressed)
 	 */
 	private boolean left, right, up, down, esc, space;
+	
+	/**
+	 * type of keys JUST PRESSED (true: pressed, false: not pressed)
+	 */
+	private boolean justLeft, justRight, justUp, justDown, justEsc, justSpace;
 
 	/**
 	 * Empty constructor that initializze all to false and zero
 	 */
 	public HardwareEvents() {
 		x = y = 0;
-		reset();
+		left = right = up = down = esc = space = false;
+		resetHardwareEvents();
 	}
 
 	/**
 	 * Reset of hardware events. This is most important, if there isn't a reset for
 	 * example key remain pressed for all time
+	 * 
+	 * @see { THIS FUNCTION IS MOST IMPORTANT FOR justPress and click }
 	 */
-	public void reset() {
-		click =  left = right = up = down = esc = space = false;
+	public void resetHardwareEvents() {
+		click = false;
+		justLeft = justRight = justUp = justDown = justEsc = justSpace = false;
+	}
+	
+	/**
+	 * function that say if a key is pressed
+	 * @param key to see if is pressed
+	 * @return if key is pressed
+	 */
+	public boolean isKeyPressed(MyKeys key) {
+		switch (key) {
+			case LEFT: return left;
+			case RIGHT: return right;
+			case UP: return up;
+			case DOWN: return down;
+			case SPACE: return space;
+			case ESC: return esc;
+			default: return false;
+		}
+	}
+	
+	/**
+	 * function that say if a key is pressed
+	 * @param key to see if is pressed
+	 * @return if key is pressed
+	 */
+	public boolean isJustKeyPressed(MyKeys key) {
+		switch (key) {
+			case LEFT: return justLeft;
+			case RIGHT: return justRight;
+			case UP: return justUp;
+			case DOWN: return justDown;
+			case SPACE: return justSpace;
+			case ESC: return justEsc;
+			default: return false;
+		}
+	}
+	
+	/**
+	 * Press a key
+	 * @param key to press
+	 */
+	public void pressKey(MyKeys key) {
+		switch (key) {
+			case LEFT: 
+				left = true;
+				break;
+				
+			case RIGHT: 
+				right = true;
+				break;
+				
+			case UP: 
+				up = true;
+				break;
+				
+			case DOWN: 
+				down = true;
+				break;
+				
+			case SPACE: 
+				space = true;
+				break;
+				
+			case ESC: 
+				esc = true;
+				break;
+				
+			default:
+				break;
+		}
+	}
+	
+	
+	/**
+	 * Relase a key
+	 * @see {this function there isn't for justKeys. In fact, justKeys,
+	 * 		 where handled by resetHardwareEvents() }
+	 * @param key to relase
+	 */
+	public void relaseKey(MyKeys key) {
+		switch (key) {
+			case LEFT: 
+				left = false;
+				break;
+				
+			case RIGHT: 
+				right = false;
+				break;
+				
+			case UP: 
+				up = false;
+				break;
+				
+			case DOWN: 
+				down = false;
+				break;
+				
+			case SPACE: 
+				space = false;
+				break;
+				
+			case ESC: 
+				esc = false;
+				break;
+				
+			default:
+				break;
+		}
+	}
+	
+	
+	/**
+	 * Just Press a key
+	 * @param key to press
+	 */
+	public void justPressKey(MyKeys key) {
+		switch (key) {
+			case LEFT: 
+				justLeft = true;
+				break;
+				
+			case RIGHT: 
+				justRight = true;
+				break;
+				
+			case UP: 
+				justUp = true;
+				break;
+				
+			case DOWN: 
+				justDown = true;
+				break;
+				
+			case SPACE: 
+				justSpace = true;
+				break;
+				
+			case ESC: 
+				justEsc = true;
+				break;
+				
+			default:
+				break;
+		}
 	}
 
 	/**
@@ -85,90 +241,4 @@ public class HardwareEvents {
 	public void click() {
 		this.click = true;
 	}
-
-	/**
-	 * @return the left
-	 */
-	public boolean isLeftPressed() {
-		return left;
-	}
-
-	/**
-	 * Press the key left
-	 */
-	public void pressLeft() {
-		this.left = true;
-	}
-
-	/**
-	 * @return if right is pressed
-	 */
-	public boolean isPressRight() {
-		return right;
-	}
-
-	/**
-	 * @param right
-	 *            the right to set
-	 */
-	public void pressRight() {
-		this.right = true;
-	}
-
-	/**
-	 * @return if up is pressed
-	 */
-	public boolean isPressUp() {
-		return up;
-	}
-
-	/**
-	 * press up key
-	 */
-	public void pressUp() {
-		this.up = true;
-	}
-
-	/**
-	 * @return if down is press
-	 */
-	public boolean isPressDown() {
-		return down;
-	}
-
-	/**
-	 * press down key
-	 */
-	public void pressDown() {
-		this.down = true;
-	}
-
-	/**
-	 * @return if esc is pressed
-	 */
-	public boolean isPressEsc() {
-		return esc;
-	}
-
-	/**
-	 * press esc key
-	 */
-	public void pressEsc() {
-		this.esc = true;
-	}
-
-	/**
-	 * @return if space is pressed
-	 */
-	public boolean isPressSpace() {
-		return space;
-	}
-
-	/**
-	 * press the space
-	 */
-	public void pressSpace() {
-		this.space = true;
-	}
-
 }

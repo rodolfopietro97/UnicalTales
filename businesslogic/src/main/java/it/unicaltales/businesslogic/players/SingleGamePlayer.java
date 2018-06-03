@@ -5,9 +5,8 @@ package it.unicaltales.businesslogic.players;
 
 import it.unicaltales.businesslogic.drawer.SpriteDraw;
 import it.unicaltales.businesslogic.eventhandlers.HardwareEvents;
-import it.unicaltales.businesslogic.gamecomponents.GameCharacter;
-import it.unicaltales.businesslogic.gamecomponents.Movements;
 import it.unicaltales.businesslogic.gameinfo.GlobalValues;
+import it.unicaltales.businesslogic.players.components.GameCharacter;
 
 /**
  * @author rodolfo
@@ -32,12 +31,7 @@ public class SingleGamePlayer extends Player{
 
 	@Override
 	public void manageEvents() {
-		if (hardwareEvents.isLeftPressed()) {
-			character.move(Movements.LEFT);
-		}
-		else if(hardwareEvents.isPressRight()) {
-			character.move(Movements.RIGHT);
-		}
+		character.handle(this.hardwareEvents);
 	}
 
 	@Override

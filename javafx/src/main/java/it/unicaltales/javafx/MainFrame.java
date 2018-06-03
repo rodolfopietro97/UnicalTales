@@ -24,6 +24,7 @@ import javafx.stage.Stage;
 import it.unicaltales.businesslogic.drawer.Drawer;
 import it.unicaltales.businesslogic.drawer.SpriteDraw;
 import it.unicaltales.businesslogic.eventhandlers.HardwareEvents;
+import it.unicaltales.businesslogic.eventhandlers.MyKeys;
 import it.unicaltales.businesslogic.gamecomponents.MyImage;
 import it.unicaltales.businesslogic.gamecomponents.MyText;
 import it.unicaltales.businesslogic.gameinfo.GlobalValues;
@@ -139,24 +140,57 @@ public class MainFrame extends Application{
 	    		}
 	    		else System.exit(0);
 
-				hardwareEvents.reset();	
+				hardwareEvents.resetHardwareEvents();	
 				
 			}
 		}.start();
 		
 
-		scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
+		scene.setOnKeyReleased(new EventHandler<KeyEvent>() {
 			
 			public void handle(KeyEvent e) {
-				if(e.getCode() == KeyCode.ESCAPE) hardwareEvents.pressEsc();
-				else if(e.getCode() == KeyCode.LEFT) hardwareEvents.pressLeft();
-				else if(e.getCode() == KeyCode.RIGHT) hardwareEvents.pressRight();
-				else if(e.getCode() == KeyCode.DOWN) hardwareEvents.pressDown();
-				else if(e.getCode() == KeyCode.UP) hardwareEvents.pressUp();
-				else if(e.getCode() == KeyCode.SPACE) hardwareEvents.pressSpace();
+				/*
+				 * for key pressed
+				 */
+				if(hardwareEvents.isKeyPressed(MyKeys.ESC) && e.getCode() == KeyCode.ESCAPE) hardwareEvents.relaseKey(MyKeys.ESC);
+				if(hardwareEvents.isKeyPressed(MyKeys.LEFT) && e.getCode() == KeyCode.LEFT) hardwareEvents.relaseKey(MyKeys.LEFT);
+				if(hardwareEvents.isKeyPressed(MyKeys.RIGHT) && e.getCode() == KeyCode.RIGHT) hardwareEvents.relaseKey(MyKeys.RIGHT);
+				if(hardwareEvents.isKeyPressed(MyKeys.DOWN) && e.getCode() == KeyCode.DOWN) hardwareEvents.relaseKey(MyKeys.DOWN);
+				if(hardwareEvents.isKeyPressed(MyKeys.UP) && e.getCode() == KeyCode.UP) hardwareEvents.relaseKey(MyKeys.UP);
+				if(hardwareEvents.isKeyPressed(MyKeys.SPACE) && e.getCode() == KeyCode.SPACE) hardwareEvents.relaseKey(MyKeys.SPACE);	
 			}
 		});
 		
+		scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
+			
+			public void handle(KeyEvent e) {
+				if(e.getCode() == KeyCode.ESCAPE) {
+					hardwareEvents.pressKey(MyKeys.ESC);
+					hardwareEvents.justPressKey(MyKeys.ESC);
+				}
+				if(e.getCode() == KeyCode.LEFT) {
+					hardwareEvents.pressKey(MyKeys.LEFT);
+					hardwareEvents.justPressKey(MyKeys.LEFT);
+				}
+				if(e.getCode() == KeyCode.RIGHT) {
+					hardwareEvents.pressKey(MyKeys.RIGHT);
+					hardwareEvents.justPressKey(MyKeys.RIGHT);
+				}
+				if(e.getCode() == KeyCode.DOWN) {
+					hardwareEvents.pressKey(MyKeys.DOWN);
+					hardwareEvents.justPressKey(MyKeys.DOWN);
+				}
+				if(e.getCode() == KeyCode.UP) {
+					hardwareEvents.pressKey(MyKeys.UP);
+					hardwareEvents.justPressKey(MyKeys.UP);
+				}
+				if(e.getCode() == KeyCode.SPACE) {
+					hardwareEvents.pressKey(MyKeys.SPACE);
+					hardwareEvents.justPressKey(MyKeys.SPACE);
+				}
+			}
+		});
+				
 		scene.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			
 			public void handle(MouseEvent e) {
@@ -193,11 +227,27 @@ public class MainFrame extends Application{
 	 * Reset draw
 	 */
 	public void updateDraw() {
+		/*
+		 * Redraw part
+		 */
 		g.clearRect(0, 0, 0, 0);
 		g.setFill(Color.WHITE);
 		g.fillRect(0,0,
 				GlobalValues.SIZE_WINDOW.getWidth(),
 				GlobalValues.SIZE_WINDOW.getHeight());
+		/*
+		 * Sleep part
+		 */
+		try {
+			/*
+			 * @see KeyCode GlobalValues.GAME_LOOP_DELAY-3 because in Swing/awt we don't use the AnimationTimer
+			 */
+			Thread.currentThread().sleep(GlobalValues.GAME_LOOP_DELAY-7);
+		} catch (InterruptedException e) {
+			System.err.println("Impossibile eseguire il loop dle gioco!");
+			e.printStackTrace();
+			GlobalValues.EXIT_GAME = true; // STOPPA IL GIOCO
+		}
 	}
 	
 	

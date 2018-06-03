@@ -25,10 +25,12 @@ import javax.swing.JPanel;
 import it.unicaltales.businesslogic.drawer.Drawer;
 import it.unicaltales.businesslogic.drawer.SpriteDraw;
 import it.unicaltales.businesslogic.eventhandlers.HardwareEvents;
+import it.unicaltales.businesslogic.eventhandlers.MyKeys;
 import it.unicaltales.businesslogic.gamecomponents.MyImage;
 import it.unicaltales.businesslogic.gamecomponents.MyText;
 import it.unicaltales.businesslogic.gameinfo.GlobalValues;
 import it.unicaltales.businesslogic.players.PlayerManager;
+import javafx.scene.input.KeyCode;
 
 /**
  * @author rodolfo MainPanel of Swing and Awt 2d Simple Graphics implementation
@@ -131,16 +133,44 @@ public class MainPanel extends JPanel {
 			@Override
 			public void keyTyped(KeyEvent e) {}
 			@Override
-			public void keyReleased(KeyEvent e) {}
+			public void keyReleased(KeyEvent e) {
+				/*
+				 * for key pressed
+				 */
+				if(hardwareEvents.isKeyPressed(MyKeys.ESC) && e.getKeyCode() == KeyEvent.VK_ESCAPE) hardwareEvents.relaseKey(MyKeys.ESC);
+				if(hardwareEvents.isKeyPressed(MyKeys.LEFT) && e.getKeyCode() == KeyEvent.VK_LEFT) hardwareEvents.relaseKey(MyKeys.LEFT);
+				if(hardwareEvents.isKeyPressed(MyKeys.RIGHT) && e.getKeyCode() == KeyEvent.VK_RIGHT) hardwareEvents.relaseKey(MyKeys.RIGHT);
+				if(hardwareEvents.isKeyPressed(MyKeys.DOWN) && e.getKeyCode() == KeyEvent.VK_DOWN) hardwareEvents.relaseKey(MyKeys.DOWN);
+				if(hardwareEvents.isKeyPressed(MyKeys.UP) && e.getKeyCode() == KeyEvent.VK_UP) hardwareEvents.relaseKey(MyKeys.UP);
+				if(hardwareEvents.isKeyPressed(MyKeys.SPACE) && e.getKeyCode() == KeyEvent.VK_SPACE) hardwareEvents.relaseKey(MyKeys.SPACE);
+			}
 
 			@Override
 			public void keyPressed(KeyEvent e) {
-				if(e.getKeyCode() == KeyEvent.VK_ESCAPE) hardwareEvents.pressEsc();
-				else if(e.getKeyCode() == KeyEvent.VK_LEFT) hardwareEvents.pressLeft();
-				else if(e.getKeyCode() == KeyEvent.VK_RIGHT) hardwareEvents.pressRight();
-				else if(e.getKeyCode() == KeyEvent.VK_DOWN) hardwareEvents.pressDown();
-				else if(e.getKeyCode() == KeyEvent.VK_UP) hardwareEvents.pressUp();
-				else if(e.getKeyCode() == KeyEvent.VK_SPACE) hardwareEvents.pressSpace();
+				if(e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+					hardwareEvents.pressKey(MyKeys.ESC);
+					hardwareEvents.justPressKey(MyKeys.ESC);
+				}
+				if(e.getKeyCode() == KeyEvent.VK_LEFT) {
+					hardwareEvents.pressKey(MyKeys.LEFT);
+					hardwareEvents.justPressKey(MyKeys.LEFT);
+				}
+				if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
+					hardwareEvents.pressKey(MyKeys.RIGHT);
+					hardwareEvents.justPressKey(MyKeys.RIGHT);
+				}
+				if(e.getKeyCode() == KeyEvent.VK_DOWN) {
+					hardwareEvents.pressKey(MyKeys.DOWN);
+					hardwareEvents.justPressKey(MyKeys.DOWN);
+				}
+				if(e.getKeyCode() == KeyEvent.VK_UP) {
+					hardwareEvents.pressKey(MyKeys.UP);
+					hardwareEvents.justPressKey(MyKeys.UP);
+				}
+				if(e.getKeyCode() == KeyEvent.VK_SPACE) {
+					hardwareEvents.pressKey(MyKeys.SPACE);
+					hardwareEvents.justPressKey(MyKeys.SPACE);
+				}
 			}
 		});
 	}
@@ -153,7 +183,7 @@ public class MainPanel extends JPanel {
 		 * Esegue lo sleep
 		 */
 		try {
-			Thread.currentThread().sleep(10);
+			Thread.currentThread().sleep(GlobalValues.GAME_LOOP_DELAY-3);
 		} catch (InterruptedException e) {
 			System.err.println("Impossibile eseguire il loop dle gioco!");
 			e.printStackTrace();
@@ -168,7 +198,7 @@ public class MainPanel extends JPanel {
 		/*
 		 * Resetta l' hardware event
 		 */
-		hardwareEvents.reset();
+		hardwareEvents.resetHardwareEvents();
 		
 		/*
 		 * Refreeshing delle globalvalues

@@ -37,4 +37,5 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  <description>Business Logic of game</description>
 </project>
