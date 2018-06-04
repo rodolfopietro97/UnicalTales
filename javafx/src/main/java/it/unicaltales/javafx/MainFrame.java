@@ -21,8 +21,11 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
+
+
 import it.unicaltales.businesslogic.drawer.Drawer;
 import it.unicaltales.businesslogic.drawer.SpriteDraw;
+import it.unicaltales.businesslogic.drawer.utils.ImagesManager;
 import it.unicaltales.businesslogic.eventhandlers.HardwareEvents;
 import it.unicaltales.businesslogic.eventhandlers.MyKeys;
 import it.unicaltales.businesslogic.gamecomponents.MyImage;
@@ -62,6 +65,13 @@ public class MainFrame extends Application{
 	 */
 	Scene scene;
 	
+	/**
+	 * Store the images to draw. It is very useful,
+	 * in fact in howToDraw if we make a new Texture
+	 * every time, the program will be very slowly
+	 */
+	private ImagesManager imagesToDraw;
+	
 	
 	@Override
 	public void init() throws Exception {
@@ -70,6 +80,8 @@ public class MainFrame extends Application{
 		gameCanvas = new Canvas(GlobalValues.SIZE_WINDOW.getWidth(), GlobalValues.SIZE_WINDOW.getHeight());
 		gameCanvas.setStyle("-fx-margin: 0px;");
 		g = gameCanvas.getGraphicsContext2D();
+		imagesToDraw = new ImagesManager();
+
 		
 		hardwareEvents = new HardwareEvents();
 		
@@ -91,7 +103,8 @@ public class MainFrame extends Application{
 			public void onDrawImage(MyImage image, Object drawerComponent) {
 				if(drawerComponent instanceof GraphicsContext) {
 					GraphicsContext g = (GraphicsContext) drawerComponent;
-					g.drawImage(new Image(image.getPath()), 
+					if(!imagesToDraw.exist(image.getPath())) imagesToDraw.putImage(image.getPath(), new Image(image.getPath()));
+					g.drawImage((Image) imagesToDraw.getImage(image.getPath()), 
 							image.getPosition().getX(), 
 							image.getPosition().getY(),
 							image.getSize().getWidth(),
@@ -140,6 +153,9 @@ public class MainFrame extends Application{
 	    		}
 	    		else System.exit(0);
 
+	    		/*
+	    		 * Refreesh the just pressed keys and click
+	    		 */
 				hardwareEvents.resetHardwareEvents();	
 				
 			}

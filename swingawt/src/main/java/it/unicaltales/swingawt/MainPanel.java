@@ -24,6 +24,7 @@ import javax.swing.JPanel;
 
 import it.unicaltales.businesslogic.drawer.Drawer;
 import it.unicaltales.businesslogic.drawer.SpriteDraw;
+import it.unicaltales.businesslogic.drawer.utils.ImagesManager;
 import it.unicaltales.businesslogic.eventhandlers.HardwareEvents;
 import it.unicaltales.businesslogic.eventhandlers.MyKeys;
 import it.unicaltales.businesslogic.gamecomponents.MyImage;
@@ -48,6 +49,13 @@ public class MainPanel extends JPanel {
 	 * KeyListener
 	 */
 	HardwareEvents hardwareEvents;
+	
+	/**
+	 * Store the images to draw. It is very useful,
+	 * in fact in howToDraw if we make a new Texture
+	 * every time, the program will be very slowly
+	 */
+	private ImagesManager imagesToDraw;
 
 	/**
 	 * Empty Constructor
@@ -58,7 +66,8 @@ public class MainPanel extends JPanel {
 
 		// Inizializzo l' hardware events
 		hardwareEvents = new HardwareEvents();
-
+		imagesToDraw = new ImagesManager();
+		
 		playerScreenManager = new PlayerManager(new SpriteDraw(new Drawer() {
 
 			@Override
@@ -86,8 +95,9 @@ public class MainPanel extends JPanel {
 			public void onDrawImage(MyImage image, Object drawerComponent) {
 				if (drawerComponent instanceof Graphics) {
 					Graphics g = (Graphics) drawerComponent;
-					Image temp = Toolkit.getDefaultToolkit().getImage(image.getPath());
-					g.drawImage(temp, (int) image.getPosition().getX(),
+					if(!imagesToDraw.exist(image.getPath())) imagesToDraw.putImage(image.getPath(), Toolkit.getDefaultToolkit().getImage(image.getPath()));
+					g.drawImage((Image) imagesToDraw.getImage(image.getPath()), 
+							(int) image.getPosition().getX(),
 							(int) image.getPosition().getY(), (int) image.getSize().getWidth(),
 							(int) image.getSize().getHeight(), Color.BLACK, null);
 				}
