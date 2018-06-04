@@ -206,8 +206,8 @@ public class MainPanel extends JPanel {
 		repaint();
 		
 		/*
-		 * Resetta l' hardware event
-		 */
+		 * Refresh the just pressed keys and click
+		 */	
 		hardwareEvents.resetHardwareEvents();
 		
 		/*

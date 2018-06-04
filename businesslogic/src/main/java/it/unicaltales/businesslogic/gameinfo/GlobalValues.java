@@ -31,6 +31,7 @@ public class GlobalValues implements Serializable {
 	public static int IMPLEMENTATION = 1; // Swing And Awt of Default
 	public static final int SWING_AWT_IMPLEMENTATION = 0;
 	public static final int JAVAFX_IMPLEMENTATION = 1;
+	public static final int LIBGDX_IMPLEMENTATION = 2;
 
 	/**
 	 * The delay of game loop

@@ -154,7 +154,7 @@ public class MainFrame extends Application{
 	    		else System.exit(0);
 
 	    		/*
-	    		 * Refreesh the just pressed keys and click
+	    		 * Refresh the just pressed keys and click
 	    		 */
 				hardwareEvents.resetHardwareEvents();	
 				

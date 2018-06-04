@@ -17,7 +17,7 @@ public class SpriteEvents {
 	 * @param s2 sprite 2
 	 * @return if there is a x collision
 	 */
-	private boolean xCollision(Sprite s1, Sprite s2) {
+	public boolean xCollision(Sprite s1, Sprite s2) {
 		for (float i = s1.getPosition().getX(); i < s1.getPosition().getX() + s1.getSize().getWidth(); i++) {
 			for (float j = s2.getPosition().getX(); j < s2.getPosition().getX() + s2.getSize().getWidth(); j++) {
 				if(i==j) return true;
@@ -32,7 +32,7 @@ public class SpriteEvents {
 	 * @param s2 sprite 2
 	 * @return if there is a y collision
 	 */
-	private boolean yCollision(Sprite s1, Sprite s2) {
+	public boolean yCollision(Sprite s1, Sprite s2) {
 		for (float i = s1.getPosition().getY(); i < s1.getPosition().getY() + s1.getSize().getHeight(); i++) {
 			for (float j = s2.getPosition().getY(); j < s2.getPosition().getY() + s2.getSize().getHeight(); j++) {
 				if(i==j) return true;

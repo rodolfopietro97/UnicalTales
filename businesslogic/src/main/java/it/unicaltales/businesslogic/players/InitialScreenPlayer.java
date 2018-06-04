@@ -89,7 +89,7 @@ public class InitialScreenPlayer extends Player {
 
 	@Override
 	public void manageEvents() {
-		if (spriteEvents.isClick(getSprite("btnPlay"), hardwareEvents)) GlobalValues.SCREEN_TIPE = ScreenTipe.PLAY;
+		if (spriteEvents.isClick(getSprite("btnPlay"), hardwareEvents)) GlobalValues.SCREEN_TIPE = ScreenTipe.SINGLE_PLAYER;
 		if (spriteEvents.isClick(getSprite("btnExit"), hardwareEvents)) GlobalValues.EXIT_GAME = true;
 		if (spriteEvents.isClick(getSprite("btnSettings"), hardwareEvents)) //new SettingsGui().launch(); 
 			System.out.println("hai cliccato le impostazioni");

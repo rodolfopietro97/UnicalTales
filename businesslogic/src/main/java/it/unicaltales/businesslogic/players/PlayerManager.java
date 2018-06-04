@@ -69,12 +69,12 @@ public class PlayerManager {
 		switch (GlobalValues.SCREEN_TIPE) {
 		case INITIAL:
 			initialScreenPlayer.loop(drawerComponent);
-//			System.err.println(hardwareEvents.getInputX() + " " + hardwareEvents.getInputY() + " " + hardwareEvents.isClick());
 			break;
 		
-		case PLAY:
+		case SINGLE_PLAYER:
 			//System.out.println("palyyy");
 			singleGamePlayer.loop(drawerComponent);
+			//System.err.println(hardwareEvents.getInputX() + " " + hardwareEvents.getInputY() + " " + hardwareEvents.isClick());
 			break;
 
 		default:
@@ -92,7 +92,7 @@ public class PlayerManager {
 			initialScreenPlayer.refreshHardwareEvents(hardwareEvents);
 			break;
 		
-		case PLAY:
+		case SINGLE_PLAYER:
 			singleGamePlayer.refreshHardwareEvents(hardwareEvents);
 			break;
 

@@ -89,8 +89,9 @@ public class GameCharacter extends MyImage{
 		else if (hardwareEvents.isKeyPressed(MyKeys.RIGHT)) {
 			if(x <= GlobalValues.SIZE_WINDOW.getWidth() - getSize().getWidth()) 
 				x+=GlobalValues.CHARACTER_SPEED;
+			else x = 0;
 		}
-		else if (hardwareEvents.isJustKeyPressed(MyKeys.UP)) {
+		else if (hardwareEvents.isKeyPressed(MyKeys.UP)) {
 			jump = true;
 		}
 		

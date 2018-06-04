@@ -10,7 +10,7 @@ public enum ScreenTipe {
 	 */
 	INITIAL,
 	/**
-	 * Play screen 
+	 * Single play screen 
 	 */
-	PLAY
+	SINGLE_PLAYER
 }
