@@ -22,6 +22,8 @@ public class SingleGamePlayer extends Player{
 	 */
 	GameCharacter character;
 	
+	MyImage background;
+	
 	MyImage s;
 
 	SpriteEvents ev;
@@ -33,11 +35,13 @@ public class SingleGamePlayer extends Player{
 	 */
 	public SingleGamePlayer(SpriteDraw spriteDraw, HardwareEvents hardwareEvents) {
 		super(spriteDraw, hardwareEvents);
+		
+		background = new MyImage(0, 0, GlobalValues.SIZE_WINDOW.getWidth(), GlobalValues.SIZE_WINDOW.getHeight(), new GlobalValues().getResourcePath("sky.png"));
 		s = new MyImage(500, 300, GlobalValues.SIZE_WINDOW.getWidth()/8, GlobalValues.SIZE_WINDOW.getHeight()/8, new GlobalValues().getResourcePath("personaggio.png"));
 		character = new GameCharacter(new GlobalValues().getResourcePath("personaggio.png"));
 		putSprite("personaggio", character);
 		putSprite("ippolito", s);
-		
+		putSprite("sfondo", background);
 		
 		ev = new SpriteEvents();
 	}
@@ -64,6 +68,8 @@ public class SingleGamePlayer extends Player{
 		s.setPosition(s.getPosition());
 		s.setSize(GlobalValues.SIZE_WINDOW.getWidth()/8, GlobalValues.SIZE_WINDOW.getHeight()/8);
 		
+		background.setPosition(background.getPosition());
+		background.setSize(GlobalValues.SIZE_WINDOW.getWidth(), GlobalValues.SIZE_WINDOW.getHeight());;
 	}
 
 	

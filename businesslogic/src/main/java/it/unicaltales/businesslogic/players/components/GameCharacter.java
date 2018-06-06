@@ -86,6 +86,7 @@ public class GameCharacter extends MyImage{
 			if(x >= 0) 
 				x-=GlobalValues.CHARACTER_SPEED;
 		}
+		
 		else if (hardwareEvents.isKeyPressed(MyKeys.RIGHT)) {
 			if(x <= GlobalValues.SIZE_WINDOW.getWidth() - getSize().getWidth()) 
 				x+=GlobalValues.CHARACTER_SPEED;
