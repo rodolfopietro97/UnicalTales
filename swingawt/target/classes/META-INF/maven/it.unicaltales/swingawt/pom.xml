@@ -15,6 +15,14 @@
   </properties>
 
 	<build>
+	<!-- Quì le risorse non sono in resources della business logic, ma in
+	 "nonInterlaccedResources", questo perchè le swing non supportano
+	 l' interlacciamento delle immagini! -->
+		<resources>
+			<resource>
+				<directory>../businesslogic/src/main/nonInterlaccedResources</directory>
+			</resource>
+		</resources>
 		<pluginManagement>
 			<plugins>
 				<plugin>

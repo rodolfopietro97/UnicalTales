@@ -15,6 +15,11 @@
   </properties>
 
 	<build>
+		<resources>
+			<resource>
+				<directory>../businesslogic/src/main/resources</directory>
+			</resource>
+		</resources>
 		<pluginManagement>
 			<plugins>
 				<plugin>
