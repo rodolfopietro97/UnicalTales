@@ -5,6 +5,7 @@ package it.unicaltales.businesslogic.drawer;
 
 import it.unicaltales.businesslogic.gamecomponents.MyImage;
 import it.unicaltales.businesslogic.gamecomponents.MyText;
+import it.unicaltales.businesslogic.gameinfo.GlobalValues;
 
 /**
  * @author rodolfo
@@ -32,6 +33,11 @@ public class SpriteDraw {
 	 */
 	public void drawImage(MyImage image, Object drawerComponent) {
 		howToDraw.onDrawImage(image, drawerComponent);
+		if(GlobalValues.DEBUG) {
+			MyText temp = new MyText(image.getPosition().getX(), image.getPosition().getY()-30, 10, "" , true);
+			temp.setText("X:" + image.getPosition().getX() + " Y:" + image.getPosition().getY() + "\nW:" + image.getSize().getWidth() + " H:" + image.getSize().getHeight());
+			drawText(temp, drawerComponent);
+		}
 	}
 	
 	/**

@@ -61,6 +61,9 @@ public class MainPanel extends JPanel {
 	 * Empty Constructor
 	 */
 	public MainPanel() {
+		GlobalValues.CHARACTER_SPEED+=4; // nelle swing per il maggiore delay, aumentiamo sempre di 4 (valore sperimentale) la velocità
+
+		
 		// setto il background
 		setBackground(Color.WHITE);
 
@@ -193,7 +196,7 @@ public class MainPanel extends JPanel {
 		 * Esegue lo sleep
 		 */
 		try {
-			Thread.currentThread().sleep(GlobalValues.GAME_LOOP_DELAY-3);
+			Thread.currentThread().sleep(1);
 		} catch (InterruptedException e) {
 			System.err.println("Impossibile eseguire il loop dle gioco!");
 			e.printStackTrace();

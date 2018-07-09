@@ -3,8 +3,15 @@
  */
 package it.unicaltales.businesslogic.players;
 
+import java.io.File;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+
 import it.unicaltales.businesslogic.drawer.SpriteDraw;
 import it.unicaltales.businesslogic.eventhandlers.HardwareEvents;
+import it.unicaltales.businesslogic.eventhandlers.OnSpriteCollision;
 import it.unicaltales.businesslogic.eventhandlers.SpriteEvents;
 import it.unicaltales.businesslogic.gamecomponents.MyImage;
 import it.unicaltales.businesslogic.gameinfo.GlobalValues;
@@ -26,7 +33,11 @@ public class SingleGamePlayer extends Player{
 	
 	MyImage s;
 
-	SpriteEvents ev;
+	/**
+	 * Event handler of sprites,
+	 * it manages collisions, etc..
+	 */
+	SpriteEvents spritesEventHandler;
 	
 	/**
 	 * Constructor with parameters
@@ -37,22 +48,26 @@ public class SingleGamePlayer extends Player{
 		super(spriteDraw, hardwareEvents);
 		
 		background = new MyImage(0, 0, GlobalValues.SIZE_WINDOW.getWidth(), GlobalValues.SIZE_WINDOW.getHeight(), new GlobalValues().getResourcePath("sky.png"));
-		s = new MyImage(500, 300, GlobalValues.SIZE_WINDOW.getWidth()/8, GlobalValues.SIZE_WINDOW.getHeight()/8, new GlobalValues().getResourcePath("personaggio.png"));
+		s = new MyImage(500, 503, GlobalValues.SIZE_WINDOW.getWidth()/8, GlobalValues.SIZE_WINDOW.getHeight()/8, new GlobalValues().getResourcePath("personaggio.png"));
 		character = new GameCharacter(new GlobalValues().getResourcePath("personaggio.png"));
 		putSprite("personaggio", character);
 		putSprite("ippolito", s);
 		putSprite("sfondo", background);
 		
-		ev = new SpriteEvents();
+		spritesEventHandler = new SpriteEvents();
 	}
 
 	@Override
 	public void manageEvents() {
 		character.handle(this.hardwareEvents);
 		
-		if( ev.yCollision(s, character)) {
-			System.err.println("weeee");
-		}
+		spriteEvents.collision(character, s, new OnSpriteCollision() {
+			
+			@Override
+			public void onCollision() {
+				System.out.println("collisione!");
+			}
+		});
 		
 		
 		

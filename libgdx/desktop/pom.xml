@@ -43,7 +43,10 @@
 	<build>
 		<resources>
 			<resource>
-				<directory>../../businesslogic/src/main/resources</directory>
+				<directory>../../businesslogic/src/main/imagesResources</directory>
+			</resource>
+			<resource>
+				<directory>../../businesslogic/src/main/audioResources</directory>
 			</resource>
 		</resources>
 

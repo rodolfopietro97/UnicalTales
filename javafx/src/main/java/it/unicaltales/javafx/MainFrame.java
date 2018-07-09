@@ -251,19 +251,6 @@ public class MainFrame extends Application{
 		g.fillRect(0,0,
 				GlobalValues.SIZE_WINDOW.getWidth(),
 				GlobalValues.SIZE_WINDOW.getHeight());
-		/*
-		 * Sleep part
-		 */
-		try {
-			/*
-			 * @see KeyCode GlobalValues.GAME_LOOP_DELAY-3 because in Swing/awt we don't use the AnimationTimer
-			 */
-			Thread.currentThread().sleep(GlobalValues.GAME_LOOP_DELAY-7);
-		} catch (InterruptedException e) {
-			System.err.println("Impossibile eseguire il loop dle gioco!");
-			e.printStackTrace();
-			GlobalValues.EXIT_GAME = true; // STOPPA IL GIOCO
-		}
 	}
 	
 	

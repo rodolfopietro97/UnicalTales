@@ -72,9 +72,7 @@ public class PlayerManager {
 			break;
 		
 		case SINGLE_PLAYER:
-			//System.out.println("palyyy");
 			singleGamePlayer.loop(drawerComponent);
-			//System.err.println(hardwareEvents.getInputX() + " " + hardwareEvents.getInputY() + " " + hardwareEvents.isClick());
 			break;
 
 		default:
