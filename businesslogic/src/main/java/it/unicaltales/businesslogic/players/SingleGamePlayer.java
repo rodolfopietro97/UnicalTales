@@ -16,6 +16,7 @@ import it.unicaltales.businesslogic.eventhandlers.SpriteEvents;
 import it.unicaltales.businesslogic.gamecomponents.MyImage;
 import it.unicaltales.businesslogic.gameinfo.GlobalValues;
 import it.unicaltales.businesslogic.players.components.GameCharacter;
+import it.unicaltales.businesslogic.players.components.GameEnemy;
 
 /**
  * @author rodolfo
@@ -31,7 +32,10 @@ public class SingleGamePlayer extends Player{
 	
 	MyImage background;
 	
-	MyImage s;
+	GameEnemy enemy;
+	
+	
+	
 
 	/**
 	 * Event handler of sprites,
@@ -48,10 +52,13 @@ public class SingleGamePlayer extends Player{
 		super(spriteDraw, hardwareEvents);
 		
 		background = new MyImage(0, 0, GlobalValues.SIZE_WINDOW.getWidth(), GlobalValues.SIZE_WINDOW.getHeight(), new GlobalValues().getResourcePath("sky.png"));
-		s = new MyImage(500, 503, GlobalValues.SIZE_WINDOW.getWidth()/8, GlobalValues.SIZE_WINDOW.getHeight()/8, new GlobalValues().getResourcePath("personaggio.png"));
+		
+		
+		enemy = new GameEnemy(new GlobalValues().getResourcePath("enemy.png"));
+	
 		character = new GameCharacter(new GlobalValues().getResourcePath("personaggio.png"));
 		putSprite("personaggio", character);
-		putSprite("ippolito", s);
+		putSprite("nemico", enemy);
 		putSprite("sfondo", background);
 		
 		spritesEventHandler = new SpriteEvents();
@@ -61,7 +68,7 @@ public class SingleGamePlayer extends Player{
 	public void manageEvents() {
 		character.handle(this.hardwareEvents);
 		
-		spriteEvents.collision(character, s, new OnSpriteCollision() {
+		spriteEvents.collision(character, enemy, new OnSpriteCollision() {
 			
 			@Override
 			public void onCollision() {
@@ -80,8 +87,8 @@ public class SingleGamePlayer extends Player{
 		 */
 		character.update();
 		
-		s.setPosition(s.getPosition());
-		s.setSize(GlobalValues.SIZE_WINDOW.getWidth()/8, GlobalValues.SIZE_WINDOW.getHeight()/8);
+		enemy.setPosition(enemy.getPosition());
+		enemy.setSize(GlobalValues.SIZE_WINDOW.getWidth()/8, GlobalValues.SIZE_WINDOW.getHeight()/8);
 		
 		background.setPosition(background.getPosition());
 		background.setSize(GlobalValues.SIZE_WINDOW.getWidth(), GlobalValues.SIZE_WINDOW.getHeight());;
