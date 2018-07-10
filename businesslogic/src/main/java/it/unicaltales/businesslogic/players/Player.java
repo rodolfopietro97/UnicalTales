@@ -11,6 +11,7 @@ import it.unicaltales.businesslogic.drawer.SpriteDraw;
 import it.unicaltales.businesslogic.eventhandlers.HardwareEvents;
 import it.unicaltales.businesslogic.eventhandlers.SpriteEvents;
 import it.unicaltales.businesslogic.gamecomponents.MyImage;
+import it.unicaltales.businesslogic.gamecomponents.MyRendering;
 import it.unicaltales.businesslogic.gamecomponents.MyText;
 import it.unicaltales.businesslogic.gameinfo.GlobalValues;
 
@@ -86,6 +87,15 @@ public abstract class Player {
 			 * Draw s text sprite
 			 */
 			if(spriteMap.get(s) instanceof MyText) spriteDraw.drawText((MyText) spriteMap.get(s), drawerComponent);
+			/*
+			 * Draw s rendering sprite
+			 */
+			if(spriteMap.get(s) instanceof MyRendering) {
+				MyRendering tempRendering = (MyRendering) spriteMap.get(s);
+				for (MyImage i : tempRendering.getImages()) {
+					spriteDraw.drawImage((MyImage) i, drawerComponent);
+				}
+			}
 		}
 	}
 	

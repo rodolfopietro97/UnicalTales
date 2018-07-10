@@ -49,6 +49,8 @@ public class LibGdx implements ApplicationListener {
 
 	@Override
 	public void create () {
+		GlobalValues.IMPLEMENTATION = GlobalValues.LIBGDX_IMPLEMENTATION;
+		
 		GlobalValues.CHARACTER_SPEED+=10; // nelle libgdx per il maggiore delay, aumentiamo sempre di 10 (valore sperimentale) la velocità
 		batch = new SpriteBatch();
 		hardwareEvents = new HardwareEvents();

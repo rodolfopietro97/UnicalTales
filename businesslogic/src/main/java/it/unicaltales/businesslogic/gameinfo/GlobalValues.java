@@ -75,7 +75,7 @@ public class GlobalValues implements Serializable {
 	 * @param asset in which find the complete path
 	 * @return the complete path of sprite
 	 */
-	public String getResourcePath(String asset) {
+	public String getAssetPath(String asset) {
 		if (GlobalValues.IMPLEMENTATION == SWING_AWT_IMPLEMENTATION) {
 			return getClass().getClassLoader().getResource(asset).getPath();	
 		}
@@ -83,6 +83,20 @@ public class GlobalValues implements Serializable {
 			return asset;
 		}
 		return asset;
+	}
+	
+	/**
+	 * This function get the path of resources 
+	 * @return the resource path dependently by framework
+	 */
+	public String getResourcesPath() {
+		if (GlobalValues.IMPLEMENTATION == LIBGDX_IMPLEMENTATION) {
+			return "../../businesslogic/src/main/imagesResources/";	
+		}
+		else if(GlobalValues.IMPLEMENTATION == SWING_AWT_IMPLEMENTATION) {
+			return "../businesslogic/src/main/nonInterlaccedImagesResources/";
+		}
+		return "../businesslogic/src/main/imagesResources/";
 	}
 
 

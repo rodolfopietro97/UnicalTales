@@ -39,35 +39,35 @@ public class InitialScreenPlayer extends Player {
 				0, 
 				GlobalValues.SIZE_WINDOW.getWidth(), 
 				GlobalValues.SIZE_WINDOW.getHeight(),
-				new GlobalValues().getResourcePath("logo.jpg")));
+				new GlobalValues().getAssetPath("logo.jpg")));
 		
 		putSprite("btnPlay", new MyImage(
 				(GlobalValues.SIZE_WINDOW.getWidth() - GlobalValues.SIZE_WINDOW.getWidth()/4)/2, 
 				GlobalValues.SIZE_WINDOW.getHeight() - 150, 
 				GlobalValues.SIZE_WINDOW.getWidth() /4, 
 				50,
-				new GlobalValues().getResourcePath("button.png")));
+				new GlobalValues().getAssetPath("button.png")));
 		
 		putSprite("btnMultiplayer", new MyImage(
 				(GlobalValues.SIZE_WINDOW.getWidth() - GlobalValues.SIZE_WINDOW.getWidth()/4)/2, 
 				GlobalValues.SIZE_WINDOW.getHeight() - 150 + 70, 
 				GlobalValues.SIZE_WINDOW.getWidth() /4, 
 				50,
-				new GlobalValues().getResourcePath("button.png")));
+				new GlobalValues().getAssetPath("button.png")));
 		
 		putSprite("btnExit", new MyImage(
 				(GlobalValues.SIZE_WINDOW.getWidth() - 75),
 				15,
 				60,
 				60,
-				new GlobalValues().getResourcePath("exit.jpg")));
+				new GlobalValues().getAssetPath("exit.jpg")));
 		
 		putSprite("btnSettings", new MyImage(
 				(GlobalValues.SIZE_WINDOW.getWidth() - 75),
 				(GlobalValues.SIZE_WINDOW.getHeight()) - 75,
 				60,
 				60,
-				new GlobalValues().getResourcePath("impostazioni.png")));
+				new GlobalValues().getAssetPath("impostazioni.png")));
 		
 		putSprite("playText", new MyText(
 				GlobalValues.SIZE_WINDOW.getWidth() /2, 
