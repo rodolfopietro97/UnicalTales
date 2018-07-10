@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 import it.unicaltales.businesslogic.core.Position;
 import it.unicaltales.businesslogic.core.Size;
 import it.unicaltales.businesslogic.core.Sprite;
+import it.unicaltales.businesslogic.drawer.SpriteDraw;
 import it.unicaltales.businesslogic.gameinfo.GlobalValues;
 
 /**
@@ -31,6 +32,19 @@ public class MyRendering extends Sprite{
 	 * list of images
 	 */
 	ArrayList<MyImage> images;
+	
+	/**
+	 * Is the index of rendering to draw,
+	 * it auto increment every call of getRenderingIndex
+	 */
+	int renderingIndex;
+	
+	/**
+	 * Thread that manage animation of rendering
+	 * (it is useful because it manage the delay
+	 * of rendering)
+	 */
+	Thread animationThread;
 
 	/**
 	 * parameters constructor
@@ -43,6 +57,8 @@ public class MyRendering extends Sprite{
 		
 		images = new ArrayList<>();
 
+		renderingIndex = 0;
+		
 		try {
 			// trovo tutte le immagini png del rendering
 			List<Path> files = Files.walk(Paths.get(path))
@@ -61,6 +77,26 @@ public class MyRendering extends Sprite{
 			GlobalValues.EXIT_GAME=true;
 		}
 		
+		// thread che gestisce il rendering 
+		animationThread = new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				while (!Thread.currentThread().isInterrupted()) {
+					try {
+						if(renderingIndex < images.size()-1) renderingIndex++;
+						else renderingIndex = 0;
+						Thread.currentThread().sleep(GlobalValues.RENDERING_DELAY);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+						Thread.currentThread().interrupt();
+					}
+					
+				}
+			}
+		});
+		animationThread.start();
+		
 	}
 
 	/**
@@ -75,6 +111,8 @@ public class MyRendering extends Sprite{
 		super(x, y, width, height, path);
 		
 		images = new ArrayList<>();
+		
+		renderingIndex = 0;
 		
 		try {
 			// trovo tutte le immagini png del rendering
@@ -91,6 +129,26 @@ public class MyRendering extends Sprite{
 			e.printStackTrace();
 			GlobalValues.EXIT_GAME=true;
 		}
+		
+		// thread che gestisce il rendering 
+		animationThread = new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				while (!Thread.currentThread().isInterrupted()) {
+					try {
+						if(renderingIndex < images.size()-1) renderingIndex++;
+						else renderingIndex = 0;
+						Thread.currentThread().sleep(GlobalValues.RENDERING_DELAY);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+						Thread.currentThread().interrupt();
+					}
+					
+				}
+			}
+		});
+		animationThread.start();
 	}
 	
 	/**
@@ -99,6 +157,77 @@ public class MyRendering extends Sprite{
 	public ArrayList<MyImage> getImages(){
 		return images;
 	}
+	
+	/**
+	 * @return the current image of rendering
+	 */
+	public MyImage getCurrentImage() {
+		return images.get(renderingIndex);
+	}
+	
+	/**
+	 * the loop of rendering
+	 */
+	public void loop(SpriteDraw spriteDraw, Object drawerComponent) {
+		spriteDraw.drawImage(getCurrentImage(), drawerComponent);
+	}
+
+	/*
+	 * Setters reimplemented
+	 */
+	
+	/* (non-Javadoc)
+	 * @see it.unicaltales.businesslogic.core.GameObject#setPosition(it.unicaltales.businesslogic.core.Position)
+	 */
+	@Override
+	public void setPosition(Position position) {
+		// TODO Auto-generated method stub
+		super.setPosition(position);
+		
+		for (MyImage i : images) {
+			i.setPosition(position);
+		}
+	}
+
+	/* (non-Javadoc)
+	 * @see it.unicaltales.businesslogic.core.GameObject#setPosition(float, float)
+	 */
+	@Override
+	public void setPosition(float x, float y) {
+		// TODO Auto-generated method stub
+		super.setPosition(x, y);
+		
+		for (MyImage i : images) {
+			i.setPosition(new Position(x, y));
+		}
+	}
+
+	/* (non-Javadoc)
+	 * @see it.unicaltales.businesslogic.core.GameObject#setSize(it.unicaltales.businesslogic.core.Size)
+	 */
+	@Override
+	public void setSize(Size size) {
+		// TODO Auto-generated method stub
+		super.setSize(size);
+		
+		for (MyImage i : images) {
+			i.setSize(size);
+		}
+	}
+
+	/* (non-Javadoc)
+	 * @see it.unicaltales.businesslogic.core.GameObject#setSize(float, float)
+	 */
+	@Override
+	public void setSize(float w, float h) {
+		// TODO Auto-generated method stub
+		super.setSize(w, h);
+		
+		for (MyImage i : images) {
+			i.setSize(new Size(w, h));
+		}
+	}
+	
 	
 	
 	

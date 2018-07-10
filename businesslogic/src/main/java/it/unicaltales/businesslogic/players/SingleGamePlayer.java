@@ -37,7 +37,7 @@ public class SingleGamePlayer extends Player{
 	
 	GameEnemy enemy;
 	
-	
+	MyRendering rendering;
 	
 
 	/**
@@ -54,18 +54,14 @@ public class SingleGamePlayer extends Player{
 	public SingleGamePlayer(SpriteDraw spriteDraw, HardwareEvents hardwareEvents) {
 		super(spriteDraw, hardwareEvents);
 		
-<<<<<<< HEAD
+
 		background = new MyImage(0, 0, GlobalValues.SIZE_WINDOW.getWidth(), GlobalValues.SIZE_WINDOW.getHeight(), new GlobalValues().getAssetPath("sky.png"));
-		s = new MyImage(500, 503, GlobalValues.SIZE_WINDOW.getWidth()/8, GlobalValues.SIZE_WINDOW.getHeight()/8, new GlobalValues().getAssetPath("personaggio.png"));
+
 		character = new GameCharacter(new GlobalValues().getAssetPath("personaggio.png"));
-=======
-		background = new MyImage(0, 0, GlobalValues.SIZE_WINDOW.getWidth(), GlobalValues.SIZE_WINDOW.getHeight(), new GlobalValues().getResourcePath("sky.png"));
 		
 		
-		enemy = new GameEnemy(new GlobalValues().getResourcePath("enemy.png"));
+		enemy = new GameEnemy(new GlobalValues().getAssetPath("enemy.png"));
 	
-		character = new GameCharacter(new GlobalValues().getResourcePath("personaggio.png"));
->>>>>>> 639cef5a6f4954b448b6ec2c808e461ef7d2ce9e
 		putSprite("personaggio", character);
 		putSprite("nemico", enemy);
 		putSprite("sfondo", background);
@@ -73,7 +69,7 @@ public class SingleGamePlayer extends Player{
 		spritesEventHandler = new SpriteEvents();
 		
 		
-		MyRendering rendering = new MyRendering(new Position(10,10), new Size(50, 50), new GlobalValues().getResourcesPath() + "characterRendering");
+		rendering = new MyRendering(new Position(300,300), new Size(50, 50), new GlobalValues().getResourcesPath() + "characterRendering");
 		putSprite("personaggioAnimato", rendering);
 	}
 
@@ -86,6 +82,15 @@ public class SingleGamePlayer extends Player{
 			@Override
 			public void onCollision() {
 				System.out.println("collisione!");
+			}
+		});
+		
+		spriteEvents.collision(character, rendering, new OnSpriteCollision() {
+			
+			@Override
+			public void onCollision() {
+				// TODO Auto-generated method stub
+				System.out.println("Collisione con il rendering!");
 			}
 		});
 		

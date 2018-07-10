@@ -91,6 +91,11 @@ public class GlobalValues implements Serializable {
 	}
 	
 	/**
+	 * The delay of a rendering
+	 */
+	public static final long RENDERING_DELAY = 100;
+	
+	/**
 	 * This function get the path of resources 
 	 * @return the resource path dependently by framework
 	 */

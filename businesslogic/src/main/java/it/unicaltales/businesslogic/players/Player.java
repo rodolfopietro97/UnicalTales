@@ -92,9 +92,7 @@ public abstract class Player {
 			 */
 			if(spriteMap.get(s) instanceof MyRendering) {
 				MyRendering tempRendering = (MyRendering) spriteMap.get(s);
-				for (MyImage i : tempRendering.getImages()) {
-					spriteDraw.drawImage((MyImage) i, drawerComponent);
-				}
+				tempRendering.loop(spriteDraw, drawerComponent);
 			}
 		}
 	}
