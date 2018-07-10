@@ -60,10 +60,15 @@ public class GlobalValues implements Serializable {
 	public static ScreenTipe SCREEN_TIPE = ScreenTipe.INITIAL;
 	
 	/**
-	 * The speed of Character
+	 * Speed of Character
 	 */
 	//public static int CHARACTER_SPEED = 3; (DEFAULT)
 	public static int CHARACTER_SPEED = 1;
+	
+	/**
+	 * Speed of the enemy
+	 */
+	public static int ENEMY_SPEED = 1;
 	
 	/**
 	 * If we are in DEBUG mode

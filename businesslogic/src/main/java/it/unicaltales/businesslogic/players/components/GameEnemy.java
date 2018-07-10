@@ -9,17 +9,51 @@ import it.unicaltales.businesslogic.eventhandlers.HardwareEvents;
 import it.unicaltales.businesslogic.eventhandlers.MyKeys;
 import it.unicaltales.businesslogic.gameinfo.GlobalValues;
 
+/**
+ * @author Camillo
+ * This class manages size, position and movements of the enemy
+ */
 public class GameEnemy extends MyImage{
 
-	boolean move;
+	/**
+	 *  Left and right;
+	 */
 	float x;
 	
+	/**
+	 * Random position of the enemy
+	 */
 	double v = Math.random();
-	
 	static float number = (float)(Math.random()*500);
 	
+	
+	/**
+	 * Constructor with parameters
+	 * @param enemyPath
+	 */
 	public GameEnemy(String enemyPath) {		
 			super(700, number, GlobalValues.SIZE_WINDOW.getWidth() / 10, GlobalValues.SIZE_WINDOW.getHeight()/9, enemyPath);
+			
+			x = getPosition().getX();
 	}
+	
+	
+	/**
+	 * Let the enemy move
+	 */
+	public void move() {
+		x-=GlobalValues.ENEMY_SPEED;
+	}
+	
+	/**
+	 * Update size and position of the enemy
+	 */
+	public void update() {
+		setSize(GlobalValues.SIZE_WINDOW.getWidth() / 10,
+				  GlobalValues.SIZE_WINDOW.getHeight()/9);
+		setPosition(x, GlobalValues.SIZE_WINDOW.getHeight() - GlobalValues.SIZE_WINDOW.getHeight()/9-30);
+	}
+	
+	
 	
 }
