@@ -10,13 +10,14 @@ import it.unicaltales.businesslogic.core.Size;
 import it.unicaltales.businesslogic.eventhandlers.HardwareEvents;
 import it.unicaltales.businesslogic.eventhandlers.MyKeys;
 import it.unicaltales.businesslogic.gamecomponents.MyImage;
+import it.unicaltales.businesslogic.gamecomponents.MyRendering;
 import it.unicaltales.businesslogic.gameinfo.GlobalValues;
 
 /**
- * @author rodolfo
+ * @author Camillo
  * This class represent a game character.
  */
-public class GameCharacter extends MyImage{
+public class GameCharacter extends MyRendering{
 	
 	/**
 	 * Jump values
@@ -29,19 +30,17 @@ public class GameCharacter extends MyImage{
 	 */
 	boolean move;
 	float x;
-	
-	
+
 	/**
 	 * Constructor with parameters
-	 * @param characterPath of image of character
+	 * @param position
+	 * @param size
+	 * @param path
 	 */
-	public GameCharacter(String characterPath) {		
-		super(new Position(0, 
-						   GlobalValues.SIZE_WINDOW.getHeight() - GlobalValues.SIZE_WINDOW.getHeight()/9-30),
-			  new Size(GlobalValues.SIZE_WINDOW.getWidth() / 10,
-				       GlobalValues.SIZE_WINDOW.getHeight()/9), 
-			  characterPath);
-	
+	public GameCharacter(Position position, Size size, String path) {
+		super(position, size, path);
+		// TODO Auto-generated constructor stub
+		
 		x = getPosition().getX();
 		
 		jump = false;
@@ -79,9 +78,19 @@ public class GameCharacter extends MyImage{
 	
 	
 	/**
-	 * Handle the events of character
+	 * Handle the events of character and of hardware
+	 * @param hardwareEvents that is passed by player class
 	 */
 	public void handle(HardwareEvents hardwareEvents) {
+		handleHardwareEvents(hardwareEvents);
+		handleJump();
+	}
+	
+	/**
+	 * Handle the events of hardware
+	 * @param hardwareEvents that is passed by player class
+	 */
+	private void handleHardwareEvents(HardwareEvents hardwareEvents) {
 		if (hardwareEvents.isKeyPressed(MyKeys.LEFT)) {
 			if(x >= 0) 
 				x-=GlobalValues.CHARACTER_SPEED;
@@ -95,11 +104,14 @@ public class GameCharacter extends MyImage{
 		else if (hardwareEvents.isKeyPressed(MyKeys.UP)) {
 			jump = true;
 		}
-		
-		/*
-		 * Handle the jump
-		 */
+	}
+	
+	/**
+	 * handle the jump of character
+	 */
+	private void handleJump() {
 		if(jump) jumpUp();
 		if(jumpY != 0 && !jump) returnDown();
+	
 	}
 }

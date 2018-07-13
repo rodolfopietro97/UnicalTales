@@ -24,15 +24,19 @@ public class GameEnemy extends MyImage{
 	 * Random position of the enemy
 	 */
 	double v = Math.random();
-	static float number = (float)(Math.random()*500);
+	static float number = (float)(Math.random()*200);
 	
 	
 	/**
 	 * Constructor with parameters
-	 * @param enemyPath
+	 * @param path
 	 */
-	public GameEnemy(String enemyPath) {		
-			super(700, number, GlobalValues.SIZE_WINDOW.getWidth() / 10, GlobalValues.SIZE_WINDOW.getHeight()/9, enemyPath);
+	public GameEnemy(String path) {		
+			super(700, 
+					number, 
+					GlobalValues.SIZE_WINDOW.getWidth() / 10, 
+					GlobalValues.SIZE_WINDOW.getHeight()/9, 
+					path);
 			
 			x = getPosition().getX();
 	}

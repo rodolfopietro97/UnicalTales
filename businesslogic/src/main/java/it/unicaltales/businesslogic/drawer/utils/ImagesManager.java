@@ -7,6 +7,7 @@ import java.util.HashMap;
  * Class that manage images.
  * With this class we don't need to reallocate a new image in
  * every call of draw!
+ * @see {we can see it's utility in the howToDraw part}
  */
 public class ImagesManager {
 	

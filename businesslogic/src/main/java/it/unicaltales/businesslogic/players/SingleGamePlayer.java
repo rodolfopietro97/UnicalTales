@@ -57,8 +57,9 @@ public class SingleGamePlayer extends Player{
 
 		background = new MyImage(0, 0, GlobalValues.SIZE_WINDOW.getWidth(), GlobalValues.SIZE_WINDOW.getHeight(), new GlobalValues().getAssetPath("sky.png"));
 
-		character = new GameCharacter(new GlobalValues().getAssetPath("personaggio.png"));
-		
+		//character = new GameCharacter(new GlobalValues().getAssetPath("personaggio.png"));
+
+		character = new GameCharacter(new Position(300,300), new Size(50,50), new GlobalValues().getResourcesPath() + "characterRendering");
 		
 		enemy = new GameEnemy(new GlobalValues().getAssetPath("enemy.png"));
 	
