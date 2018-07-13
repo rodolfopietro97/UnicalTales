@@ -39,6 +39,8 @@ public class SingleGamePlayer extends Player{
 	
 	MyRendering rendering;
 	
+	MyImage score;
+	
 
 	/**
 	 * Event handler of sprites,
@@ -56,16 +58,18 @@ public class SingleGamePlayer extends Player{
 		
 
 		background = new MyImage(0, 0, GlobalValues.SIZE_WINDOW.getWidth(), GlobalValues.SIZE_WINDOW.getHeight(), new GlobalValues().getAssetPath("sky.png"));
+		
+		score = new MyImage(625, 20, GlobalValues.SIZE_WINDOW.getWidth() /8, GlobalValues.SIZE_WINDOW.getHeight()/8, new GlobalValues().getAssetPath("score.png"));
+		
 
-		//character = new GameCharacter(new GlobalValues().getAssetPath("personaggio.png"));
-
-		character = new GameCharacter(new Position(0,0), new Size(50,50), new GlobalValues().getResourcesPath() + "characterRendering");
+		character = new GameCharacter(new Position(300,300), new Size(50,50), new GlobalValues().getResourcesPath() + "characterRendering");
 		
 		enemy = new GameEnemy(new GlobalValues().getAssetPath("enemy.png"));
 	
 		putSprite("personaggio", character);
 		putSprite("nemico", enemy);
 		putSprite("sfondo", background);
+		putSprite("punteggio", score);
 		
 		spritesEventHandler = new SpriteEvents();
 		
@@ -109,8 +113,12 @@ public class SingleGamePlayer extends Player{
 		enemy.setPosition(enemy.getPosition());
 		enemy.setSize(GlobalValues.SIZE_WINDOW.getWidth()/8, GlobalValues.SIZE_WINDOW.getHeight()/8);
 		
+		score.setPosition(score.getPosition());
+		score.setSize(GlobalValues.SIZE_WINDOW.getWidth()/8, GlobalValues.SIZE_WINDOW.getHeight()/10);
+		
 		background.setPosition(background.getPosition());
 		background.setSize(GlobalValues.SIZE_WINDOW.getWidth(), GlobalValues.SIZE_WINDOW.getHeight());;
+		
 	}
 
 	
