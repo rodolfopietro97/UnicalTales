@@ -24,7 +24,7 @@ public class GameEnemy extends MyImage{
 	 * Random position of the enemy
 	 */
 	double v = Math.random();
-	static float number = (float)(Math.random()*500);
+	static float number = (float)(Math.random()*200);
 	
 	
 	/**
