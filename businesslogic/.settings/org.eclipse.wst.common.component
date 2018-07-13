@@ -4,5 +4,6 @@
         <wb-resource deploy-path="/" source-path="/src/main/imagesResources"/>
         <wb-resource deploy-path="/" source-path="/src/main/nonInterlaccedImagesResources"/>
         <wb-resource deploy-path="/" source-path="/src/main/audioResources"/>
+        <wb-resource deploy-path="/" source-path="/src/main/otherResources"/>
     </wb-module>
 </project-modules>

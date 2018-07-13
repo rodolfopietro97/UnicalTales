@@ -48,6 +48,9 @@
 			<resource>
 				<directory>../../businesslogic/src/main/audioResources</directory>
 			</resource>
+			<resource>
+				<directory>../../businesslogic/src/main/otherResources</directory>
+			</resource>
 		</resources>
 
 		<plugins>
