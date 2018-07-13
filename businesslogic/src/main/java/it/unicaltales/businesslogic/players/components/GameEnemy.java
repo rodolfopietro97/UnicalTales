@@ -29,10 +29,14 @@ public class GameEnemy extends MyImage{
 	
 	/**
 	 * Constructor with parameters
-	 * @param enemyPath
+	 * @param path
 	 */
-	public GameEnemy(String enemyPath) {		
-			super(700, number, GlobalValues.SIZE_WINDOW.getWidth() / 10, GlobalValues.SIZE_WINDOW.getHeight()/9, enemyPath);
+	public GameEnemy(String path) {		
+			super(700, 
+					number, 
+					GlobalValues.SIZE_WINDOW.getWidth() / 10, 
+					GlobalValues.SIZE_WINDOW.getHeight()/9, 
+					path);
 			
 			x = getPosition().getX();
 	}

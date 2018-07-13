@@ -45,16 +45,17 @@ public class MyRendering extends Sprite{
 	 * of rendering)
 	 */
 	Thread animationThread;
-
+	
 	/**
-	 * parameters constructor
-	 * @param position of rendering
-	 * @param size of rendering
-	 * @param path of rendering (the folder)
+	 * Init function of rendering. it init all
+	 * parts useful of rendering
+	 * @param x position of rendering
+	 * @param y position of rendering
+	 * @param width of rendering
+	 * @param height of rendering
+	 * @param path path of rendering
 	 */
-	public MyRendering(Position position, Size size, String path) {
-		super(position, size, path);
-		
+	private void init(float x, float y, float width, float height, String path) {
 		images = new ArrayList<>();
 
 		renderingIndex = 0;
@@ -69,7 +70,7 @@ public class MyRendering extends Sprite{
 			// aggiungo le immagini
 			for (Path p : files) {
 				if(GlobalValues.DEBUG) System.out.println(new GlobalValues().getAssetPath(p.getFileName().toString()).toString());
-				images.add(new MyImage(position, size, new GlobalValues().getAssetPath(p.getFileName().toString()).toString()));
+				images.add(new MyImage(new Position(x,y), new Size(width, height), new GlobalValues().getAssetPath(p.getFileName().toString()).toString()));
 			}
 			
 		} catch (IOException e) {
@@ -96,7 +97,17 @@ public class MyRendering extends Sprite{
 			}
 		});
 		animationThread.start();
-		
+	}
+
+	/**
+	 * parameters constructor
+	 * @param position of rendering
+	 * @param size of rendering
+	 * @param path of rendering (the folder)
+	 */
+	public MyRendering(Position position, Size size, String path) {
+		super(position, size, path);
+		init(position.getX(), position.getY(), size.getWidth(), size.getHeight(), path);
 	}
 
 	/**
@@ -109,46 +120,7 @@ public class MyRendering extends Sprite{
 	 */
 	public MyRendering(float x, float y, float width, float height, String path) {
 		super(x, y, width, height, path);
-		
-		images = new ArrayList<>();
-		
-		renderingIndex = 0;
-		
-		try {
-			// trovo tutte le immagini png del rendering
-			List<Path> files = Files.walk(Paths.get(path))
-					 //.filter(p -> p.toString().endsWith(".png"))
-					 .distinct()
-					 .collect(Collectors.toList());
-			// aggiungo le immagini
-			for (Path p : files) {
-				if(GlobalValues.DEBUG) System.out.println(new GlobalValues().getAssetPath(p.getFileName().toString()).toString());
-				images.add(new MyImage(new Position(x, y), new Size(width, height), new GlobalValues().getAssetPath(p.getFileName().toString()).toString()));
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-			GlobalValues.EXIT_GAME=true;
-		}
-		
-		// thread che gestisce il rendering 
-		animationThread = new Thread(new Runnable() {
-			
-			@Override
-			public void run() {
-				while (!Thread.currentThread().isInterrupted()) {
-					try {
-						if(renderingIndex < images.size()-1) renderingIndex++;
-						else renderingIndex = 0;
-						Thread.currentThread().sleep(GlobalValues.RENDERING_DELAY);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-						Thread.currentThread().interrupt();
-					}
-					
-				}
-			}
-		});
-		animationThread.start();
+		init(x, y, width, height, path);
 	}
 	
 	/**
