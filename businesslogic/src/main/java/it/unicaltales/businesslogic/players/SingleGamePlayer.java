@@ -48,7 +48,10 @@ public class SingleGamePlayer extends Player{
 		super(spriteDraw, hardwareEvents);
 		
 		putSprite("personaggio", new GameCharacter(new GlobalValues().getResourcesPath() + "characterRendering"));
+		
 		putSprite("nemico", new GameEnemy(new GlobalValues().getAssetPath("enemy.png")));
+		putSprite("nemico2", new GameEnemy(new GlobalValues().getAssetPath("enemy.png")));
+
 		putSprite("score", new MyText(30, 30, 10, "Scores: ", false));
 
 		putSprite("pauseText", new MyText(
@@ -78,21 +81,30 @@ public class SingleGamePlayer extends Player{
 	public void manageEvents() {
 		if (!GlobalValues.PAUSE_GAME) {
 			((GameCharacter) getSprite("personaggio")).handle(this.hardwareEvents);
-			((GameEnemy) getSprite("nemico")).handle();
+			
+			new Thread(() -> ((GameEnemy) getSprite("nemico")).handle()).start();
+			new Thread(() -> ((GameEnemy) getSprite("nemico2")).handle()).start();
+			
 
 			spriteEvents.collision(getSprite("personaggio"), getSprite("nemico"), new OnSpriteCollision() {
 
 				@Override
 				public void onCollision() {
 					// TODO Auto-generated method stub
-					System.err.println("Collisione!");
+					System.err.println("Collisione col primo nemico!");
+				}
+			});
+			
+			spriteEvents.collision(getSprite("personaggio"), getSprite("nemico2"), new OnSpriteCollision() {
+
+				@Override
+				public void onCollision() {
+					// TODO Auto-generated method stub
+					System.err.println("Collisione col secondo nemico!");
 				}
 			});
 
-			GlobalValues.CHARACTER_SPEED = (int) (getSprite("personaggio").getSize().getHeight() / 30)
-					+ GlobalValues.DIFFICULT_FACTOR;
-			GlobalValues.ENEMY_SPEED = (int) (getSprite("nemico").getSize().getWidth() / 45)
-					+ GlobalValues.DIFFICULT_FACTOR;
+			updateGlobalValues();
 
 			((MyText) getSprite("score")).setText("Scores: " + GlobalValues.SCORES);
 
@@ -110,6 +122,17 @@ public class SingleGamePlayer extends Player{
 		}
 	}
 
+	/**
+	 * Update the global values that
+	 * are useful for the game
+	 */
+	private void updateGlobalValues() {
+		GlobalValues.CHARACTER_SPEED = (int) (getSprite("personaggio").getSize().getHeight() / 30)
+				+ GlobalValues.DIFFICULT_FACTOR;
+		GlobalValues.ENEMY_SPEED = (int) (getSprite("nemico").getSize().getWidth() / 45)
+				+ GlobalValues.DIFFICULT_FACTOR;
+	}
+
 	@Override
 	public void onWindowsSizeChange() {
 		/*
@@ -118,8 +141,13 @@ public class SingleGamePlayer extends Player{
 		((GameCharacter) getSprite("personaggio")).update();
 		((GameEnemy) getSprite("nemico")).update();
 		
+		/*
+		 * Update the text
+		 */
 		getSprite("pauseText").setPosition(GlobalValues.SIZE_WINDOW.getWidth() -200, 30);
 		getSprite("escText").setPosition(GlobalValues.SIZE_WINDOW.getWidth() -200, 60);
+		pauseText.setPosition(GlobalValues.SIZE_WINDOW.getWidth()/2, 
+				   GlobalValues.SIZE_WINDOW.getHeight()/2);
 	}
 	
 	/**

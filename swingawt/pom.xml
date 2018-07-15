@@ -23,6 +23,9 @@
 				<directory>../businesslogic/src/main/nonInterlaccedImagesResources</directory>
 			</resource>
 			<resource>
+				<directory>../businesslogic/src/main/nonInterlaccedImagesResources/characterRendering</directory>
+			</resource>
+			<resource>
 				<directory>../businesslogic/src/main/audioResources</directory>
 			</resource>
 			<resource>
