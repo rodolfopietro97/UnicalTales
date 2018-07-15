@@ -41,6 +41,8 @@ public class SingleGamePlayer extends Player{
 	
 	MyImage score;
 	
+	
+	
 
 	/**
 	 * Event handler of sprites,
@@ -59,7 +61,14 @@ public class SingleGamePlayer extends Player{
 
 		background = new MyImage(0, 0, GlobalValues.SIZE_WINDOW.getWidth(), GlobalValues.SIZE_WINDOW.getHeight(), new GlobalValues().getAssetPath("sky.png"));
 		
-		score = new MyImage(625, 20, GlobalValues.SIZE_WINDOW.getWidth() /8, GlobalValues.SIZE_WINDOW.getHeight()/8, new GlobalValues().getAssetPath("score.png"));
+		if(GlobalValues.FULL_SCREEN) {
+		score = new MyImage(GlobalValues.SIZE_WINDOW.getHeight()*(float)2.5, GlobalValues.SIZE_WINDOW.getWidth()/30, 
+				GlobalValues.SIZE_WINDOW.getWidth() /8, GlobalValues.SIZE_WINDOW.getHeight()/8, 
+				new GlobalValues().getAssetPath("score.png"));}
+		else
+			score = new MyImage(625, 20, GlobalValues.SIZE_WINDOW.getWidth()/8, 
+					GlobalValues.SIZE_WINDOW.getHeight()/8, 
+					new GlobalValues().getAssetPath("score.png"));
 		
 
 		character = new GameCharacter(new Position(300,300), new Size(50,50), new GlobalValues().getResourcesPath() + "characterRendering");

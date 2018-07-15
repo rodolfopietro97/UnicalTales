@@ -54,7 +54,7 @@ public class GlobalValues implements Serializable {
 	public static boolean EXIT_GAME = false;
 	
 	/**
-	 * The type of Screen that "say us" in wi			primaryStage.setMinWidth();
+	 * The type of Screen that "say us" in which			primaryStage.setMinWidth();
 			primaryStage.setMinHeight();ch screen we are
 	 */
 	public static ScreenTipe SCREEN_TIPE = ScreenTipe.INITIAL;

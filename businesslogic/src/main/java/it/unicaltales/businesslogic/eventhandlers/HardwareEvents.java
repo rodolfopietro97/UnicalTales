@@ -5,8 +5,8 @@ package it.unicaltales.businesslogic.eventhandlers;
 
 /**
  * @author rodolfo,
- * 		   Class that manage hardware events. This class depends by the
- *         framework. It is refresheed ciclically because every time we know if
+ * 		   This class manages hardware events. This class depends by the
+ *         framework. It is refreshed cyclically because every time we know if
  *         a key is pressed, if mouse is clicked, ... this class contains all
  *         events we need for game
  *         

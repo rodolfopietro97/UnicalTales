@@ -1,20 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.effect.*?>
-<?import javafx.geometry.*?>
 <?import java.lang.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 
-<StackPane prefHeight="212.0" prefWidth="365.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #00A1EB;">
-         <StackPane.margin>
-            <Insets />
-         </StackPane.margin>
-         <effect>
-            <Blend />
-         </effect></Pane>
-   </children>
+<StackPane prefHeight="212.0" prefWidth="365.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <children>
+    <Pane minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: #3f3f3f;">
+      <children>
+        <ImageView fitHeight="79.0" fitWidth="79.0" layoutX="413.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+          <image>
+            <Image url="@../../../../../../../Desktop/IMMAGINI%20UNICAL%20TALES/Settings-icon.png" />
+          </image>
+        </ImageView>
+        <Text blendMode="SRC_ATOP" fontSmoothingType="GRAY" layoutX="-70.0" layoutY="49.0" scaleX="6.646726663137462" scaleY="6.012236906510034" strikethrough="false" stroke="#606060" strokeType="OUTSIDE" strokeWidth="1.4" text="Settings" textAlignment="CENTER" underline="false" x="300.0" y="10.0">
+          <fill>
+            <Color blue="1.000" green="0.856" red="0.600" fx:id="x1" />
+          </fill>
+          <font>
+            <Font name="Aharoni Bold" size="12.0" />
+          </font>
+        </Text>
+        <Text fill="$x1" layoutX="104.0" layoutY="152.0" scaleX="4.282750162230856" scaleY="3.631424375917768" strokeType="OUTSIDE" strokeWidth="0.0" text="Full Screen" textAlignment="CENTER" x="40.0">
+          <font>
+            <Font name="Tw Cen MT" size="12.0" />
+          </font>
+        </Text>
+        <ImageView fitHeight="22.986572265625" fitWidth="22.986572265625" layoutX="25.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true">
+          <image>
+            <Image url="@../../../../../../../Desktop/IMMAGINI%20UNICAL%20TALES/Pallino_rosso.png" />
+          </image>
+        </ImageView>
+        <Button layoutX="289.0" layoutY="140.0" mnemonicParsing="false" prefWidth="48.9761962890625" text="Yes" textFill="#99fff3" />
+        <Button layoutX="338.0" layoutY="140.0" mnemonicParsing="false" prefWidth="48.976174218747474" text="No" textFill="RED" />
+        <Button defaultButton="true" layoutX="503.0" layoutY="443.0" mnemonicParsing="false" prefHeight="29.9609375" prefWidth="70.0" text="Back" textOverrun="CLIP" />
+      </children>
+      <effect>
+        <Blend />
+      </effect>
+      <StackPane.margin>
+        <Insets />
+      </StackPane.margin>
+    </Pane>
+  </children>
 </StackPane>
