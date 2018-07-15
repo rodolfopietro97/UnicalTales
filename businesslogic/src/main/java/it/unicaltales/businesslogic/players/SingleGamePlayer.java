@@ -71,7 +71,7 @@ public class SingleGamePlayer extends Player{
 					new GlobalValues().getAssetPath("score.png"));
 		
 
-		character = new GameCharacter(new Position(300,300), new Size(50,50), new GlobalValues().getResourcesPath() + "characterRendering");
+		character = new GameCharacter(new Position(300,300), new Size(100,100), new GlobalValues().getResourcesPath() + "characterRendering");
 		
 		enemy = new GameEnemy(new GlobalValues().getAssetPath("enemy.png"));
 	

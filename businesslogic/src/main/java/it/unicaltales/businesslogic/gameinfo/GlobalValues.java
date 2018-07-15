@@ -36,7 +36,7 @@ public class GlobalValues implements Serializable {
 	/**
 	 * Window full screen enabled value
 	 */
-	public static final boolean FULL_SCREEN = false;
+	public static final boolean FULL_SCREEN = true;
 	
 	/**
 	 * If we want a resizable window
