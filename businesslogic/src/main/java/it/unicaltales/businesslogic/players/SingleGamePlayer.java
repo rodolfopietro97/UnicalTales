@@ -71,6 +71,7 @@ public class SingleGamePlayer extends Player{
 		
 		
 		rendering = new MyRendering(new Position(300,300), new Size(50, 50), new GlobalValues().getResourcesPath() + "characterRendering");
+		
 		putSprite("personaggioAnimato", rendering);
 	}
 
@@ -78,22 +79,22 @@ public class SingleGamePlayer extends Player{
 	public void manageEvents() {
 		character.handle(this.hardwareEvents);
 		
-		spriteEvents.collision(character, enemy, new OnSpriteCollision() {
-			
-			@Override
-			public void onCollision() {
-				System.out.println("collisione!");
-			}
-		});
-		
-		spriteEvents.collision(character, rendering, new OnSpriteCollision() {
-			
-			@Override
-			public void onCollision() {
-				// TODO Auto-generated method stub
-				System.out.println("Collisione con il rendering!");
-			}
-		});
+//		spriteEvents.collision(character, enemy, new OnSpriteCollision() {
+//			
+//			@Override
+//			public void onCollision() {
+//				rendering.startAnimation();
+//			}
+//		});
+//		
+//		spriteEvents.collision(character, rendering, new OnSpriteCollision() {
+//			
+//			@Override
+//			public void onCollision() {
+//				// TODO Auto-generated method stub
+//				rendering.stopAnimation();
+//			}
+//		});
 		
 		
 		

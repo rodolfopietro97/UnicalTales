@@ -16,6 +16,7 @@ import it.unicaltales.businesslogic.core.Size;
 import it.unicaltales.businesslogic.core.Sprite;
 import it.unicaltales.businesslogic.drawer.SpriteDraw;
 import it.unicaltales.businesslogic.gameinfo.GlobalValues;
+import it.unicaltales.businesslogic.gameinfo.ScreenTipe;
 
 /**
  * @author rodolfo
@@ -31,25 +32,26 @@ public class MyRendering extends Sprite{
 	/**
 	 * list of images
 	 */
-	ArrayList<MyImage> images;
+	private ArrayList<MyImage> images;
 	
 	/**
 	 * Is the index of rendering to draw,
 	 * it auto increment every call of getRenderingIndex
 	 */
-	int renderingIndex;
+	private int renderingIndex;
 	
 	/**
 	 * Thread that manage animation of rendering
 	 * (it is useful because it manage the delay
 	 * of rendering)
 	 */
-	Thread animationThread;
+	private Thread animationThread;
+
 	
 	/**
 	 * Init function of rendering. it init all
 	 * parts useful of rendering
-	 * @param x position of rendering
+	 * @param x position of renderinpauseAnimationg
 	 * @param y position of rendering
 	 * @param width of rendering
 	 * @param height of rendering
@@ -80,25 +82,32 @@ public class MyRendering extends Sprite{
 		
 		// thread che gestisce il rendering 
 		animationThread = new Thread(new Runnable() {
-			
+
 			@Override
 			public void run() {
+
 				while (!Thread.currentThread().isInterrupted()) {
 					try {
-						if(renderingIndex < images.size()-1) renderingIndex++;
-						else renderingIndex = 0;
+						if (renderingIndex < images.size() - 1)
+							renderingIndex++;
+						else
+							renderingIndex = 0;
 						Thread.currentThread().sleep(GlobalValues.RENDERING_DELAY);
 					} catch (InterruptedException e) {
 						e.printStackTrace();
+						GlobalValues.EXIT_GAME = true;
 						Thread.currentThread().interrupt();
 					}
-					
+
 				}
+
 			}
+				
+
 		});
 		animationThread.start();
 	}
-
+	
 	/**
 	 * parameters constructor
 	 * @param position of rendering
