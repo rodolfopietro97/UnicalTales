@@ -71,7 +71,6 @@ public class MyRendering extends Sprite{
 			
 			// aggiungo le immagini
 			for (Path p : files) {
-				if(GlobalValues.DEBUG) System.out.println(new GlobalValues().getAssetPath(p.getFileName().toString()).toString());
 				images.add(new MyImage(new Position(x,y), new Size(width, height), new GlobalValues().getAssetPath(p.getFileName().toString()).toString()));
 			}
 			
@@ -88,15 +87,16 @@ public class MyRendering extends Sprite{
 
 				while (!Thread.currentThread().isInterrupted()) {
 					try {
-						if (renderingIndex < images.size() - 1)
+						if (!GlobalValues.PAUSE_GAME && renderingIndex < images.size() - 1)
 							renderingIndex++;
 						else
 							renderingIndex = 0;
 						Thread.currentThread().sleep(GlobalValues.RENDERING_DELAY);
 					} catch (InterruptedException e) {
-						e.printStackTrace();
-						GlobalValues.EXIT_GAME = true;
-						Thread.currentThread().interrupt();
+						System.err.println("Rendering interrotto! (NON è un errore)");
+						//e.printStackTrace();
+						//GlobalValues.EXIT_GAME = true;
+						//Thread.currentThread().interrupt();
 					}
 
 				}
@@ -209,6 +209,9 @@ public class MyRendering extends Sprite{
 		}
 	}
 	
+	public void stopRendering() {
+		if(!animationThread.isInterrupted()) animationThread.interrupt();
+	}
 	
 	
 	

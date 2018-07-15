@@ -10,52 +10,126 @@ import it.unicaltales.businesslogic.eventhandlers.MyKeys;
 import it.unicaltales.businesslogic.gameinfo.GlobalValues;
 
 /**
- * @author Camillo
- * This class manages size, position and movements of the enemy
+ * @author rodolfo
+ * This class manages an enemy
  */
-public class GameEnemy extends MyImage{
-
+public class GameEnemy extends MyImage{	
 	/**
-	 *  Left and right;
+	 * x-axis and y-axis of enemy (they are generated in runtime)
 	 */
-	float x;
+	private int xEnemy, yEnemy;
 	
 	/**
-	 * Random position of the enemy
+	 * Start position type of enemy
 	 */
-	double v = Math.random();
-	static float number = (float)(Math.random()*200);
+	StartEnemyAlignment startAlignment;
 	
+	/**
+	 * If the enemy is in loop 
+	 * 
+	 * if it is true, the enemy moves in x-axis
+	 * else the enemy will be regenerated
+	 */
+	private boolean loop;
 	
 	/**
 	 * Constructor with parameters
-	 * @param path
+	 * @param path of enemy
 	 */
-	public GameEnemy(String path) {		
-			super(700, 
-					number, 
-					GlobalValues.SIZE_WINDOW.getWidth() / 10, 
-					GlobalValues.SIZE_WINDOW.getHeight()/9, 
-					path);
-			
-			x = getPosition().getX();
+	public GameEnemy(String path) {
+		super(0, 
+			  0, 
+			  GlobalValues.SIZE_WINDOW.getWidth() / 10, 
+			  GlobalValues.SIZE_WINDOW.getHeight()/9, 
+			  path);
+		xEnemy = 0;
+		yEnemy = 0;
+		loop = false;
 	}
 	
-	
-	/**
-	 * Let the enemy move
-	 */
-	public void move() {
-		x-=GlobalValues.ENEMY_SPEED;
+	private void setInitialAligment() {
+		if(Math.random() * 100  <= 50) startAlignment = StartEnemyAlignment.LEFT;
+		else startAlignment = StartEnemyAlignment.RIGHT;
 	}
 	
 	/**
-	 * Update size and position of the enemy
+	 * set the initial x position of enemy
+	 */
+	private void setInitialXEnemy() {
+		setInitialAligment();
+		if(startAlignment == StartEnemyAlignment.LEFT) xEnemy = 0; // inizia da sinistra
+		else xEnemy = (int) (GlobalValues.SIZE_WINDOW.getWidth() - getSize().getWidth()); // inizia da destra
+	}
+	
+	/**
+	 * set the initial y position of enemy
+	 */
+	private void setInitialYEnemy() {
+		// intervallo di generazione [0;max]
+		yEnemy = (int) (Math.random() * (GlobalValues.SIZE_WINDOW.getHeight() - // altezza totale (max)
+										getSize().getHeight())); // altezza del nemico
+	}
+	
+	/**
+	 * Set the start position of enemy
+	 */
+	public void setStartPosition() {
+		setInitialXEnemy();
+		setInitialYEnemy();
+		loop = true;
+	}
+	
+	/**
+	 * Main loop of enemy
+	 */
+	public void handle() {
+		if (!GlobalValues.PAUSE_GAME) {
+			if (!loop) {
+				setStartPosition();
+			} else {
+				// se parte da sinistra
+				if (startAlignment == StartEnemyAlignment.LEFT) {
+					loopLeft();
+				}
+				// se parte da destra
+				else {
+					loopRight();
+				}
+			}
+			setPosition(xEnemy, yEnemy);
+		}
+	}
+	
+	/**
+	 * Loop left method of character
+	 */
+	private void loopLeft() {
+		if(xEnemy < GlobalValues.SIZE_WINDOW.getWidth() - getSize().getHeight()) xEnemy += GlobalValues.ENEMY_SPEED;
+		else {
+			GlobalValues.SCORES++; // aumenta il punteggio
+			loop = false; // rigenera
+		}
+	}
+	
+	/**
+	 * Loop right method of character
+	 */
+	private void loopRight() {
+		if(xEnemy > 0) xEnemy -= GlobalValues.ENEMY_SPEED;
+		else {
+			GlobalValues.SCORES++; // aumenta il punteggio
+			loop = false; // rigenera
+		}
+	}
+	
+	/**
+	 * Update the size and position of enemy
 	 */
 	public void update() {
 		setSize(GlobalValues.SIZE_WINDOW.getWidth() / 10,
-				  GlobalValues.SIZE_WINDOW.getHeight()/9);
-		setPosition(x, GlobalValues.SIZE_WINDOW.getHeight() - GlobalValues.SIZE_WINDOW.getHeight()/9-30);
+				GlobalValues.SIZE_WINDOW.getHeight()/9);
+		setPosition(xEnemy, 
+					yEnemy);
 	}
 	
 	

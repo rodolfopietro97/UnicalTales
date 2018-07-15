@@ -65,7 +65,7 @@ public class MainPanel extends JPanel {
 
 		
 		// setto il background
-		setBackground(Color.WHITE);
+		setBackground(new Color(102, 153, 255));
 
 		// Inizializzo l' hardware events
 		hardwareEvents = new HardwareEvents();
@@ -195,13 +195,13 @@ public class MainPanel extends JPanel {
 		/*
 		 * Esegue lo sleep
 		 */
-		try {
-			Thread.currentThread().sleep(1);
-		} catch (InterruptedException e) {
-			System.err.println("Impossibile eseguire il loop dle gioco!");
-			e.printStackTrace();
-			GlobalValues.EXIT_GAME = true; // STOPPA IL GIOCO
-		}
+//		try {
+//			//Thread.currentThread().sleep(1);
+//		} catch (InterruptedException e) {
+//			System.err.println("Impossibile eseguire il loop dle gioco!");
+//			e.printStackTrace();
+//			GlobalValues.EXIT_GAME = true; // STOPPA IL GIOCO
+//		}
 
 		/*
 		 * Esegue il repaint

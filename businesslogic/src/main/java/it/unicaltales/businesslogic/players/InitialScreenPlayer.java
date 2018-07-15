@@ -3,14 +3,20 @@
  */
 package it.unicaltales.businesslogic.players;
 
+import javax.xml.ws.Response;
+
 import it.unicaltales.businesslogic.core.Position;
 import it.unicaltales.businesslogic.core.Size;
 import it.unicaltales.businesslogic.drawer.SpriteDraw;
 import it.unicaltales.businesslogic.eventhandlers.HardwareEvents;
+import it.unicaltales.businesslogic.eventhandlers.MyKeys;
 import it.unicaltales.businesslogic.gamecomponents.MyImage;
 import it.unicaltales.businesslogic.gamecomponents.MyText;
 import it.unicaltales.businesslogic.gameinfo.GlobalValues;
 import it.unicaltales.businesslogic.gameinfo.ScreenTipe;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
 
 public class InitialScreenPlayer extends Player {
 	/**
@@ -93,6 +99,10 @@ public class InitialScreenPlayer extends Player {
 		if (spriteEvents.isClick(getSprite("btnExit"), hardwareEvents)) GlobalValues.EXIT_GAME = true;
 		if (spriteEvents.isClick(getSprite("btnSettings"), hardwareEvents)) //new SettingsGui().launch(); 
 			System.out.println("hai cliccato le impostazioni");
+		
+		drawHover((MyImage) getSprite("btnPlay"));
+		drawHover((MyImage) getSprite("btnExit"));
+		drawHover((MyImage) getSprite("btnSettings"));
 	}
 	
 	@Override

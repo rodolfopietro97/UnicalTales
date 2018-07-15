@@ -246,8 +246,8 @@ public class MainFrame extends Application{
 		/*
 		 * Redraw part
 		 */
-		g.clearRect(0, 0, 0, 0);
-		g.setFill(Color.WHITE);
+		g.clearRect(0, 0, 0, 1);
+		g.setFill(new Color(0.4, 0.6, 1, 1));
 		g.fillRect(0,0,
 				GlobalValues.SIZE_WINDOW.getWidth(),
 				GlobalValues.SIZE_WINDOW.getHeight());

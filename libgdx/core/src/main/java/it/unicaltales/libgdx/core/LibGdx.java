@@ -62,8 +62,7 @@ public class LibGdx implements ApplicationListener {
 			public void onDrawText(MyText text, Object drawerComponent) {
 				SpriteBatch g = (SpriteBatch) drawerComponent;
 				BitmapFont temp = new BitmapFont();
-				temp.draw((SpriteBatch) drawerComponent, text.getText(), text.getPosition().getX(), GlobalValues.SIZE_WINDOW.getHeight() - text.getPosition().getY()); 
-				
+				temp.draw((SpriteBatch) drawerComponent, text.getText(), text.getPosition().getX(), GlobalValues.SIZE_WINDOW.getHeight() - text.getPosition().getY());				
 			}
 			
 			@Override
@@ -97,7 +96,7 @@ public class LibGdx implements ApplicationListener {
 		 */
 		//hardwareEvents.resetHardwareEvents();	 
 		
-		Gdx.gl.glClearColor(1, 1, 1, 1);
+		Gdx.gl.glClearColor(0.4f, 0.6f, 1, 1);
 		Gdx.gl.glClear(GL30.GL_COLOR_BUFFER_BIT);
 		
 		/*

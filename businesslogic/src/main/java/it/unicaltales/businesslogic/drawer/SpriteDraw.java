@@ -17,6 +17,13 @@ public class SpriteDraw {
 	 * It depends by the framework that we using
 	 */
 	Drawer howToDraw;
+	
+	/**
+	 * Hover image,
+	 * we use this image for example when
+	 * we pass with the mouse over 
+	 */
+	MyImage hoverImage;
 
 	/**
 	 * Sprite draw parametized constructor
@@ -24,6 +31,7 @@ public class SpriteDraw {
 	 */
 	public SpriteDraw(Drawer howToDraw) {
 		this.howToDraw = howToDraw;
+		hoverImage = new MyImage(0, 0, 20,20, new GlobalValues().getAssetPath("hover.png"));
 	}
 
 	/**
@@ -33,11 +41,12 @@ public class SpriteDraw {
 	 */
 	public void drawImage(MyImage image, Object drawerComponent) {
 		howToDraw.onDrawImage(image, drawerComponent);
-		if(GlobalValues.DEBUG) {
-			MyText temp = new MyText(image.getPosition().getX(), image.getPosition().getY()-30, 10, "" , true);
-			temp.setText("X:" + image.getPosition().getX() + " Y:" + image.getPosition().getY() + "\nW:" + image.getSize().getWidth() + " H:" + image.getSize().getHeight());
-			drawText(temp, drawerComponent);
-		}
+	}
+	
+	public void drawImageHover(MyImage image, Object drawerComponent) {
+		hoverImage.setPosition(image.getPosition());
+		hoverImage.setSize(image.getSize());
+		howToDraw.onDrawImage(hoverImage, drawerComponent);
 	}
 	
 	/**

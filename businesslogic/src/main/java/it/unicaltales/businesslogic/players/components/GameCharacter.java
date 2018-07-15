@@ -37,8 +37,8 @@ public class GameCharacter extends MyRendering{
 	 * @param size
 	 * @param path
 	 */
-	public GameCharacter(Position position, Size size, String path) {
-		super(position, size, path);
+	public GameCharacter(String path) {
+		super(new Position(300,300), new Size(50,50), path);
 		// TODO Auto-generated constructor stub
 		
 		x = getPosition().getX();
@@ -61,7 +61,7 @@ public class GameCharacter extends MyRendering{
 	 * Jump Up
 	 */
 	private void jumpUp() {
-		if(jumpY <= GlobalValues.SIZE_WINDOW.getHeight()/2) 
+		if(jumpY < GlobalValues.SIZE_WINDOW.getHeight() - getSize().getHeight()) 
 			jumpY+=GlobalValues.CHARACTER_SPEED;
 		else {
 			jump = false;

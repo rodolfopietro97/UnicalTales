@@ -4,6 +4,7 @@
 package it.unicaltales.businesslogic.players;
 
 
+import java.awt.Component;
 import java.util.HashMap;
 
 import it.unicaltales.businesslogic.core.Sprite;
@@ -40,6 +41,11 @@ public abstract class Player {
 	 */
 	private HashMap<String, Sprite> spriteMap;
 	
+	/**
+	 * Drawer component of Player
+	 */
+	protected Object drawerComponent;
+	
 	
 	/**
 	 * Constructor with parameters
@@ -67,6 +73,8 @@ public abstract class Player {
 	 * @param drawerComponent to use for draw
 	 */
 	public void loop(Object drawerComponent) {
+		this.drawerComponent = drawerComponent;
+		
 		draw(drawerComponent);
 		manageEvents();
 		if(GlobalValues.RESIZABLE) onWindowsSizeChange();
@@ -77,7 +85,8 @@ public abstract class Player {
 	 * @param drawerComponent to use for draw
 	 */
 	public void draw(Object drawerComponent) {
-		
+		this.drawerComponent = drawerComponent;
+
 		for(String s : spriteMap.keySet()) {
 			/*
 			 * Draw a image sprite
@@ -132,6 +141,15 @@ public abstract class Player {
 	 * What to do on Resize Window Event
 	 */
 	public abstract void onWindowsSizeChange();
+	
+	/**
+	 * Draw a sprite hover
+	 * @param s sprite to draw hover
+	 */
+	protected void drawHover(MyImage s) {
+		if (spriteEvents.isHover(s, hardwareEvents)) spriteDraw.drawImageHover(s, drawerComponent);
+
+	}
 
 	
 }

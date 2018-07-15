@@ -71,9 +71,20 @@ public class GlobalValues implements Serializable {
 	public static int ENEMY_SPEED = 1;
 	
 	/**
-	 * If we are in DEBUG mode
+	 * Factor of difficult (the acceleration
+	 * of character speed and enemy speed)
 	 */
-	public static boolean DEBUG = true;
+	public static int DIFFICULT_FACTOR = 0;
+	
+	/**
+	 * Scores of player
+	 */
+	public static int SCORES = 0;
+	
+	/**
+	 * Pause of game
+	 */
+	public static boolean PAUSE_GAME = false;
 	
 	/**
 	 * This function get the path of resources of a file
