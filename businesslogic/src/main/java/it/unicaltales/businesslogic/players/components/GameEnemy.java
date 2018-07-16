@@ -83,7 +83,7 @@ public class GameEnemy extends MyImage{
 	 * Main loop of enemy
 	 */
 	public void handle() {
-		if (!GlobalValues.PAUSE_GAME) {
+		if (!GlobalValues.PAUSE_GAME || !GlobalValues.LOOSE_GAME) {
 			if (!loop) {
 				setStartPosition();
 			} else {

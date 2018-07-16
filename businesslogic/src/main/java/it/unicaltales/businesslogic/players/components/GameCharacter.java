@@ -40,6 +40,7 @@ public class GameCharacter extends MyRendering{
 	public GameCharacter(String path) {
 		super(new Position(300,300), new Size(50,50), path);
 		// TODO Auto-generated constructor stub
+		update();
 		
 		x = getPosition().getX();
 		
@@ -51,7 +52,7 @@ public class GameCharacter extends MyRendering{
 	 * Update the size and position of character
 	 */
 	public void update() {
-		setSize(GlobalValues.SIZE_WINDOW.getWidth() / 10,
+		setSize(GlobalValues.SIZE_WINDOW.getWidth() / 20,
 				  GlobalValues.SIZE_WINDOW.getHeight()/9);
 		setPosition(x, GlobalValues.SIZE_WINDOW.getHeight() - GlobalValues.SIZE_WINDOW.getHeight()/9-30 - jumpY);
 	}
@@ -94,6 +95,7 @@ public class GameCharacter extends MyRendering{
 		if (hardwareEvents.isKeyPressed(MyKeys.LEFT)) {
 			if(x >= 0) 
 				x-=GlobalValues.CHARACTER_SPEED;
+			else x = GlobalValues.SIZE_WINDOW.getWidth() - getSize().getWidth();
 		}
 		
 		else if (hardwareEvents.isKeyPressed(MyKeys.RIGHT)) {
@@ -113,5 +115,12 @@ public class GameCharacter extends MyRendering{
 		if(jump) jumpUp();
 		if(jumpY != 0 && !jump) returnDown();
 	
+	}
+	
+	/**
+	 * Reset the initial position of charatcer
+	 */
+	public void resetPosition() {	
+		setPosition(0, GlobalValues.SIZE_WINDOW.getHeight() - GlobalValues.SIZE_WINDOW.getHeight()/9-30);
 	}
 }

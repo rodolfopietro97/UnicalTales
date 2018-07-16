@@ -87,7 +87,7 @@ public class MyRendering extends Sprite{
 
 				while (!Thread.currentThread().isInterrupted()) {
 					try {
-						if (!GlobalValues.PAUSE_GAME && renderingIndex < images.size() - 1)
+						if (!GlobalValues.LOOSE_GAME && !GlobalValues.PAUSE_GAME && renderingIndex < images.size() - 1)
 							renderingIndex++;
 						else
 							renderingIndex = 0;

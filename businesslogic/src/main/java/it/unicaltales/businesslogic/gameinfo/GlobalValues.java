@@ -85,6 +85,12 @@ public class GlobalValues implements Serializable {
 	 * Pause of game
 	 */
 	public static boolean PAUSE_GAME = false;
+
+	/**
+	 * Loose of game
+	 */
+	public static boolean LOOSE_GAME = false;
+	
 	
 	/**
 	 * This function get the path of resources of a file
@@ -105,6 +111,11 @@ public class GlobalValues implements Serializable {
 	 * The delay of a rendering
 	 */
 	public static final long RENDERING_DELAY = 100;
+	
+	/**
+	 * Difficult of game
+	 */
+	public static DifficultType GAME_DIFFICULT = DifficultType.HARD;
 	
 	/**
 	 * This function get the path of resources 
