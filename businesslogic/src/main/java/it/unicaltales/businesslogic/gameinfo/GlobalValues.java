@@ -115,7 +115,7 @@ public class GlobalValues implements Serializable {
 	/**
 	 * Difficult of game
 	 */
-	public static DifficultType GAME_DIFFICULT = DifficultType.HARD;
+	public static DifficultType GAME_DIFFICULT = DifficultType.EASY;
 	
 	/**
 	 * This function get the path of resources 
