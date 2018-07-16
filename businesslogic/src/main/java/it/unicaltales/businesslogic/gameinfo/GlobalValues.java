@@ -28,7 +28,7 @@ public class GlobalValues implements Serializable {
 	 * Describe the game implementation of business logic.
 	 * For example we know if is Swing/Awt Implementation, LibGDX Implementation, and others...
 	 */
-	public static int IMPLEMENTATION = 1; // Swing And Awt of Default
+	public static int IMPLEMENTATION = 2; // Swing And Awt of Default
 	public static final int SWING_AWT_IMPLEMENTATION = 0;
 	public static final int JAVAFX_IMPLEMENTATION = 1;
 	public static final int LIBGDX_IMPLEMENTATION = 2;
@@ -123,13 +123,24 @@ public class GlobalValues implements Serializable {
 	 */
 	public String getResourcesPath() {
 		if (GlobalValues.IMPLEMENTATION == LIBGDX_IMPLEMENTATION) {
-			return "../../businesslogic/src/main/imagesResources/";	
+			if(DEFAULT_LAUNCHER) return "../businesslogic/src/main/imagesResources/";
+			else return "../../businesslogic/src/main/imagesResources/";	
 		}
 		else if(GlobalValues.IMPLEMENTATION == SWING_AWT_IMPLEMENTATION) {
 			return "../businesslogic/src/main/nonInterlaccedImagesResources/";
 		}
 		return "../businesslogic/src/main/imagesResources/";
 	}
+	
+	/**
+	 * This value told to us, if we re running the application with de default
+	 * launcher project, or we are running the project in different
+	 * singular mode. It is automatically setted by {@code GameLauncher}
+	 * @see it is useful for libgdx implementation. Because
+	 * Libgdx desktop implemmentation have a different folder
+	 * level, and if we launche it with reflection the asset path change
+	 */
+	public static boolean DEFAULT_LAUNCHER = false;
 
 
 }
