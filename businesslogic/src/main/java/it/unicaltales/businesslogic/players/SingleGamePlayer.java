@@ -82,7 +82,7 @@ public class SingleGamePlayer extends Player {
 				"PAUSE", true);
 
 		looseText = new MyText(GlobalValues.SIZE_WINDOW.getWidth() / 2, GlobalValues.SIZE_WINDOW.getHeight() / 2, 20,
-				"LOOSE :( (press SPACE to continue)", true);
+				"YOU LOST! (press SPACE to continue)", true);
 	}
 
 	/**
