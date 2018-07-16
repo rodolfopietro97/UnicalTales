@@ -29,7 +29,7 @@
         </Text>
         <Text fill="$x1" layoutX="104.0" layoutY="152.0" scaleX="4.282750162230856" scaleY="3.631424375917768" strokeType="OUTSIDE" strokeWidth="0.0" text="Full Screen" textAlignment="CENTER" x="40.0">
           <font>
-            <Font name="Tw Cen MT" size="12.0" />
+            <Font name="Tw Cen MT" size="12.0" fx:id="x2" />
           </font>
         </Text>
         <ImageView fitHeight="22.986572265625" fitWidth="22.986572265625" layoutX="25.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true">
@@ -37,9 +37,18 @@
             <Image url="@../../../../../../../Desktop/IMMAGINI%20UNICAL%20TALES/Pallino_rosso.png" />
           </image>
         </ImageView>
-        <Button layoutX="289.0" layoutY="140.0" mnemonicParsing="false" prefWidth="48.9761962890625" text="Yes" textFill="#99fff3" />
+        <Button layoutX="289.0" layoutY="140.0" mnemonicParsing="false" prefWidth="48.9761962890625" text="Yes" textFill="#00ff29" />
         <Button layoutX="338.0" layoutY="140.0" mnemonicParsing="false" prefWidth="48.976174218747474" text="No" textFill="RED" />
         <Button defaultButton="true" layoutX="503.0" layoutY="443.0" mnemonicParsing="false" prefHeight="29.9609375" prefWidth="70.0" text="Back" textOverrun="CLIP" />
+        <ImageView fitHeight="22.986572265625" fitWidth="22.986572265625" layoutX="25.0" layoutY="227.0" pickOnBounds="true" preserveRatio="true">
+          <image>
+            <Image url="@../../../../../../../Desktop/IMMAGINI%20UNICAL%20TALES/Pallino_rosso.png" />
+          </image>
+        </ImageView>
+        <Text fill="$x1" font="$x2" layoutX="80.0" layoutY="240.0" scaleX="4.282750162230856" scaleY="3.631424375917768" strokeType="OUTSIDE" strokeWidth="0.0" text="Difficulty" textAlignment="CENTER" x="40.0" />
+        <Button layoutX="267.0" layoutY="226.0" mnemonicParsing="false" text="Easy" textFill="#43ff33" />
+        <Button layoutX="311.0" layoutY="226.0" mnemonicParsing="false" text="Medium" textFill="#0066ff" />
+        <Button layoutX="376.0" layoutY="226.0" mnemonicParsing="false" text="Hard" textFill="RED" />
       </children>
       <effect>
         <Blend />
