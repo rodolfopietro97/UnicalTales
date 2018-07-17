@@ -28,7 +28,7 @@ public class GlobalValues implements Serializable {
 	 * Describe the game implementation of business logic.
 	 * For example we know if is Swing/Awt Implementation, LibGDX Implementation, and others...
 	 */
-	public static int IMPLEMENTATION = 2; // Swing And Awt of Default
+	public static int IMPLEMENTATION = 1; // Swing And Awt of Default
 	public static final int SWING_AWT_IMPLEMENTATION = 0;
 	public static final int JAVAFX_IMPLEMENTATION = 1;
 	public static final int LIBGDX_IMPLEMENTATION = 2;
@@ -54,8 +54,7 @@ public class GlobalValues implements Serializable {
 	public static boolean EXIT_GAME = false;
 	
 	/**
-	 * The type of Screen that "say us" in wi			primaryStage.setMinWidth();
-			primaryStage.setMinHeight();ch screen we are
+	 * The type of Screen that "told us" in which screen we are
 	 */
 	public static ScreenTipe SCREEN_TIPE = ScreenTipe.INITIAL;
 	
@@ -115,7 +114,7 @@ public class GlobalValues implements Serializable {
 	/**
 	 * Difficult of game
 	 */
-	public static DifficultType GAME_DIFFICULT = DifficultType.HARD;
+	public static DifficultType GAME_DIFFICULT = DifficultType.EASY;
 	
 	/**
 	 * This function get the path of resources 

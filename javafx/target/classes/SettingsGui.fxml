@@ -1,20 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.effect.*?>
-<?import javafx.geometry.*?>
 <?import java.lang.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 
-<StackPane prefHeight="212.0" prefWidth="365.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #00A1EB;">
-         <StackPane.margin>
-            <Insets />
-         </StackPane.margin>
-         <effect>
-            <Blend />
-         </effect></Pane>
-   </children>
+<StackPane prefHeight="483.0" prefWidth="598.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicaltales.businesslogic.gameguis.SettingsGuiController">
+	<children>
+		<Pane minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="600.0" style="-fx-background-color: #3f3f3f;">
+			<children>
+				<ImageView id="header_img" fitHeight="79.0" fitWidth="79.0" layoutX="501.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Settings-icon.png" />
+               </image>
+				</ImageView>
+				<Text id="header" blendMode="SRC_ATOP" fontSmoothingType="GRAY" layoutX="128.0" layoutY="48.0" scaleX="6.646726663137462" scaleY="6.012236906510034" strikethrough="false" stroke="#606060" strokeType="OUTSIDE" strokeWidth="0.5" text="Settings" textAlignment="CENTER" underline="false" wrappingWidth="40.191749572753906" x="10.0" y="10.0">
+					<fill>
+						<Color blue="1.000" green="0.856" red="0.600" fx:id="x1" />
+					</fill>
+					<font>
+						<Font size="8.0" />
+					</font>
+				</Text>
+				<Text fill="$x1" layoutX="82.0" layoutY="182.0" scaleX="4.282750162230856" scaleY="3.631424375917768" strokeType="OUTSIDE" strokeWidth="0.0" text="Full Screen" textAlignment="CENTER" x="40.0">
+					<font>
+						<Font size="7.0" fx:id="x2" />
+					</font>
+				</Text>
+				<ImageView fitHeight="22.986572265625" fitWidth="22.986572265625" layoutX="25.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
+					<image> <Image url="@Pallino_rosso.png" /> </image>
+				</ImageView>
+				<Button id="btnFullScreenYes" fx:id="btnFullScreenYes" layoutX="246.0" layoutY="168.0" mnemonicParsing="false" onMouseClicked="#enableFullScreen" prefHeight="25.0" prefWidth="109.0" styleClass="buttons" stylesheets="@SettingsGuiStyle.css" text="Yes" textFill="#00ff29" />
+				<Button id="btnFullScreenNo" fx:id="btnFullScreenNo" layoutX="355.0" layoutY="168.0" mnemonicParsing="false" onMouseClicked="#disableFullScreen" prefHeight="25.0" prefWidth="109.0" styleClass="buttons" stylesheets="@SettingsGuiStyle.css" text="No" textFill="RED" />
+				<ImageView fitHeight="22.986572265625" fitWidth="22.986572265625" layoutX="25.0" layoutY="227.0" pickOnBounds="true" preserveRatio="true">
+					<image> <Image url="@Pallino_rosso.png" /> </image>
+				</ImageView>
+				<Text fill="$x1" font="$x2" layoutX="70.0" layoutY="239.0" scaleX="4.282750162230856" scaleY="3.631424375917768" strokeType="OUTSIDE" strokeWidth="0.0" text="Difficulty" textAlignment="CENTER" x="40.0" />
+				<Button id="btnDifficultEasy" fx:id="btnDifficultEasy" layoutX="246.0" layoutY="225.0" mnemonicParsing="false" onMouseClicked="#difficultEasy" prefHeight="25.0" prefWidth="109.0" styleClass="buttons" stylesheets="@SettingsGuiStyle.css" text="Easy" textFill="#43ff33" />
+				<Button id="btnDifficultMedium" fx:id="btnDifficultMedium" layoutX="355.0" layoutY="225.0" mnemonicParsing="false" onMouseClicked="#difficultMedium" prefHeight="25.0" prefWidth="109.0" styleClass="buttons" stylesheets="@SettingsGuiStyle.css" text="Medium" textFill="#0066ff" />
+				<Button id="btnDifficultHard" fx:id="btnDifficultHard" layoutX="464.0" layoutY="225.0" mnemonicParsing="false" onMouseClicked="#difficultHard" prefHeight="25.0" prefWidth="109.0" styleClass="buttons" stylesheets="@SettingsGuiStyle.css" text="Hard" textFill="RED" />
+				<ImageView fitHeight="22.986572265625" fitWidth="22.986572265625" layoutX="25.0" layoutY="281.0" pickOnBounds="true" preserveRatio="true">
+					<image> <Image url="@Pallino_rosso.png" /> </image>
+				</ImageView>
+				<Text fill="$x1" font="$x2" layoutX="120.0" layoutY="293.0" scaleX="4.282750162230856" scaleY="3.631424375917768" strokeType="OUTSIDE" strokeWidth="0.0" text="Framework" />
+				<Button id="btnImplementaationSwingAwt" fx:id="btnImplementaationSwingAwt" layoutX="246.0" layoutY="277.0" mnemonicParsing="false" onMouseClicked="#useSwingAwt" prefHeight="25.0" prefWidth="109.0" styleClass="buttons" stylesheets="@SettingsGuiStyle.css" text="SWING/AWT" textFill="RED" />
+				<Button id="btnImplementaationJavaFx" fx:id="btnImplementaationJavaFx" layoutX="355.0" layoutY="277.0" mnemonicParsing="false" onMouseClicked="#useJavaFx" prefWidth="109.0" styleClass="buttons" stylesheets="@SettingsGuiStyle.css" text="JAVAFX" textAlignment="CENTER" textFill="#33ff54" />
+				<Button id="btnImplementaationLibGdx" fx:id="btnImplementaationLibGdx" layoutX="464.0" layoutY="277.0" mnemonicParsing="false" onMouseClicked="#useLibGdx" prefWidth="109.0" styleClass="buttons" stylesheets="@SettingsGuiStyle.css" text="LIBGDX" textFill="#0029ff" />
+			</children>
+			<effect>
+				<Blend />
+			</effect>
+			<StackPane.margin>
+				<Insets />
+			</StackPane.margin>
+		</Pane>
+	</children>
 </StackPane>

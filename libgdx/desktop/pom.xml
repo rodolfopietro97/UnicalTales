@@ -41,7 +41,7 @@
 	</dependencies>
 
 	<build>
-		<resources>
+ 		<resources>
 			<resource>
 				<directory>../../businesslogic/src/main/imagesResources</directory>
 			</resource>
@@ -54,7 +54,7 @@
 			<resource>
 				<directory>../../businesslogic/src/main/otherResources</directory>
 			</resource>
-		</resources>
+		</resources> 
 
 		<plugins>
 			<!-- this run the game when you invoke: mvn integration-test -Pdesktop -->
