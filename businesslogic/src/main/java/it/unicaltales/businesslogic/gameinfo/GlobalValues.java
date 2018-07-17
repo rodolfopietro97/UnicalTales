@@ -54,8 +54,7 @@ public class GlobalValues implements Serializable {
 	public static boolean EXIT_GAME = false;
 	
 	/**
-	 * The type of Screen that "say us" in wi			primaryStage.setMinWidth();
-			primaryStage.setMinHeight();ch screen we are
+	 * The type of Screen that "told us" in which screen we are
 	 */
 	public static ScreenTipe SCREEN_TIPE = ScreenTipe.INITIAL;
 	
@@ -123,13 +122,24 @@ public class GlobalValues implements Serializable {
 	 */
 	public String getResourcesPath() {
 		if (GlobalValues.IMPLEMENTATION == LIBGDX_IMPLEMENTATION) {
-			return "../../businesslogic/src/main/imagesResources/";	
+			if(DEFAULT_LAUNCHER) return "../businesslogic/src/main/imagesResources/";
+			else return "../../businesslogic/src/main/imagesResources/";	
 		}
 		else if(GlobalValues.IMPLEMENTATION == SWING_AWT_IMPLEMENTATION) {
 			return "../businesslogic/src/main/nonInterlaccedImagesResources/";
 		}
 		return "../businesslogic/src/main/imagesResources/";
 	}
+	
+	/**
+	 * This value told to us, if we re running the application with de default
+	 * launcher project, or we are running the project in different
+	 * singular mode. It is automatically setted by {@code GameLauncher}
+	 * @see it is useful for libgdx implementation. Because
+	 * Libgdx desktop implemmentation have a different folder
+	 * level, and if we launche it with reflection the asset path change
+	 */
+	public static boolean DEFAULT_LAUNCHER = false;
 
 
 }

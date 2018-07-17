@@ -3,31 +3,16 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>it.unicaltales</groupId>
-  <artifactId>businesslogic</artifactId>
+  <artifactId>launcher</artifactId>
   <version>1.0</version>
   <packaging>jar</packaging>
 
-  <name>businesslogic</name>
+  <name>launcher</name>
   <url>http://maven.apache.org</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
-
-	<build>
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-compiler-plugin</artifactId>
-					<configuration>
-						<source>1.8</source>
-						<target>1.8</target>
-					</configuration>
-				</plugin>
-			</plugins>
-		</pluginManagement>
-	</build>
 
   <dependencies>
     <dependency>
@@ -36,6 +21,25 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+    	<groupId>it.unicaltales</groupId>
+    	<artifactId>libgdx-desktop</artifactId>
+    	<version>1.0</version>
+    </dependency>
+    <dependency>
+    	<groupId>it.unicaltales</groupId>
+    	<artifactId>businesslogic</artifactId>
+    	<version>1.0</version>
+    </dependency>
+    <dependency>
+    	<groupId>it.unicaltales</groupId>
+    	<artifactId>swingawt</artifactId>
+    	<version>1.0</version>
+    </dependency>
+    <dependency>
+    	<groupId>it.unicaltales</groupId>
+    	<artifactId>javafx</artifactId>
+    	<version>1.0</version>
+    </dependency>
   </dependencies>
-  <description>Business Logic of game</description>
 </project>

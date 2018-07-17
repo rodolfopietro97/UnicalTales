@@ -92,29 +92,29 @@ public class SingleGamePlayer extends Player {
 		switch (GlobalValues.GAME_DIFFICULT) {
 		case EASY:
 			GlobalValues.DIFFICULT_FACTOR = 0;
-			putSprite("nemico", new GameEnemy(new GlobalValues().getAssetPath("enemy.png")));
-			putSprite("nemico2", new GameEnemy(new GlobalValues().getAssetPath("enemy.png")));
+			putSprite("nemico", new GameEnemy(new GlobalValues().getAssetPath("Greco.png")));
+			putSprite("nemico2", new GameEnemy(new GlobalValues().getAssetPath("Scalzo.png")));
 			enemiesManager.putEemies((GameEnemy) getSprite("nemico"), (GameEnemy) getSprite("nemico2"));
 			break;
 
 		case MEDIUM:
 			GlobalValues.DIFFICULT_FACTOR = 2;
-			putSprite("nemico", new GameEnemy(new GlobalValues().getAssetPath("enemy.png")));
-			putSprite("nemico2", new GameEnemy(new GlobalValues().getAssetPath("enemy.png")));
-			putSprite("nemico3", new GameEnemy(new GlobalValues().getAssetPath("enemy.png")));
-			putSprite("nemico4", new GameEnemy(new GlobalValues().getAssetPath("enemy.png")));
+			putSprite("nemico", new GameEnemy(new GlobalValues().getAssetPath("Greco.png")));
+			putSprite("nemico2", new GameEnemy(new GlobalValues().getAssetPath("Scalzo.png")));
+			putSprite("nemico3", new GameEnemy(new GlobalValues().getAssetPath("Greco.png")));
+			putSprite("nemico4", new GameEnemy(new GlobalValues().getAssetPath("Scalzo.png")));
 			enemiesManager.putEemies((GameEnemy) getSprite("nemico"), (GameEnemy) getSprite("nemico2"),
 					(GameEnemy) getSprite("nemico3"), (GameEnemy) getSprite("nemico4"));
 			break;
 
 		case HARD:
 			GlobalValues.DIFFICULT_FACTOR = 3;
-			putSprite("nemico", new GameEnemy(new GlobalValues().getAssetPath("enemy.png")));
-			putSprite("nemico2", new GameEnemy(new GlobalValues().getAssetPath("enemy.png")));
-			putSprite("nemico3", new GameEnemy(new GlobalValues().getAssetPath("enemy.png")));
-			putSprite("nemico4", new GameEnemy(new GlobalValues().getAssetPath("enemy.png")));
-			putSprite("nemico5", new GameEnemy(new GlobalValues().getAssetPath("enemy.png")));
-			putSprite("nemico6", new GameEnemy(new GlobalValues().getAssetPath("enemy.png")));
+			putSprite("nemico", new GameEnemy(new GlobalValues().getAssetPath("Greco.png")));
+			putSprite("nemico2", new GameEnemy(new GlobalValues().getAssetPath("Scalzo.png")));
+			putSprite("nemico3", new GameEnemy(new GlobalValues().getAssetPath("Greco.png")));
+			putSprite("nemico4", new GameEnemy(new GlobalValues().getAssetPath("Scalzo.png")));
+			putSprite("nemico5", new GameEnemy(new GlobalValues().getAssetPath("Greco.png")));
+			putSprite("nemico6", new GameEnemy(new GlobalValues().getAssetPath("Scalzo.png")));
 			enemiesManager.putEemies((GameEnemy) getSprite("nemico"), (GameEnemy) getSprite("nemico2"),
 					(GameEnemy) getSprite("nemico3"), (GameEnemy) getSprite("nemico4"),
 					(GameEnemy) getSprite("nemico5"), (GameEnemy) getSprite("nemico6"));

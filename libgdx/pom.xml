@@ -107,6 +107,22 @@
 	</repositories>
 
 	<build>
+
+		<resources>
+			<resource>
+				<directory>../businesslogic/src/main/imagesResources</directory>
+			</resource>
+			<resource>
+				<directory>../businesslogic/src/main/imagesResources/characterRendering</directory>
+			</resource>
+			<resource>
+				<directory>../businesslogic/src/main/audioResources</directory>
+			</resource>
+			<resource>
+				<directory>../businesslogic/src/main/otherResources</directory>
+			</resource>
+		</resources>
+	
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
