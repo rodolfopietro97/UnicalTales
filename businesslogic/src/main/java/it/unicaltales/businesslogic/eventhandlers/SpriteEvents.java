@@ -7,7 +7,7 @@ import it.unicaltales.businesslogic.core.Sprite;
 
 /**
  * @author rodolfo
- * Class that manage SpriteEvents, such as collision between two Sprites
+ * Class that manages SpriteEvents, such as collision between two Sprites
  */
 public class SpriteEvents {
 	

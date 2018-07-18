@@ -11,7 +11,6 @@ import javax.swing.JFrame;
 import it.unicaltales.businesslogic.gameinfo.GlobalValues;
 
 /**
- * @author rodolfo
  * Main Frame of Swing and Awt 2d Simple Graphics implementation
  */
 public class MainFrame extends JFrame{
@@ -23,25 +22,25 @@ public class MainFrame extends JFrame{
 		
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setTitle(GlobalValues.WINDOW_TITLE);
-		// prendo le dimensioni dello schermo
+		// get size of the screen
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize(); // screen size
-		// se imposto fullscreen
+		// if I set fullScreen
 		if(GlobalValues.FULL_SCREEN) {
-			// setto la size window con le dimensioni dello schermo
+			// set size window as screen size
 			GlobalValues.SIZE_WINDOW.setWidth((float) screenSize.getWidth());
 			GlobalValues.SIZE_WINDOW.setHeight((float) screenSize.getHeight());
-			// setto la finestra
+			// set window
 			setSize(screenSize);
 			setLocation(0, 0);
 			setExtendedState(JFrame.MAXIMIZED_BOTH);
 			setUndecorated(true);
 		}
-		// se non imposto fullscreen
+		// if I don't set fullScreen
 		else {
 			int tempWindowWidth = (int) GlobalValues.SIZE_WINDOW.getWidth();
 			int tempWindowHeight = (int) GlobalValues.SIZE_WINDOW.getHeight();
 			setSize(tempWindowWidth, tempWindowHeight);
-			// la posiziono al centro
+			// Put it in the centre
 			setLocation((int) (screenSize.getWidth() - tempWindowWidth)/2, 
 					    (int) (screenSize.getHeight() - tempWindowHeight)/2);
 			setResizable(GlobalValues.RESIZABLE);
@@ -50,7 +49,7 @@ public class MainFrame extends JFrame{
 		}
 
 		/*
-		 * Setto il pannello di gioco del progetto.
+		 *  set game panel of the project
 		 */
 		MainPanel gamePanel = new MainPanel();
 		gamePanel.setFocusable(true);

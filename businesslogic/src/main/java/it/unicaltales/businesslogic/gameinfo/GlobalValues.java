@@ -9,7 +9,7 @@ import it.unicaltales.businesslogic.core.Size;
 
 /**
  * @author rodolfo
- * Class that contain static game information such as:
+ * Class that contains static game information such as:
  * Window size, game API, scores, and global informations...
  */
 public class GlobalValues implements Serializable {
@@ -49,7 +49,7 @@ public class GlobalValues implements Serializable {
 	public static final String WINDOW_TITLE = "Unical Tales";
 	
 	/**
-	 * Ci dice se il gioco è terminato o meno
+	 * Tell us if game is over or if it's  not
 	 */
 	public static boolean EXIT_GAME = false;
 	

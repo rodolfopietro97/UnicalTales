@@ -42,7 +42,7 @@ public class LibGdx implements ApplicationListener {
 	/**
 	 * Store the images to draw. It is very useful,
 	 * in fact in howToDraw if we make a new Texture
-	 * every time, the program will be very slowly
+	 * every time, the program will be very slow
 	 */
 	private ImagesManager imagesToDraw;
 

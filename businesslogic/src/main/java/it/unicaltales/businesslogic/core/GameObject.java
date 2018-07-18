@@ -5,7 +5,7 @@ package it.unicaltales.businesslogic.core;
 
 /**
  * @author rodolfo
- * This class represent a tipical GameObject that has
+ * This class represents a GameObject that has
  * Position, Size.
  */
 public abstract class GameObject {
@@ -24,8 +24,8 @@ public abstract class GameObject {
 	
 	
 	/**
-	 * @param position of object
-	 * @param size of object
+	 * @param position of the object
+	 * @param size of the object
 	 */
 	public GameObject(Position position, Size size) {
 		this.position = position;
@@ -35,10 +35,10 @@ public abstract class GameObject {
 	
 	/**
 	 * Constructor with parameters
-	 * @param x position of object
-	 * @param y position of object
-	 * @param width of object
-	 * @param height of object
+	 * @param x position of the object
+	 * @param y position of the object
+	 * @param width of the object
+	 * @param height of the object
 	 */
 	public GameObject(float x, float y, float width, float height){
 		this.position = new Position(x,y);
@@ -50,14 +50,14 @@ public abstract class GameObject {
 	 */
 	
 	/**
-	 * @return the position
+	 * @return position, get the position
 	 */
 	public Position getPosition() {
 		return position;
 	}
 
 	/**
-	 * @param position the position to set
+	 * @param position to set
 	 */
 	public void setPosition(Position position) {
 		this.position = position;
@@ -74,14 +74,14 @@ public abstract class GameObject {
 	}
 	
 	/**
-	 * @return the size
+	 * @return size
 	 */
 	public Size getSize() {
 		return size;
 	}
 
 	/**
-	 * @param size the size to set
+	 * @param size to set
 	 */
 	public void setSize(Size size) {
 		this.size = size;

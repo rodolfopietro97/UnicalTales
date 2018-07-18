@@ -8,7 +8,7 @@ package it.unicaltales.businesslogic.eventhandlers;
  * 		   This class manages hardware events. This class depends by the
  *         framework. It is refreshed cyclically because every time we know if
  *         a key is pressed, if mouse is clicked, ... this class contains all
- *         events we need for game
+ *         events we need for the game
  *         
  * @see { justPressed and pressed are different! }       
  * 
@@ -127,7 +127,7 @@ public class HardwareEvents {
 	
 	/**
 	 * Relase a key
-	 * @see {this function there isn't for justKeys. In fact, justKeys,
+	 * @see {this function does not exists for justKeys. In fact, justKeys,
 	 * 		 where handled by resetHardwareEvents() }
 	 * @param key to relase
 	 */

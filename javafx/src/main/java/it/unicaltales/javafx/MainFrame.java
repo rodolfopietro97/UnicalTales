@@ -34,14 +34,11 @@ import it.unicaltales.businesslogic.gameinfo.GlobalValues;
 import it.unicaltales.businesslogic.players.PlayerManager;
 
 
-/**
- * @author rodolfo
- * 
- */
+
 public class MainFrame extends Application{
 
 	/**
-	 * Canvas component which we used to draw
+	 * Canvas component that we used to draw
 	 */
 	private Canvas gameCanvas;
 	
@@ -68,7 +65,7 @@ public class MainFrame extends Application{
 	/**
 	 * Store the images to draw. It is very useful,
 	 * in fact in howToDraw if we make a new Texture
-	 * every time, the program will be very slowly
+	 * every time, the program will be very slow
 	 */
 	private ImagesManager imagesToDraw;
 	
@@ -138,7 +135,7 @@ public class MainFrame extends Application{
 			public void handle(long now) {
 				updateDraw();
 	    		/*
-	    		 * Refreeshing delle globalvalues
+	    		 * Refreshing of globalvalues
 	    		 */
 	    		if(GlobalValues.RESIZABLE) {
 	    			GlobalValues.SIZE_WINDOW.setWidth((float) primaryStage.getWidth());

@@ -22,8 +22,8 @@ import it.unicaltales.businesslogic.gameinfo.GlobalValues;
  * Class which we use for draw renderings.
  * The renderings are a series of images,
  * that simulated movement.
- * this class views all images ina path and draw
- * sequentialli it
+ * this class views all images in a path and draw
+ * Sequentially it
  *
  */
 public class MyRendering extends Sprite{
@@ -34,8 +34,8 @@ public class MyRendering extends Sprite{
 	ArrayList<MyImage> images;
 	
 	/**
-	 * Is the index of rendering to draw,
-	 * it auto increment every call of getRenderingIndex
+	 * It is the index of rendering to draw,
+	 * it auto increments every call of getRenderingIndex
 	 */
 	int renderingIndex;
 	

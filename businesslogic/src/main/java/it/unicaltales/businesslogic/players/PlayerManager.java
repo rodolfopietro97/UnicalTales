@@ -8,7 +8,7 @@ import it.unicaltales.businesslogic.eventhandlers.HardwareEvents;
 import it.unicaltales.businesslogic.gameinfo.GlobalValues;
 
 /**
- * @author rodolfo This class Represent which player will be executed, indipendently of the
+ * 		   This class Represents which player will be executed, independently of the
  *         framework. It use the business logic to make the principal Game
  */
 public class PlayerManager {
@@ -36,7 +36,7 @@ public class PlayerManager {
 	/**
 	 * Empty Constructor
 	 * @param spriteDraw that depend by framework we use
-	 * @param hardwareEvents that depend by framwrork
+	 * @param hardwareEvents that depend by framework
 	 */
 	public PlayerManager(SpriteDraw spriteDraw , HardwareEvents hardwareEvents) {
 		/*
@@ -50,12 +50,12 @@ public class PlayerManager {
 		this.hardwareEvents = hardwareEvents;
 		
 		/*
-		 * Initializze the initial screen
+		 * Initialize the initial screen
 		 */
 		initialScreenPlayer = new InitialScreenPlayer(this.spriteDraw, this.hardwareEvents);
 
 		/*
-		 * Initializze the single game player
+		 * Initialize the single game player
 		 */
 		singleGamePlayer = new SingleGamePlayer(this.spriteDraw, this.hardwareEvents);
 		
@@ -81,7 +81,7 @@ public class PlayerManager {
 	}
 	
 	/**
-	 * Function that refresh input on every iteration of loop
+	 * Function that refreshes input on every iteration of loop
 	 * @param hardwareEvents that we refresh every cycle of loop
 	 */
 	public void refreshHardwareEvents(HardwareEvents hardwareEvents) {

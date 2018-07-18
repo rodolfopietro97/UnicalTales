@@ -22,8 +22,8 @@ import it.unicaltales.businesslogic.players.components.GameCharacter;
 import it.unicaltales.businesslogic.players.components.GameEnemy;
 
 /**
- * @author rodolfo
- * This class rapresent a GamePlayer. (When you click play game)
+ * @author Camillo
+ * This class represents a GamePlayer. (When you click play game)
  *
  */
 public class SingleGamePlayer extends Player{

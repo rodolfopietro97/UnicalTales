@@ -1,6 +1,6 @@
 /**
  * @author rodolfo
- * This packgage contains globals values and generical informations 
+ * This package contains globals values and generic informations 
  * about game.
  */
 package it.unicaltales.businesslogic.gameinfo;

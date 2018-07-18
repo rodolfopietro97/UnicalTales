@@ -15,7 +15,7 @@ import it.unicaltales.businesslogic.gameinfo.GlobalValues;
 
 /**
  * @author Camillo
- * This class represent a game character.
+ * This class represents a game character.
  */
 public class GameCharacter extends MyRendering{
 	

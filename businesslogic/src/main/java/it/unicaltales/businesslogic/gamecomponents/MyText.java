@@ -9,7 +9,7 @@ import it.unicaltales.businesslogic.core.Sprite;
 
 public class MyText extends Sprite{
 	/**
-	 * Text that appear
+	 * Text that appears
 	 */
 	private String text;
 	
@@ -20,7 +20,7 @@ public class MyText extends Sprite{
 	
 	
 	/**
-	 * If the font is centred
+	 * If the font is centered
 	 */
 	private boolean centred;
 
@@ -38,7 +38,7 @@ public class MyText extends Sprite{
 	 * @param y of the text
 	 * @param fontSize of Text
 	 * @param text of the text
-	 * @param centred if the text is centred
+	 * @param centred if the text is centered
 	 */
 	public MyText(float x, float y, float fontSize, String text, boolean centred) {
 		super(x, y, 0, 0, "/");
@@ -52,7 +52,7 @@ public class MyText extends Sprite{
 	 * @param position of the text
 	 * @param size of the font
 	 * @param text of text
-	 * @param centred if the text is centred
+	 * @param centred if the text is centered
 	 */
 	public MyText(Position position, float fontSize, String text, boolean centred) {
 		super(position, new Size(), "/");
@@ -94,14 +94,14 @@ public class MyText extends Sprite{
 	}
 
 	/**
-	 * @return the centred
+	 * @return the centered
 	 */
 	public boolean isCentred() {
 		return centred;
 	}
 
 	/**
-	 * @param centred the centred to set
+	 * @param centred the centered to set
 	 */
 	public void setCentred(boolean centred) {
 		this.centred = centred;

@@ -17,7 +17,7 @@ import it.unicaltales.businesslogic.gameinfo.GlobalValues;
 
 /**
  * @author rodolfo
- * General definition of a Player, which will be implemented by differents players.
+ * General definition of a Player, which will be implemented by different players.
  */
 public abstract class Player {
 	/**
@@ -26,17 +26,17 @@ public abstract class Player {
 	protected SpriteDraw spriteDraw;
 
 	/**
-	 * HardwareEvents that depend bye framework 
+	 * HardwareEvents that depends by framework 
 	 */
 	protected HardwareEvents hardwareEvents;
 	
 	/**
-	 * Manage the Sprite Events
+	 * Manages Sprite Events
 	 */
 	protected SpriteEvents spriteEvents;
 	
 	/**
-	 * Maps of Sprites that will be used by Player derivates class
+	 * Maps of Sprites that will be used by Player derivated class
 	 */
 	private HashMap<String, Sprite> spriteMap;
 	
@@ -44,17 +44,17 @@ public abstract class Player {
 	/**
 	 * Constructor with parameters
 	 * @param spriteDraw to use. For example Awt use Graphics
-	 * @param hardwareEvents that depend by framwrork
+	 * @param hardwareEvents that depends by framwrork
 	 */
 	public Player(SpriteDraw spriteDraw , HardwareEvents hardwareEvents) {
 		/*
-		 * Init members dipendently framework
+		 * Init members dependently framework
 		 */
 		this.spriteDraw = spriteDraw;
 		this.hardwareEvents = hardwareEvents;
 		
 		/*
-		 * Init members Indipendently by framework
+		 * Init members Independently by framework
 		 */
 		spriteMap = new HashMap<String, Sprite>();
 		

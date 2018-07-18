@@ -39,7 +39,7 @@ import javafx.scene.input.KeyCode;
 public class MainPanel extends JPanel {
 
 	/**
-	 * The Player that make the game with business logic component's, indipendently
+	 * The Player that make the game with business logic component's, independently
 	 * by framework
 	 */
 	PlayerManager playerScreenManager;
@@ -53,7 +53,7 @@ public class MainPanel extends JPanel {
 	/**
 	 * Store the images to draw. It is very useful,
 	 * in fact in howToDraw if we make a new Texture
-	 * every time, the program will be very slowly
+	 * every time, the program will be very slow
 	 */
 	private ImagesManager imagesToDraw;
 
@@ -61,13 +61,12 @@ public class MainPanel extends JPanel {
 	 * Empty Constructor
 	 */
 	public MainPanel() {
-		GlobalValues.CHARACTER_SPEED+=4; // nelle swing per il maggiore delay, aumentiamo sempre di 4 (valore sperimentale) la velocità
-
+		GlobalValues.CHARACTER_SPEED+=4; // In swing, for a better delay, we always increment speed by 4(experimental value) 
 		
-		// setto il background
+		// set background
 		setBackground(Color.WHITE);
 
-		// Inizializzo l' hardware events
+		// initialize hardwer events
 		hardwareEvents = new HardwareEvents();
 		imagesToDraw = new ImagesManager();
 		
@@ -109,7 +108,7 @@ public class MainPanel extends JPanel {
 
 		
 		/*
-		 * Dice cosa fare ad hardware events (MOUSE NON IN MOVIMENTO)
+		 * tells what to do to hardwareEvents (MOUSE NOT MOVING)
 		 */
 		addMouseListener(new MouseListener() {
 			@Override
@@ -127,7 +126,7 @@ public class MainPanel extends JPanel {
 		});
 		
 		/*
-		 * Dice cosa fare ad hardware events (MOUSE IN MOVIMENTO)
+		 * tells what to do to hardwareEvents (MOUSE MOVING)
 		 */
 		addMouseMotionListener(new MouseMotionListener() {
 			@Override
@@ -140,7 +139,7 @@ public class MainPanel extends JPanel {
 		});
 
 		/*
-		 * Dice cosa fare ad hardware events (Tastiera)
+		 *tells what to do to hardwareEvents (KEYBORD)
 		 */
 		addKeyListener(new KeyListener() {
 			@Override
@@ -193,7 +192,7 @@ public class MainPanel extends JPanel {
 	 */
 	private void refresh() {
 		/*
-		 * Esegue lo sleep
+		 * runs the sleep
 		 */
 		try {
 			Thread.currentThread().sleep(1);
@@ -204,7 +203,7 @@ public class MainPanel extends JPanel {
 		}
 
 		/*
-		 * Esegue il repaint
+		 * runs the repaint
 		 */
 		repaint();
 		
@@ -214,7 +213,7 @@ public class MainPanel extends JPanel {
 		hardwareEvents.resetHardwareEvents();
 		
 		/*
-		 * Refreeshing delle globalvalues
+		 * Refreshing of globalvalues
 		 */
 		if(GlobalValues.RESIZABLE) {
 			GlobalValues.SIZE_WINDOW.setWidth((int)getWidth());

@@ -35,28 +35,28 @@ public class Position {
 	 */
 
 	/**
-	 * @return the x
+	 * @return x
 	 */
 	public float getX() {
 		return x;
 	}
 
 	/**
-	 * @param x the x to set
+	 * @param x, x to set
 	 */
 	public void setX(float x) {
 		this.x = x;
 	}
 
 	/**
-	 * @return the y
+	 * @return y
 	 */
 	public float getY() {
 		return y;
 	}
 
 	/**
-	 * @param y the y to set
+	 * @param y, y to set
 	 */
 	public void setY(float y) {
 		this.y = y;

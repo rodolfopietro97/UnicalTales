@@ -8,7 +8,7 @@ import it.unicaltales.businesslogic.gamecomponents.MyText;
 import it.unicaltales.businesslogic.gameinfo.GlobalValues;
 
 /**
- * @author rodolfo
+ * @author Camillo
  * Class that drive a sprite
  */
 public class SpriteDraw {

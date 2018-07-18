@@ -6,8 +6,7 @@
  * or touch.
  * The event handlers were modified in runtime by the framework we choose to used.
  * 
- * In this package there aren't not only hardware events. in this package
- * we can found not only hardware events. In fact there are sprite events and
- * a lot of useful event handler of any kind .
+ * In this package there aren't not only hardware events. In fact there are sprite events and
+ * a lot of useful event handler of any type .
  */
 package it.unicaltales.businesslogic.eventhandlers;

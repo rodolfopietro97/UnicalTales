@@ -29,7 +29,7 @@ public class InitialScreenPlayer extends Player {
 	/**
 	 * Constructor with parameters
 	 * @param spriteDraw to use. For example Awt use Graphics
-	 * @param hardwareEvents that depend by framwrork
+	 * @param hardwareEvents that depends by framwrork
 	 */
 	public InitialScreenPlayer(SpriteDraw spriteDraw, HardwareEvents hardwareEvents) {
 		super(spriteDraw, hardwareEvents);
