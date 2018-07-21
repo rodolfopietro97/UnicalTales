@@ -18,7 +18,7 @@ import it.unicaltales.businesslogic.gameinfo.GlobalValues;
 
 /**
  * @author rodolfo
- * General definition of a Player, which will be implemented by differents players.
+ * General definition of a Player, which will be implemented by different players.
  */
 public abstract class Player {
 	/**
@@ -27,17 +27,17 @@ public abstract class Player {
 	protected SpriteDraw spriteDraw;
 
 	/**
-	 * HardwareEvents that depend bye framework 
+	 * HardwareEvents that depends by framework 
 	 */
 	protected HardwareEvents hardwareEvents;
 	
 	/**
-	 * Manage the Sprite Events
+	 * Manages the Sprite Events
 	 */
 	protected SpriteEvents spriteEvents;
 	
 	/**
-	 * Maps of Sprites that will be used by Player derivates class
+	 * Maps of Sprites that will be used by Player derived classes
 	 */
 	private HashMap<String, Sprite> spriteMap;
 	
@@ -54,13 +54,13 @@ public abstract class Player {
 	 */
 	public Player(SpriteDraw spriteDraw , HardwareEvents hardwareEvents) {
 		/*
-		 * Init members dipendently framework
+		 * Init members dependently by framework
 		 */
 		this.spriteDraw = spriteDraw;
 		this.hardwareEvents = hardwareEvents;
 		
 		/*
-		 * Init members Indipendently by framework
+		 * Init members independently by framework
 		 */
 		spriteMap = new HashMap<String, Sprite>();
 		
@@ -70,7 +70,7 @@ public abstract class Player {
 	
 	/**
 	 * loop of initial screen
-	 * @param drawerComponent to use for draw
+	 * @param drawerComponent used to draw
 	 */
 	public void loop(Object drawerComponent) {
 		this.drawerComponent = drawerComponent;
@@ -82,22 +82,22 @@ public abstract class Player {
 	
 	/**
 	 * Draw part of loop
-	 * @param drawerComponent to use for draw
+	 * @param drawerComponent used to draw
 	 */
 	public void draw(Object drawerComponent) {
 		this.drawerComponent = drawerComponent;
 
 		for(String s : spriteMap.keySet()) {
 			/*
-			 * Draw a image sprite
+			 * Draws a image sprite
 			 */
 			if(spriteMap.get(s) instanceof MyImage) spriteDraw.drawImage((MyImage) spriteMap.get(s), drawerComponent);
 			/*
-			 * Draw s text sprite
+			 * Draws s text sprite
 			 */
 			if(spriteMap.get(s) instanceof MyText) spriteDraw.drawText((MyText) spriteMap.get(s), drawerComponent);
 			/*
-			 * Draw s rendering sprite
+			 * Draws a rendering sprite
 			 */
 			if(spriteMap.get(s) instanceof MyRendering) {
 				MyRendering tempRendering = (MyRendering) spriteMap.get(s);
@@ -112,7 +112,7 @@ public abstract class Player {
 	public abstract void manageEvents();
 	
 	/**
-	 * Function that refresh Hardware Events on every iteration of loop
+	 * Function that refreshes Hardware Events on every iteration of loop
 	 * @param hardwareEvents that we refresh every cycle of loop
 	 */
 	public void refreshHardwareEvents(HardwareEvents hardwareEvents) {

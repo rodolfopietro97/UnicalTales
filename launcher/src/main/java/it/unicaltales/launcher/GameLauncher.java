@@ -8,8 +8,8 @@ import it.unicaltales.businesslogic.settingsmanager.SettingsFileReader;
 
 /**
  * Main of game.
- * This class use reflection to run
- * the different implementation
+ * This class uses reflection to run
+ * the different implementations
  */
 public class GameLauncher 
 {
@@ -19,6 +19,7 @@ public class GameLauncher
      */
     public static void main( String[] args )
     {
+<<<<<<< HEAD
 		// inizializza le globbalvalues (IMPOSTAZIONI)
     	SettingsFileReader settingsFile = new SettingsFileReader();
     	settingsFile.setGlobalValues();
@@ -28,6 +29,9 @@ public class GameLauncher
     	
     	
     	// attiva il default launcher (per non avere problemi con l' asset path di libgdx)
+=======
+    	// it actives the default launcher(to avoid problems with path's asset of libgdx)
+>>>>>>> origin/JavaDocCorretta
     	GlobalValues.DEFAULT_LAUNCHER = true;
     	switch (GlobalValues.IMPLEMENTATION) {
 			case GlobalValues.SWING_AWT_IMPLEMENTATION:

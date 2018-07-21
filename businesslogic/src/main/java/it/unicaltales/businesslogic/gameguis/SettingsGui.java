@@ -9,6 +9,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * @author Camillo
+ * This class represents the graphic settings of the Settings Window
+ */
 public class SettingsGui extends Application{
 	
 	@Override

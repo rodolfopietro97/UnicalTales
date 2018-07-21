@@ -118,7 +118,7 @@ public class GameCharacter extends MyRendering{
 	}
 	
 	/**
-	 * Reset the initial position of charatcer
+	 * Reset the initial position of character
 	 */
 	public void resetPosition() {	
 		setPosition(0, GlobalValues.SIZE_WINDOW.getHeight() - GlobalValues.SIZE_WINDOW.getHeight()/9-30);

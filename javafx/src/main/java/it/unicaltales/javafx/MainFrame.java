@@ -138,7 +138,7 @@ public class MainFrame extends Application{
 			public void handle(long now) {
 				updateDraw();
 	    		/*
-	    		 * Refreeshing delle globalvalues
+	    		 * Refreshing of globalvalues
 	    		 */
 	    		if(GlobalValues.RESIZABLE) {
 	    			GlobalValues.SIZE_WINDOW.setWidth((float) primaryStage.getWidth());

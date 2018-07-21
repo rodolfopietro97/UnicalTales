@@ -10,7 +10,7 @@ import it.unicaltales.businesslogic.settingsmanager.SettingsFileReader;
 
 /**
  * @author rodolfo
- * Class that contain static game information such as:
+ * Class that contains static game information such as:
  * Window size, game API, scores, and global informations...
  */
 public class GlobalValues implements Serializable {
@@ -46,8 +46,8 @@ public class GlobalValues implements Serializable {
 	public static Size MIN_SIZE_WINDOW = new Size(600, 480);
 	
 	/**
-	 * Describe the game implementation of business logic.
-	 * For example we know if is Swing/Awt Implementation, LibGDX Implementation, and others...
+	 * Describes the game implementation of business logic.
+	 * For example we know if we are using Swing/Awt Implementation, LibGDX Implementation, and others...
 	 */
 	public static int IMPLEMENTATION = 1; // Swing And Awt of Default
 	public static final int SWING_AWT_IMPLEMENTATION = 0;
@@ -70,7 +70,7 @@ public class GlobalValues implements Serializable {
 	public static final String WINDOW_TITLE = "Unical Tales";
 	
 	/**
-	 * Ci dice se il gioco è terminato o meno
+	 * Tell us if game is over or not
 	 */
 	public static boolean EXIT_GAME = false;
 	
@@ -107,14 +107,14 @@ public class GlobalValues implements Serializable {
 	public static boolean PAUSE_GAME = false;
 
 	/**
-	 * Loose of game
+	 * Losing game
 	 */
 	public static boolean LOOSE_GAME = false;
 	
 	
 	/**
-	 * This function get the path of resources of a file
-	 * @param asset in which find the complete path
+	 * This function gets the path of resources of a file
+	 * @param asset in which we find the complete path
 	 * @return the complete path of sprite
 	 */
 	public String getAssetPath(String asset) {
@@ -138,7 +138,7 @@ public class GlobalValues implements Serializable {
 	public static DifficultType GAME_DIFFICULT = DifficultType.MEDIUM;
 	
 	/**
-	 * This function get the path of resources 
+	 * This function gets the path of resources 
 	 * @return the resource path dependently by framework
 	 */
 	public String getResourcesPath() {
@@ -150,12 +150,12 @@ public class GlobalValues implements Serializable {
 	}
 	
 	/**
-	 * This value told to us, if we re running the application with de default
+	 * This value told to us, if we re running the application with the default
 	 * launcher project, or we are running the project in different
-	 * singular mode. It is automatically setted by {@code GameLauncher}
-	 * @see it is useful for libgdx implementation. Because
-	 * Libgdx desktop implemmentation have a different folder
-	 * level, and if we launche it with reflection the asset path change
+	 * singular mode. It is automatically set by {@code GameLauncher}
+	 * @see it is useful for libgdx implementation, because
+	 * Libgdx desktop implementation has a different folder
+	 * level, and if we launch it with reflection the asset path changes
 	 */
 	public static boolean DEFAULT_LAUNCHER = false;
 

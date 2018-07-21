@@ -5,9 +5,9 @@ package it.unicaltales.businesslogic.eventhandlers;
 
 /**
  * @author rodolfo,
- * 		   Class that manage hardware events. This class depends by the
- *         framework. It is refresheed ciclically because every time we know if
- *         a key is pressed, if mouse is clicked, ... this class contains all
+ * 		   Class that manages hardware events. This class depends by the
+ *         framework. It is refreshed cyclically because every time we know if
+ *         a key is pressed, if mouse is clicked, ..., this class contains every
  *         events we need for game
  *         
  * @see { justPressed and pressed are different! }       
@@ -21,7 +21,7 @@ public class HardwareEvents {
 	private float x, y;
 
 	/**
-	 * type of events of mouse
+	 * type of mouse's events
 	 */
 	private boolean click;
 
@@ -36,7 +36,7 @@ public class HardwareEvents {
 	private boolean justLeft, justRight, justUp, justDown, justEsc, justSpace;
 
 	/**
-	 * Empty constructor that initializze all to false and zero
+	 * Empty constructor that initialize everything to false and zero
 	 */
 	public HardwareEvents() {
 		x = y = 0;
@@ -45,8 +45,8 @@ public class HardwareEvents {
 	}
 
 	/**
-	 * Reset of hardware events. This is most important, if there isn't a reset for
-	 * example key remain pressed for all time
+	 * Reset of hardwareEvents. This is important if there isn't a reset, for
+	 * example when a key remains pressed all time
 	 * 
 	 * @see { THIS FUNCTION IS MOST IMPORTANT FOR justPress and click }
 	 */
@@ -126,10 +126,10 @@ public class HardwareEvents {
 	
 	
 	/**
-	 * Relase a key
-	 * @see {this function there isn't for justKeys. In fact, justKeys,
+	 * Release a key
+	 * @see {this function does not exists only for justKeys. In fact, justKeys,
 	 * 		 where handled by resetHardwareEvents() }
-	 * @param key to relase
+	 * @param key to release
 	 */
 	public void relaseKey(MyKeys key) {
 		switch (key) {
@@ -236,7 +236,7 @@ public class HardwareEvents {
 	}
 
 	/**
-	 * Click the mouse
+	 * Mouse's click
 	 */
 	public void click() {
 		this.click = true;

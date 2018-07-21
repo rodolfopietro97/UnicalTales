@@ -5,7 +5,7 @@ package it.unicaltales.businesslogic.core;
 
 /**
  * @author rodolfo
- * This class represent a tipical GameObject that has
+ * This class represents a typical GameObject that has
  * Position, Size.
  */
 public abstract class GameObject {
@@ -57,7 +57,7 @@ public abstract class GameObject {
 	}
 
 	/**
-	 * @param position the position to set
+	 * @param position; position to set
 	 */
 	public void setPosition(Position position) {
 		this.position = position;
@@ -74,14 +74,14 @@ public abstract class GameObject {
 	}
 	
 	/**
-	 * @return the size
+	 * @return size
 	 */
 	public Size getSize() {
 		return size;
 	}
 
 	/**
-	 * @param size the size to set
+	 * @param size; size to set
 	 */
 	public void setSize(Size size) {
 		this.size = size;

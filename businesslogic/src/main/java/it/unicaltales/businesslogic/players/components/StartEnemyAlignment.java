@@ -5,9 +5,8 @@ package it.unicaltales.businesslogic.players.components;
 
 /**
  * @author rodolfo
- * this class rapresent cthe start position of enemy.
- * We prefere to use it in Enemy, because it look like
- * prettiest than a boolean value
+ * This class represents the start position of enemy.
+ * We prefer to use it in GameEnemy, because it looks better than a boolean value
  */
 public enum StartEnemyAlignment {
 	LEFT,

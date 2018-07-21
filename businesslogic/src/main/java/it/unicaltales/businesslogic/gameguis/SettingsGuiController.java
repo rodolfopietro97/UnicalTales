@@ -11,6 +11,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.text.Text;
 
+/**
+ * @author Camillo
+ * This class manages the answers to the actions in the Settings Window
+ */
 public class SettingsGuiController implements Initializable {
 	
 	/**

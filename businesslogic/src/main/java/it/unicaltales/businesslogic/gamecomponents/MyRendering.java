@@ -20,11 +20,10 @@ import it.unicaltales.businesslogic.gameinfo.ScreenTipe;
 
 /**
  * @author rodolfo
- * Class which we use for draw renderings.
+ * Class that we use to draw renderings.
  * The renderings are a series of images,
- * that simulated movement.
- * this class views all images ina path and draw
- * sequentialli it
+ * that simulates movement.
+ * this class views all images in path and sequentially draws them
  *
  */
 public class MyRendering extends Sprite{
@@ -36,20 +35,20 @@ public class MyRendering extends Sprite{
 	
 	/**
 	 * Is the index of rendering to draw,
-	 * it auto increment every call of getRenderingIndex
+	 * it auto increments every call of getRenderingIndex
 	 */
 	private int renderingIndex;
 	
 	/**
-	 * Thread that manage animation of rendering
-	 * (it is useful because it manage the delay
+	 * Thread that manages animation of rendering
+	 * (it is useful because it manages the delay
 	 * of rendering)
 	 */
 	private Thread animationThread;
 
 	
 	/**
-	 * Init function of rendering. it init all
+	 * Initializer function of rendering. it initializes all
 	 * parts useful of rendering
 	 * @param x position of renderinpauseAnimationg
 	 * @param y position of rendering
@@ -63,13 +62,13 @@ public class MyRendering extends Sprite{
 		renderingIndex = 0;
 		
 		try {
-			// trovo tutte le immagini png del rendering
+			//find every png image of the rendering
 			List<Path> files = Files.walk(Paths.get(path))
 				 .filter(p -> p.toString().endsWith(".png"))
 				 .distinct()
 				 .collect(Collectors.toList());
 			
-			// aggiungo le immagini
+			// add images
 			for (Path p : files) {
 				images.add(new MyImage(new Position(x,y), new Size(width, height), new GlobalValues().getAssetPath(p.getFileName().toString()).toString()));
 			}
@@ -79,7 +78,7 @@ public class MyRendering extends Sprite{
 			GlobalValues.EXIT_GAME=true;
 		}
 		
-		// thread che gestisce il rendering 
+		// thread that manages rendering 
 		animationThread = new Thread(new Runnable() {
 
 			@Override

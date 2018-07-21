@@ -3,16 +3,17 @@
  */
 package it.unicaltales.businesslogic.players;
 
+
 import java.io.IOException;
 import java.lang.reflect.Method;
 
 import javax.xml.ws.Response;
 
+
 import it.unicaltales.businesslogic.core.Position;
 import it.unicaltales.businesslogic.core.Size;
 import it.unicaltales.businesslogic.drawer.SpriteDraw;
 import it.unicaltales.businesslogic.eventhandlers.HardwareEvents;
-import it.unicaltales.businesslogic.eventhandlers.MyKeys;
 import it.unicaltales.businesslogic.gamecomponents.MyImage;
 import it.unicaltales.businesslogic.gamecomponents.MyText;
 import it.unicaltales.businesslogic.gameguis.SettingsGui;
@@ -27,6 +28,11 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 
+
+/**
+ * @author Camillo
+ * This class manages and represents the Opening windows and main menu of the game.
+ */
 public class InitialScreenPlayer extends Player {
 	/**
 	 * Background image of game
@@ -44,7 +50,7 @@ public class InitialScreenPlayer extends Player {
 	/**
 	 * Constructor with parameters
 	 * @param spriteDraw to use. For example Awt use Graphics
-	 * @param hardwareEvents that depend by framwrork
+	 * @param hardwareEvents that depends by framwrork
 	 */
 	public InitialScreenPlayer(SpriteDraw spriteDraw, HardwareEvents hardwareEvents) {
 		super(spriteDraw, hardwareEvents);
@@ -106,6 +112,8 @@ public class InitialScreenPlayer extends Player {
 	public void manageEvents() {
 		if (spriteEvents.isClick(getSprite("btnPlay"), hardwareEvents)) GlobalValues.SCREEN_TIPE = ScreenTipe.SINGLE_PLAYER;
 		if (spriteEvents.isClick(getSprite("btnExit"), hardwareEvents)) GlobalValues.EXIT_GAME = true;
+		if (spriteEvents.isClick(getSprite("btnSettings"), hardwareEvents)) //new SettingsGui().launch(); 
+			System.out.println("hai cliccato le impostazioni");
 		if (spriteEvents.isClick(getSprite("btnSettings"), hardwareEvents)) showSettingsWindow();
 
 		drawHover((MyImage) getSprite("btnPlay"));
@@ -115,7 +123,7 @@ public class InitialScreenPlayer extends Player {
 
 
 	/**
-	 * Show the settings windows with the refleciton
+	 * Show settings windows with reflection
 	 */
 	private void showSettingsWindow() {
 		if (GlobalValues.IMPLEMENTATION != GlobalValues.JAVAFX_IMPLEMENTATION) { // con reflection
@@ -128,7 +136,7 @@ public class InitialScreenPlayer extends Player {
 				System.err.println("Impossibile avviare le impostazioni oppure le impostazioni sono appena state chiuse");
 			}
 		}
-		else { // senza reflection
+		else { // without reflection
 			try {
 				Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("SettingsGui.fxml"));
 				Stage primaryStage = new Stage();

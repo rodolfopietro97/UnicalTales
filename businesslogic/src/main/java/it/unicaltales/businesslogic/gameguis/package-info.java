@@ -2,8 +2,8 @@
  * 
  */
 /**
- * @author rodolfo
- * this package contains useful game gui's, such
+ * @author Camillo
+ * this package contains useful game guis, such
  * as SettingsGui
  */
 package it.unicaltales.businesslogic.gameguis;

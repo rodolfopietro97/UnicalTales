@@ -26,19 +26,20 @@ import it.unicaltales.businesslogic.players.components.GameCharacter;
 import it.unicaltales.businesslogic.players.components.GameEnemy;
 
 /**
- * @author rodolfo This class rapresent a GamePlayer. (When you click play game)
+ * @author rodolfo 
+ * This class represents a GamePlayer. (When you click play game)
  *
  */
 public class SingleGamePlayer extends Player {
 
 	/**
-	 * Pause Text. We declare it here and not with putSprites, because, it will be
+	 * Pause Text. We declare it here and not on putSprites because it will be
 	 * draw only when we pause the game
 	 */
 	MyText pauseText;
 
 	/**
-	 * Pause Text. We declare it here and not with putSprites, because, it will be
+	 * Lose Text. We declare it here and not with putSprites, because, it will be
 	 * draw only when we loose the game
 	 */
 	MyText looseText;
@@ -63,12 +64,12 @@ public class SingleGamePlayer extends Player {
 		// character
 		putSprite("personaggio", new GameCharacter(new GlobalValues().getResourcesPath() + "characterRendering"));
 
-		// testi dle gioco
+		// game's texts
 		initGameTexts();
 	}
 
 	/**
-	 * Init the main texts of the game, such score, pauses, ..
+	 * Init the main texts of the game
 	 */
 	private void initGameTexts() {
 		putSprite("score", new MyText(30, 30, 10, "Scores: ", false));
@@ -84,7 +85,11 @@ public class SingleGamePlayer extends Player {
 				"PAUSE", true);
 
 		looseText = new MyText(GlobalValues.SIZE_WINDOW.getWidth() / 2, GlobalValues.SIZE_WINDOW.getHeight() / 2, 20,
+<<<<<<< HEAD
 				"YOU LOSE... (press SPACE)", true);
+=======
+				"YOU LOST! (press SPACE to continue)", true);
+>>>>>>> origin/JavaDocCorretta
 	}
 
 	/**
