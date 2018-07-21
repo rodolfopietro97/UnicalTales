@@ -25,7 +25,7 @@ public class SettingsFileReader {
 	 * No parameters constructor
 	 */
 	public SettingsFileReader() {
-		values = new String[3];
+		values = new String[4];
 		int count = 0;
 		
 		settingsFile = Paths.get(new GlobalValues().SETTINGS_FILES_PATH);
@@ -59,6 +59,9 @@ public class SettingsFileReader {
 		
 		// la terza opzione è il framerork
 		setGameImplementation();
+		
+		// la quarta è l'audio
+		setAudio();
 	}
 
 	/**
@@ -118,6 +121,21 @@ public class SettingsFileReader {
 
 		default:
 			GlobalValues.FULL_SCREEN = false;
+			break;
+		}
+	}
+	
+	/**
+	 * Set if full screen or not
+	 */
+	private void setAudio() {
+		switch (values[3]) {
+		case "AUDIO_ON":
+			GlobalValues.SOUND_ON = true;
+			break;
+
+		default:
+			GlobalValues.SOUND_ON = false;
 			break;
 		}
 	}

@@ -9,6 +9,11 @@ import java.nio.file.Paths;
 
 import it.unicaltales.businesslogic.gameinfo.GlobalValues;
 
+/**
+ * @author rodolfo
+ * "Bridge" class between GlobalValues
+ * and bestscores.txt file
+ */
 public class BestScoresManager {
 	/**
 	 * Settings file

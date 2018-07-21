@@ -27,34 +27,46 @@
 						<Font size="8.0" />
 					</font>
 				</Text>
-				<Text fill="$x1" layoutX="82.0" layoutY="182.0" scaleX="4.282750162230856" scaleY="3.631424375917768" strokeType="OUTSIDE" strokeWidth="0.0" text="Full Screen" textAlignment="CENTER" x="40.0">
+				<Text fill="$x1" layoutX="82.0" layoutY="142.0" scaleX="4.282750162230856" scaleY="3.631424375917768" strokeType="OUTSIDE" strokeWidth="0.0" text="Full Screen" textAlignment="CENTER" x="40.0">
 					<font>
 						<Font size="7.0" fx:id="x2" />
 					</font>
 				</Text>
-				<ImageView fitHeight="22.986572265625" fitWidth="22.986572265625" layoutX="25.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
+				<ImageView fitHeight="22.986572265625" fitWidth="22.986572265625" layoutX="25.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
 					<image> <Image url="@Pallino_rosso.png" /> </image>
 				</ImageView>
-				<Button id="btnFullScreenYes" fx:id="btnFullScreenYes" layoutX="246.0" layoutY="168.0" mnemonicParsing="false" onMouseClicked="#enableFullScreen" prefHeight="25.0" prefWidth="109.0" styleClass="buttons" stylesheets="@SettingsGuiStyle.css" text="Yes" textFill="#00ff29" />
-				<Button id="btnFullScreenNo" fx:id="btnFullScreenNo" layoutX="355.0" layoutY="168.0" mnemonicParsing="false" onMouseClicked="#disableFullScreen" prefHeight="25.0" prefWidth="109.0" styleClass="buttons" stylesheets="@SettingsGuiStyle.css" text="No" textFill="RED" />
-				<ImageView fitHeight="22.986572265625" fitWidth="22.986572265625" layoutX="25.0" layoutY="227.0" pickOnBounds="true" preserveRatio="true">
+				<Button id="btnFullScreenYes" fx:id="btnFullScreenYes" layoutX="246.0" layoutY="128.0" mnemonicParsing="false" onMouseClicked="#enableFullScreen" prefHeight="25.0" prefWidth="109.0" styleClass="buttons" stylesheets="@SettingsGuiStyle.css" text="Yes" textFill="#00ff29" />
+				<Button id="btnFullScreenNo" fx:id="btnFullScreenNo" layoutX="355.0" layoutY="128.0" mnemonicParsing="false" onMouseClicked="#disableFullScreen" prefHeight="25.0" prefWidth="109.0" styleClass="buttons" stylesheets="@SettingsGuiStyle.css" text="No" textFill="RED" />
+				<ImageView fitHeight="22.986572265625" fitWidth="22.986572265625" layoutX="25.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true">
 					<image> <Image url="@Pallino_rosso.png" /> </image>
 				</ImageView>
-				<Text fill="$x1" font="$x2" layoutX="70.0" layoutY="239.0" scaleX="4.282750162230856" scaleY="3.631424375917768" strokeType="OUTSIDE" strokeWidth="0.0" text="Difficulty" textAlignment="CENTER" x="40.0" />
-				<Button id="btnDifficultEasy" fx:id="btnDifficultEasy" layoutX="246.0" layoutY="225.0" mnemonicParsing="false" onMouseClicked="#difficultEasy" prefHeight="25.0" prefWidth="109.0" styleClass="buttons" stylesheets="@SettingsGuiStyle.css" text="Easy" textFill="#43ff33" />
-				<Button id="btnDifficultMedium" fx:id="btnDifficultMedium" layoutX="355.0" layoutY="225.0" mnemonicParsing="false" onMouseClicked="#difficultMedium" prefHeight="25.0" prefWidth="109.0" styleClass="buttons" stylesheets="@SettingsGuiStyle.css" text="Medium" textFill="#0066ff" />
-				<Button id="btnDifficultHard" fx:id="btnDifficultHard" layoutX="464.0" layoutY="225.0" mnemonicParsing="false" onMouseClicked="#difficultHard" prefHeight="25.0" prefWidth="109.0" styleClass="buttons" stylesheets="@SettingsGuiStyle.css" text="Hard" textFill="RED" />
-				<ImageView fitHeight="22.986572265625" fitWidth="22.986572265625" layoutX="25.0" layoutY="281.0" pickOnBounds="true" preserveRatio="true">
+				<Text fill="$x1" font="$x2" layoutX="70.0" layoutY="199.0" scaleX="4.282750162230856" scaleY="3.631424375917768" strokeType="OUTSIDE" strokeWidth="0.0" text="Difficulty" textAlignment="CENTER" x="40.0" />
+				<Button id="btnDifficultEasy" fx:id="btnDifficultEasy" layoutX="246.0" layoutY="185.0" mnemonicParsing="false" onMouseClicked="#difficultEasy" prefHeight="25.0" prefWidth="109.0" styleClass="buttons" stylesheets="@SettingsGuiStyle.css" text="Easy" textFill="#43ff33" />
+				<Button id="btnDifficultMedium" fx:id="btnDifficultMedium" layoutX="355.0" layoutY="185.0" mnemonicParsing="false" onMouseClicked="#difficultMedium" prefHeight="25.0" prefWidth="109.0" styleClass="buttons" stylesheets="@SettingsGuiStyle.css" text="Medium" textFill="#0066ff" />
+				<Button id="btnDifficultHard" fx:id="btnDifficultHard" layoutX="464.0" layoutY="185.0" mnemonicParsing="false" onMouseClicked="#difficultHard" prefHeight="25.0" prefWidth="109.0" styleClass="buttons" stylesheets="@SettingsGuiStyle.css" text="Hard" textFill="RED" />
+				<ImageView fitHeight="22.986572265625" fitWidth="22.986572265625" layoutX="25.0" layoutY="241.0" pickOnBounds="true" preserveRatio="true">
 					<image> <Image url="@Pallino_rosso.png" /> </image>
 				</ImageView>
-				<Text fill="$x1" font="$x2" layoutX="120.0" layoutY="293.0" scaleX="4.282750162230856" scaleY="3.631424375917768" strokeType="OUTSIDE" strokeWidth="0.0" text="Framework" />
-				<Button id="btnImplementaationSwingAwt" fx:id="btnImplementaationSwingAwt" layoutX="246.0" layoutY="277.0" mnemonicParsing="false" onMouseClicked="#useSwingAwt" prefHeight="25.0" prefWidth="109.0" styleClass="buttons" stylesheets="@SettingsGuiStyle.css" text="SWING/AWT" textFill="RED" />
-				<Button id="btnImplementaationJavaFx" fx:id="btnImplementaationJavaFx" layoutX="355.0" layoutY="277.0" mnemonicParsing="false" onMouseClicked="#useJavaFx" prefWidth="109.0" styleClass="buttons" stylesheets="@SettingsGuiStyle.css" text="JAVAFX" textAlignment="CENTER" textFill="#33ff54" />
-				<Button id="btnImplementaationLibGdx" fx:id="btnImplementaationLibGdx" layoutX="464.0" layoutY="277.0" mnemonicParsing="false" onMouseClicked="#useLibGdx" prefWidth="109.0" styleClass="buttons" stylesheets="@SettingsGuiStyle.css" text="LIBGDX" textFill="#0029ff" />
-            <Button id="btnImplementaationSwingAwt" fx:id="btnApply" layoutX="456.0" layoutY="437.0" mnemonicParsing="false" onMouseClicked="#apply" prefHeight="25.0" prefWidth="109.0" styleClass="buttons" stylesheets="@SettingsGuiStyle.css" text="APPLY" textFill="RED" />
+				<Text fill="$x1" font="$x2" layoutX="120.0" layoutY="253.0" scaleX="4.282750162230856" scaleY="3.631424375917768" strokeType="OUTSIDE" strokeWidth="0.0" text="Framework" />
+				<Button id="btnImplementaationSwingAwt" fx:id="btnImplementaationSwingAwt" layoutX="246.0" layoutY="237.0" mnemonicParsing="false" onMouseClicked="#useSwingAwt" prefHeight="25.0" prefWidth="109.0" styleClass="buttons" stylesheets="@SettingsGuiStyle.css" text="SWING/AWT" textFill="RED" />
+				<Button id="btnImplementaationJavaFx" fx:id="btnImplementaationJavaFx" layoutX="355.0" layoutY="237.0" mnemonicParsing="false" onMouseClicked="#useJavaFx" prefWidth="109.0" styleClass="buttons" stylesheets="@SettingsGuiStyle.css" text="JAVAFX" textAlignment="CENTER" textFill="#33ff54" />
+				<Button id="btnImplementaationLibGdx" fx:id="btnImplementaationLibGdx" layoutX="464.0" layoutY="237.0" mnemonicParsing="false" onMouseClicked="#useLibGdx" prefWidth="109.0" styleClass="buttons" stylesheets="@SettingsGuiStyle.css" text="LIBGDX" textFill="#0029ff" />
+            <Button id="btnImplementaationSwingAwt" fx:id="btnApply" layoutX="454.0" layoutY="429.0" mnemonicParsing="false" onMouseClicked="#apply" prefHeight="25.0" prefWidth="109.0" styleClass="buttons" stylesheets="@SettingsGuiStyle.css" text="APPLY" textFill="RED" />
             <Text fx:id="lblStatus" fill="$x1" layoutX="-23.0" layoutY="413.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status" textAlignment="CENTER" x="40.0">
                <font>
                   <Font size="12.0" fx:id="x21" />
+               </font>
+            </Text>
+            <Button id="btnFullScreenNo" fx:id="btnAudioNo" layoutX="357.0" layoutY="295.0" mnemonicParsing="false" onMouseClicked="#disableAudio" prefHeight="25.0" prefWidth="109.0" styleClass="buttons" stylesheets="@SettingsGuiStyle.css" text="No" textFill="RED" />
+            <Button id="btnFullScreenYes" fx:id="btnAudioYes" layoutX="248.0" layoutY="295.0" mnemonicParsing="false" onMouseClicked="#enableAudio" prefHeight="25.0" prefWidth="109.0" styleClass="buttons" stylesheets="@SettingsGuiStyle.css" text="Yes" textFill="#00ff29" />
+            <ImageView fitHeight="22.986572265625" fitWidth="22.986572265625" layoutX="25.0" layoutY="297.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Pallino_rosso.png" />
+               </image>
+            </ImageView>
+            <Text fill="$x1" layoutX="51.0" layoutY="311.0" scaleX="4.282750162230856" scaleY="3.631424375917768" strokeType="OUTSIDE" strokeWidth="0.0" text="Audio" textAlignment="CENTER" x="40.0">
+               <font>
+                  <Font size="7.0" fx:id="x22" />
                </font>
             </Text>
 			</children>

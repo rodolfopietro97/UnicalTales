@@ -74,6 +74,16 @@ public class SettingsGuiController implements Initializable {
 		lblStatus.setText("Hai messo come framework predefinito LibGdx (Le modifiche saranno visibili al prossimo avvio)");
 	}
 	
+	public void enableAudio() {
+		writer.setAudio(true);
+		lblStatus.setText("Hai Abilitato l' audio (Le modifiche saranno visibili al prossimo avvio)");
+	}
+	
+	public void disableAudio() {
+		writer.setAudio(false);
+		lblStatus.setText("Hai Disabilitato l' audio (Le modifiche saranno visibili al prossimo avvio)");
+	}
+	
 	public void apply() {
 		writer.updateSettingsFile();
 		lblStatus.setText("Modifiche effettuate");

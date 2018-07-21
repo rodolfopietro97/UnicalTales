@@ -16,6 +16,11 @@ import it.unicaltales.businesslogic.settingsmanager.SettingsFileReader;
 public class GlobalValues implements Serializable {
 	
 	/**
+	 * If sound is enabled or not
+	 */
+	public static boolean SOUND_ON = true;
+	
+	/**
 	 * Path of settings file
 	 */
 	//public static String SETTINGS_FILES_PATH = "/home/rodolfo/settingsfile";
@@ -120,6 +125,23 @@ public class GlobalValues implements Serializable {
 	public String getAssetPath(String asset) {
 		if (GlobalValues.IMPLEMENTATION == SWING_AWT_IMPLEMENTATION) {
 			return getClass().getClassLoader().getResource(asset).getPath();	
+		}
+		else if(GlobalValues.IMPLEMENTATION == JAVAFX_IMPLEMENTATION) {
+			return asset;
+		}
+		return asset;
+	}
+	
+	/**
+	 * This function gets the path of resources of a file,
+	 * that can bee  interlacced or not (Useful for swing/awt)
+	 * @param asset in which we find the complete path
+	 * @return the complete path of sprite
+	 */
+	public String getAssetPathOfNonInterlaccedFile(String asset) {
+		if (GlobalValues.IMPLEMENTATION == SWING_AWT_IMPLEMENTATION) {
+			String nonInterlaccedAsset = "NIA"+asset;
+			return getClass().getClassLoader().getResource(nonInterlaccedAsset).getPath();	
 		}
 		else if(GlobalValues.IMPLEMENTATION == JAVAFX_IMPLEMENTATION) {
 			return asset;

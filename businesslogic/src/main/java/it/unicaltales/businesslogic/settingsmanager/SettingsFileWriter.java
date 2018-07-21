@@ -92,6 +92,19 @@ public class SettingsFileWriter {
 		}
 	}
 	
+	/**
+	 * Set Audio on or off
+	 * @param implementation of game
+	 */
+	public void setAudio(Boolean audio) {
+		if(audio) {
+			values[3] = "AUDIO_ON";
+		}
+		else {
+			values[3] = "AUDIO_OFF";
+		}
+	}
+	
 	
 	/**
 	 * Set modify to GlobalValues

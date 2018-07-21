@@ -10,7 +10,14 @@ package it.unicaltales.businesslogic.core;
  */
 public abstract class GameObject {
 	
+	/**
+	 * Position of object
+	 */
 	Position position;
+	
+	/**
+	 * Size of object
+	 */
 	Size size;
 	
 	

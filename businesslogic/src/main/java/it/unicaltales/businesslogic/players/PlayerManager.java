@@ -3,6 +3,14 @@
  */
 package it.unicaltales.businesslogic.players;
 
+import java.io.File;
+import java.io.IOException;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.UnsupportedAudioFileException;
+
 import it.unicaltales.businesslogic.drawer.SpriteDraw;
 import it.unicaltales.businesslogic.eventhandlers.HardwareEvents;
 import it.unicaltales.businesslogic.gameinfo.GlobalValues;
@@ -13,6 +21,9 @@ import it.unicaltales.businesslogic.gameinfo.GlobalValues;
  *  framework.
  */
 public class PlayerManager {
+	AudioInputStream audio;
+	Clip clip;
+	
 	/**
 	 * Sprite Drawer part that depends by framework
 	 */
@@ -60,6 +71,23 @@ public class PlayerManager {
 		 */
 		singleGamePlayer = new SingleGamePlayer(this.spriteDraw, this.hardwareEvents);
 		
+		if(GlobalValues.SOUND_ON) loopColonnaSonora();
+		
+		
+	}
+
+	/**
+	 * Loop the principal sound of the game
+	 */
+	private void loopColonnaSonora() {
+		try {
+			audio = AudioSystem.getAudioInputStream(getClass().getClassLoader().getResource("loopSound.wav"));
+			clip = AudioSystem.getClip();
+			clip.open(audio);
+			clip.loop(Clip.LOOP_CONTINUOUSLY);
+		} catch (Exception e) {
+			System.err.println("Impossibile avviare la colonna sonora");
+		}
 	}
 
 	/**
