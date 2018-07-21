@@ -28,8 +28,8 @@ public class SettingsFileReader {
 		values = new String[3];
 		int count = 0;
 		
-		// non usiamo GlobalValues.getAssetPath(..) perchè ancora non abbbiamo scelto il framework da utilizzare!
-		settingsFile = Paths.get(getClass().getClassLoader().getResource("settingsfile").getPath());
+		settingsFile = Paths.get(new GlobalValues().SETTINGS_FILES_PATH);
+		
 		try (BufferedReader reader = Files.newBufferedReader(settingsFile, Charset.forName("UTF-8"))) {
 			String current = null;
 			while ((current = reader.readLine()) != null) {
@@ -39,6 +39,15 @@ public class SettingsFileReader {
 		} catch (Exception e) {
 			System.err.println("Impossibile leggere il file delle impostazioni!");
 		}
+	}
+	
+	/**
+	 * Return the settings of current files,
+	 * after it is readed on constructor
+	 * @return the current global values settings
+	 */
+	public String[] getCurrentvalues() {
+		return values;
 	}
 	
 	public void setGlobalValues() {

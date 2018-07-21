@@ -25,9 +25,9 @@ public class SettingsFileWriter {
 	 * No parameters constructor
 	 */
 	public SettingsFileWriter() {
-		values = new String[3];
+		values = new SettingsFileReader().getCurrentvalues(); // per non vare parametri null
 		
-		settingsFile = Paths.get(getClass().getClassLoader().getResource("settingsfile").getPath());
+		settingsFile = Paths.get(new GlobalValues().SETTINGS_FILES_PATH);
 	}
 	
 	/**
@@ -69,7 +69,7 @@ public class SettingsFileWriter {
 	
 	
 	/**
-	 * Set Implementtion
+	 * Set Implementation
 	 * @param implementation of game
 	 */
 	public void setImplementation(int implementation) {
@@ -99,11 +99,12 @@ public class SettingsFileWriter {
 	public void updateSettingsFile() {
 		try (BufferedWriter writer = Files.newBufferedWriter(settingsFile, Charset.forName("UTF-8"))){
 			for (int i = 0; i < values.length; i++) {
-				writer.write(values[i]);
+				System.out.println(values[i]);
+				writer.write(values[i] + "\n");
 			}
 			writer.close();
 		} catch (Exception e) {
-			// TODO: handle exception
+			System.out.println("Impossibile scrivere sul file delle impostazioni");
 		}
 
 	}

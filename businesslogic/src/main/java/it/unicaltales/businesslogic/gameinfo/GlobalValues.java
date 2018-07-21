@@ -16,6 +16,12 @@ import it.unicaltales.businesslogic.settingsmanager.SettingsFileReader;
 public class GlobalValues implements Serializable {
 	
 	/**
+	 * Path of settings file
+	 */
+	//public static String SETTINGS_FILES_PATH = "/home/rodolfo/settingsfile";
+	public String SETTINGS_FILES_PATH = getClass().getClassLoader().getResource("settingsfile").getPath();
+	
+	/**
 	 * Size of game window
 	 */
 	public static Size SIZE_WINDOW = new Size(800, 600);
