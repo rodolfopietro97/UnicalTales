@@ -3,14 +3,13 @@
  */
 package it.unicaltales.businesslogic.players;
 
-<<<<<<< HEAD
-=======
+
 import java.io.IOException;
 import java.lang.reflect.Method;
 
 import javax.xml.ws.Response;
 
->>>>>>> branch 'proveRodolfo' of https://github.com/rodolfopietro97/UnicalTales.git
+
 import it.unicaltales.businesslogic.core.Position;
 import it.unicaltales.businesslogic.core.Size;
 import it.unicaltales.businesslogic.drawer.SpriteDraw;
@@ -20,8 +19,6 @@ import it.unicaltales.businesslogic.gamecomponents.MyText;
 import it.unicaltales.businesslogic.gameguis.SettingsGui;
 import it.unicaltales.businesslogic.gameinfo.GlobalValues;
 import it.unicaltales.businesslogic.gameinfo.ScreenTipe;
-<<<<<<< HEAD
-=======
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -30,7 +27,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
->>>>>>> branch 'proveRodolfo' of https://github.com/rodolfopietro97/UnicalTales.git
+
 
 public class InitialScreenPlayer extends Player {
 	/**
@@ -111,16 +108,13 @@ public class InitialScreenPlayer extends Player {
 	public void manageEvents() {
 		if (spriteEvents.isClick(getSprite("btnPlay"), hardwareEvents)) GlobalValues.SCREEN_TIPE = ScreenTipe.SINGLE_PLAYER;
 		if (spriteEvents.isClick(getSprite("btnExit"), hardwareEvents)) GlobalValues.EXIT_GAME = true;
-<<<<<<< HEAD
 		if (spriteEvents.isClick(getSprite("btnSettings"), hardwareEvents)) //new SettingsGui().launch(); 
 			System.out.println("hai cliccato le impostazioni");
-=======
 		if (spriteEvents.isClick(getSprite("btnSettings"), hardwareEvents)) showSettingsWindow();
 
 		drawHover((MyImage) getSprite("btnPlay"));
 		drawHover((MyImage) getSprite("btnExit"));
 		drawHover((MyImage) getSprite("btnSettings"));
->>>>>>> branch 'proveRodolfo' of https://github.com/rodolfopietro97/UnicalTales.git
 	}
 
 

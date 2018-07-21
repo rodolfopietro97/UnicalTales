@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 /**
  * @author rodolfo
- * Class that manage images.
+ * Class that manages images.
  * With this class we don't need to reallocate a new image in
  * every call of draw!
  * @see {we can see it's utility in the howToDraw part}
@@ -12,7 +12,7 @@ import java.util.HashMap;
 public class ImagesManager {
 	
 	/**
-	 * Map which associate path and relative images.
+	 * Map which associates path and relative images.
 	 * the path is a primary key!
 	 */
 	private HashMap<String, Object> images;
@@ -43,9 +43,9 @@ public class ImagesManager {
 	}
 	
 	/**
-	 * Say if the image exist in the map
+	 * Say if the image exists in the map
 	 * @param path of image
-	 * @return true if the image exist, false if not
+	 * @return true if the image exists, false if not
 	 */
 	public boolean exist(String path) {
 		for(String i : images.keySet()) {

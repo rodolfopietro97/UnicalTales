@@ -9,7 +9,7 @@ import it.unicaltales.businesslogic.gameinfo.GlobalValues;
 
 /**
  * @author rodolfo
- * Class that drive a sprite
+ * Class that draws a sprite
  */
 public class SpriteDraw {
 	/**
@@ -26,8 +26,8 @@ public class SpriteDraw {
 	MyImage hoverImage;
 
 	/**
-	 * Sprite draw parametized constructor
-	 * @param howToDraw the images, dipendently by the framework
+	 * SpriteDraw with or without parameters constructor
+	 * @param howToDraw the images, dependently by the framework
 	 */
 	public SpriteDraw(Drawer howToDraw) {
 		this.howToDraw = howToDraw;
@@ -35,9 +35,9 @@ public class SpriteDraw {
 	}
 
 	/**
-	 * This function draw an Image on the screen
+	 * This function draws an Image on the screen
 	 * @param image to draw
-	 * @param drawerComponent to used for the framework. (For example awt used Graphics for drawing)
+	 * @param drawerComponent used for framework. (For example awt used Graphics for drawing)
 	 */
 	public void drawImage(MyImage image, Object drawerComponent) {
 		howToDraw.onDrawImage(image, drawerComponent);
@@ -50,9 +50,9 @@ public class SpriteDraw {
 	}
 	
 	/**
-	 * This function draw Text on the screen
+	 * This function draws Text on the screen
 	 * @param text to draw
-	 * @param drawerComponent to used for the framework. (For example awt used Graphics for drawing)
+	 * @param drawerComponent used for framework. (For example awt used Graphics for drawing)
 	 */
 	public void drawText(MyText text, Object drawerComponent) {
 		howToDraw.onDrawText(text, drawerComponent);

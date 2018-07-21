@@ -58,7 +58,7 @@ public abstract class Sprite extends GameObject{
 	}
 
 	/**
-	 * @param path the path to set
+	 * @param path; path to set
 	 */
 	public void setPath(String path) {
 		this.path = path;

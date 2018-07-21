@@ -5,7 +5,7 @@ package it.unicaltales.businesslogic.core;
 
 /**
  * @author rodolfo
- * Class that rapresent a size
+ * Class that represents a size
  */
 public class Size {
 	
@@ -44,21 +44,21 @@ public class Size {
 	}
 
 	/**
-	 * @param width the width to set
+	 * @param width; width to set
 	 */
 	public void setWidth(float width) {
 		this.width = width;
 	}
 
 	/**
-	 * @return the height
+	 * @return height
 	 */
 	public float getHeight() {
 		return height;
 	}
 
 	/**
-	 * @param height the height to set
+	 * @param height; height to set
 	 */
 	public void setHeight(float height) {
 		this.height = height;
