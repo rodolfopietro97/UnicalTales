@@ -51,6 +51,12 @@
 				<Button id="btnImplementaationSwingAwt" fx:id="btnImplementaationSwingAwt" layoutX="246.0" layoutY="277.0" mnemonicParsing="false" onMouseClicked="#useSwingAwt" prefHeight="25.0" prefWidth="109.0" styleClass="buttons" stylesheets="@SettingsGuiStyle.css" text="SWING/AWT" textFill="RED" />
 				<Button id="btnImplementaationJavaFx" fx:id="btnImplementaationJavaFx" layoutX="355.0" layoutY="277.0" mnemonicParsing="false" onMouseClicked="#useJavaFx" prefWidth="109.0" styleClass="buttons" stylesheets="@SettingsGuiStyle.css" text="JAVAFX" textAlignment="CENTER" textFill="#33ff54" />
 				<Button id="btnImplementaationLibGdx" fx:id="btnImplementaationLibGdx" layoutX="464.0" layoutY="277.0" mnemonicParsing="false" onMouseClicked="#useLibGdx" prefWidth="109.0" styleClass="buttons" stylesheets="@SettingsGuiStyle.css" text="LIBGDX" textFill="#0029ff" />
+            <Button id="btnImplementaationSwingAwt" fx:id="btnApply" layoutX="472.0" layoutY="437.0" mnemonicParsing="false" onMouseClicked="#apply" prefHeight="25.0" prefWidth="109.0" styleClass="buttons" stylesheets="@SettingsGuiStyle.css" text="APPLY" textFill="RED" />
+            <Text fx:id="lblStatus" fill="$x1" layoutX="-26.0" layoutY="472.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status" textAlignment="CENTER" x="40.0">
+               <font>
+                  <Font size="7.0" fx:id="x21" />
+               </font>
+            </Text>
 			</children>
 			<effect>
 				<Blend />

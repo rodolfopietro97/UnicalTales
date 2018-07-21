@@ -6,6 +6,7 @@ package it.unicaltales.businesslogic.gameinfo;
 import java.io.Serializable;
 
 import it.unicaltales.businesslogic.core.Size;
+import it.unicaltales.businesslogic.settingsmanager.SettingsFileReader;
 
 /**
  * @author rodolfo
@@ -36,7 +37,7 @@ public class GlobalValues implements Serializable {
 	/**
 	 * Window full screen enabled value
 	 */
-	public static final boolean FULL_SCREEN = false;
+	public static boolean FULL_SCREEN = false;
 	
 	/**
 	 * If we want a resizable window
@@ -114,7 +115,7 @@ public class GlobalValues implements Serializable {
 	/**
 	 * Difficult of game
 	 */
-	public static DifficultType GAME_DIFFICULT = DifficultType.EASY;
+	public static DifficultType GAME_DIFFICULT = DifficultType.MEDIUM;
 	
 	/**
 	 * This function get the path of resources 

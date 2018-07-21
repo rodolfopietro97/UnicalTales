@@ -3,6 +3,7 @@ package it.unicaltales.launcher;
 import java.lang.reflect.Method;
 
 import it.unicaltales.businesslogic.gameinfo.GlobalValues;
+import it.unicaltales.businesslogic.settingsmanager.SettingsFileReader;
 
 /**
  * Main of game.
@@ -17,6 +18,10 @@ public class GameLauncher
      */
     public static void main( String[] args )
     {
+		// inizializza le globbalvalues
+    	SettingsFileReader settingsFile = new SettingsFileReader();
+    	settingsFile.setGlobalValues();
+    	
     	// attiva il default launcher (per non avere problemi con l' asset path di libgdx)
     	GlobalValues.DEFAULT_LAUNCHER = true;
     	switch (GlobalValues.IMPLEMENTATION) {
