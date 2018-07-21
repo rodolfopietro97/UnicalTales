@@ -15,6 +15,24 @@
   </properties>
 
 	<build>
+			<resources>
+			<resource>
+				<directory>
+					src/main/audioResources
+				</directory>
+			</resource>
+			<resource>
+				<directory>
+					src/main/imagesResources
+				</directory>
+			</resource>
+			<resource>
+				<directory>
+					src/main/imagesResources/characterRendering
+				</directory>
+			</resource>
+		</resources>
+	
 		<pluginManagement>
 			<plugins>
 				<plugin>
@@ -28,6 +46,8 @@
 			</plugins>
 		</pluginManagement>
 	</build>
+	
+
 
   <dependencies>
     <dependency>
