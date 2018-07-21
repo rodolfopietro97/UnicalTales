@@ -19,7 +19,9 @@ public class GlobalValues implements Serializable {
 	 * Path of settings file
 	 */
 	//public static String SETTINGS_FILES_PATH = "/home/rodolfo/settingsfile";
-	public String SETTINGS_FILES_PATH = getClass().getClassLoader().getResource("settingsfile").getPath();
+	//public String SETTINGS_FILES_PATH = getClass().getClassLoader().getResource("settingsfile").getPath();
+	public String SETTINGS_FILES_PATH = System.getProperty("user.home") + "/settingsfile";
+
 	
 	/**
 	 * Size of game window

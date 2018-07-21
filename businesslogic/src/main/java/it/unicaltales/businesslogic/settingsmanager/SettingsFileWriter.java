@@ -99,7 +99,6 @@ public class SettingsFileWriter {
 	public void updateSettingsFile() {
 		try (BufferedWriter writer = Files.newBufferedWriter(settingsFile, Charset.forName("UTF-8"))){
 			for (int i = 0; i < values.length; i++) {
-				System.out.println(values[i]);
 				writer.write(values[i] + "\n");
 			}
 			writer.close();
