@@ -10,7 +10,7 @@ import it.unicaltales.businesslogic.eventhandlers.SpriteEvents;
 
 /**
  * @author rodolfo
- * Class that manage enemies
+ * Class that manages enemies
  */
 public class EnemiesManager {
 
@@ -38,7 +38,7 @@ public class EnemiesManager {
 	 * Handle all enemies
 	 * @param spriteEvents of player
 	 * @param character that we current use
-	 * @param onCollision method to do when there is a collision between one of enemies and character
+	 * @param onCollision method used when there is a collision between one of enemies and character
 	 */
 	public void handle(SpriteEvents spriteEvents, GameCharacter character, OnSpriteCollision onCollision) {
 		for (GameEnemy gameEnemy : enemies) {

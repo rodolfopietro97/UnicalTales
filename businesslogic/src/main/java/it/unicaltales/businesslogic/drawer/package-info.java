@@ -1,5 +1,5 @@
 /**
- * @author rodolfo
+ * @author Camillo
  * this class contains the drawer classes.
  * The drawer classes are an abstract level between
  * BusinessLogic and Graphics Implementation that we choose.

@@ -1,6 +1,5 @@
 /**
  * @author rodolfo
- * This package contains the newtork part of the client
- * of the game.
+ * This package contains client's network part of the game.
  */
 package it.unicaltales.businesslogic.network;

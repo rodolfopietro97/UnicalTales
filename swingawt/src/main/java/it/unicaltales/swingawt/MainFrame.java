@@ -23,25 +23,25 @@ public class MainFrame extends JFrame{
 		
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setTitle(GlobalValues.WINDOW_TITLE);
-		// prendo le dimensioni dello schermo
+		// takes screen'size
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize(); // screen size
-		// se imposto fullscreen
+		// if I set fullscreen
 		if(GlobalValues.FULL_SCREEN) {
-			// setto la size window con le dimensioni dello schermo
+			// I set size window with screen'size
 			GlobalValues.SIZE_WINDOW.setWidth((float) screenSize.getWidth());
 			GlobalValues.SIZE_WINDOW.setHeight((float) screenSize.getHeight());
-			// setto la finestra
+			// Sets window
 			setSize(screenSize);
 			setLocation(0, 0);
 			setExtendedState(JFrame.MAXIMIZED_BOTH);
 			setUndecorated(true);
 		}
-		// se non imposto fullscreen
+		// If I don't set fullscreen
 		else {
 			int tempWindowWidth = (int) GlobalValues.SIZE_WINDOW.getWidth();
 			int tempWindowHeight = (int) GlobalValues.SIZE_WINDOW.getHeight();
 			setSize(tempWindowWidth, tempWindowHeight);
-			// la posiziono al centro
+			// I position it into the centre
 			setLocation((int) (screenSize.getWidth() - tempWindowWidth)/2, 
 					    (int) (screenSize.getHeight() - tempWindowHeight)/2);
 			setResizable(GlobalValues.RESIZABLE);
@@ -50,7 +50,8 @@ public class MainFrame extends JFrame{
 		}
 
 		/*
-		 * Setto il pannello di gioco del progetto.
+		 * 
+		 * Setting game's panel of the project
 		 */
 		MainPanel gamePanel = new MainPanel();
 		gamePanel.setFocusable(true);

@@ -5,6 +5,10 @@ import java.util.ResourceBundle;
 
 import javafx.fxml.Initializable;
 
+/**
+ * @author Camillo
+ * This class manages the answers to the actions in the Settings Window
+ */
 public class SettingsGuiController implements Initializable {
 	
 	public void enableFullScreen() {

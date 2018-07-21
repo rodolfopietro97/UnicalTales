@@ -5,11 +5,11 @@ package it.unicaltales.businesslogic.eventhandlers;
 
 /**
  * @author rodolfo
- * SAM interface that say what to do if there is a sprite collision
+ * SAM interface that say what to do if a sprite collision happens
  */
 public interface OnSpriteCollision {
 	/**
-	 * What to do if there is a collision
+	 * What to do if a collision happens
 	 */
 	void onCollision();
 }

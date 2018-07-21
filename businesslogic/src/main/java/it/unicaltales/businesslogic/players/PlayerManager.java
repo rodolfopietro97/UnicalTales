@@ -8,8 +8,9 @@ import it.unicaltales.businesslogic.eventhandlers.HardwareEvents;
 import it.unicaltales.businesslogic.gameinfo.GlobalValues;
 
 /**
- * @author rodolfo This class Represent which player will be executed, indipendently of the
- *         framework. It use the business logic to make the principal Game
+ * @author rodolfo
+ *  This class represents which player will be executed, independently by the
+ *  framework.
  */
 public class PlayerManager {
 	/**
@@ -35,8 +36,8 @@ public class PlayerManager {
 
 	/**
 	 * Empty Constructor
-	 * @param spriteDraw that depend by framework we use
-	 * @param hardwareEvents that depend by framwrork
+	 * @param spriteDraw that depends by framework we use
+	 * @param hardwareEvents that depends by framework
 	 */
 	public PlayerManager(SpriteDraw spriteDraw , HardwareEvents hardwareEvents) {
 		/*

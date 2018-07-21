@@ -10,7 +10,7 @@ import it.unicaltales.businesslogic.eventhandlers.MyKeys;
 import it.unicaltales.businesslogic.gameinfo.GlobalValues;
 
 /**
- * @author rodolfo
+ * @author Camillo
  * This class manages an enemy
  */
 public class GameEnemy extends MyImage{	
@@ -57,17 +57,17 @@ public class GameEnemy extends MyImage{
 	 */
 	private void setInitialXEnemy() {
 		setInitialAligment();
-		if(startAlignment == StartEnemyAlignment.LEFT) xEnemy = 0; // inizia da sinistra
-		else xEnemy = (int) (GlobalValues.SIZE_WINDOW.getWidth() - getSize().getWidth()); // inizia da destra
+		if(startAlignment == StartEnemyAlignment.LEFT) xEnemy = 0; // starts from left
+		else xEnemy = (int) (GlobalValues.SIZE_WINDOW.getWidth() - getSize().getWidth()); // starts from right
 	}
 	
 	/**
 	 * set the initial y position of enemy
 	 */
 	private void setInitialYEnemy() {
-		// intervallo di generazione [0;max]
-		yEnemy = (int) (Math.random() * (GlobalValues.SIZE_WINDOW.getHeight() - // altezza totale (max)
-										getSize().getHeight())); // altezza del nemico
+		// generation interval [0;max]
+		yEnemy = (int) (Math.random() * (GlobalValues.SIZE_WINDOW.getHeight() - // total highness (max)
+										getSize().getHeight())); // enemy's highness
 	}
 	
 	/**
@@ -87,11 +87,11 @@ public class GameEnemy extends MyImage{
 			if (!loop) {
 				setStartPosition();
 			} else {
-				// se parte da sinistra
+				// it it starts from left
 				if (startAlignment == StartEnemyAlignment.LEFT) {
 					loopLeft();
 				}
-				// se parte da destra
+				// if it starts from right
 				else {
 					loopRight();
 				}
@@ -106,8 +106,8 @@ public class GameEnemy extends MyImage{
 	private void loopLeft() {
 		if(xEnemy < GlobalValues.SIZE_WINDOW.getWidth() - getSize().getHeight()) xEnemy += GlobalValues.ENEMY_SPEED;
 		else {
-			GlobalValues.SCORES++; // aumenta il punteggio
-			loop = false; // rigenera
+			GlobalValues.SCORES++; // increases score
+			loop = false; // regenerates
 		}
 	}
 	
@@ -117,8 +117,8 @@ public class GameEnemy extends MyImage{
 	private void loopRight() {
 		if(xEnemy > 0) xEnemy -= GlobalValues.ENEMY_SPEED;
 		else {
-			GlobalValues.SCORES++; // aumenta il punteggio
-			loop = false; // rigenera
+			GlobalValues.SCORES++; // increases score
+			loop = false; // regenerates
 		}
 	}
 	

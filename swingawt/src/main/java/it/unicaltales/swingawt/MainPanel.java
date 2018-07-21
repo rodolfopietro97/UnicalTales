@@ -39,7 +39,7 @@ import javafx.scene.input.KeyCode;
 public class MainPanel extends JPanel {
 
 	/**
-	 * The Player that make the game with business logic component's, indipendently
+	 * The Player that makes the game with business logic component's, independently
 	 * by framework
 	 */
 	PlayerManager playerScreenManager;
@@ -61,13 +61,13 @@ public class MainPanel extends JPanel {
 	 * Empty Constructor
 	 */
 	public MainPanel() {
-		GlobalValues.CHARACTER_SPEED+=4; // nelle swing per il maggiore delay, aumentiamo sempre di 4 (valore sperimentale) la velocità
+		GlobalValues.CHARACTER_SPEED+=4; ///in swing, to have better delay, we always increase speed by 4(experimental value)
 
 		
-		// setto il background
+		// set the background
 		setBackground(new Color(102, 153, 255));
 
-		// Inizializzo l' hardware events
+		// Initialize hardware events
 		hardwareEvents = new HardwareEvents();
 		imagesToDraw = new ImagesManager();
 		
@@ -109,7 +109,7 @@ public class MainPanel extends JPanel {
 
 		
 		/*
-		 * Dice cosa fare ad hardware events (MOUSE NON IN MOVIMENTO)
+		 * Tells what to do to hardwareEvents (MOUSE NOT MOVING)
 		 */
 		addMouseListener(new MouseListener() {
 			@Override
@@ -127,7 +127,7 @@ public class MainPanel extends JPanel {
 		});
 		
 		/*
-		 * Dice cosa fare ad hardware events (MOUSE IN MOVIMENTO)
+		 * Tells what to do to hardwareEvents (MOUSE MOVING)
 		 */
 		addMouseMotionListener(new MouseMotionListener() {
 			@Override
@@ -140,7 +140,7 @@ public class MainPanel extends JPanel {
 		});
 
 		/*
-		 * Dice cosa fare ad hardware events (Tastiera)
+		 * Tells what to do to hardwareEvents (KEYBOARD)
 		 */
 		addKeyListener(new KeyListener() {
 			@Override
@@ -193,18 +193,18 @@ public class MainPanel extends JPanel {
 	 */
 	private void refresh() {
 		/*
-		 * Esegue lo sleep
+		 * Run the sleep
 		 */
 //		try {
 //			//Thread.currentThread().sleep(1);
 //		} catch (InterruptedException e) {
-//			System.err.println("Impossibile eseguire il loop dle gioco!");
+//			System.err.println("Impossibile eseguire il loop del gioco!");
 //			e.printStackTrace();
 //			GlobalValues.EXIT_GAME = true; // STOPPA IL GIOCO
 //		}
 
 		/*
-		 * Esegue il repaint
+		 * Run the repaint
 		 */
 		repaint();
 		
@@ -214,7 +214,7 @@ public class MainPanel extends JPanel {
 		hardwareEvents.resetHardwareEvents();
 		
 		/*
-		 * Refreeshing delle globalvalues
+		 * Refreshing of globalvalues
 		 */
 		if(GlobalValues.RESIZABLE) {
 			GlobalValues.SIZE_WINDOW.setWidth((int)getWidth());

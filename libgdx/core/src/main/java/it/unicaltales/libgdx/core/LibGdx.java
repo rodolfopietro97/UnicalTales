@@ -51,7 +51,7 @@ public class LibGdx implements ApplicationListener {
 	public void create () {
 		GlobalValues.IMPLEMENTATION = GlobalValues.LIBGDX_IMPLEMENTATION;
 		
-		GlobalValues.CHARACTER_SPEED+=10; // nelle libgdx per il maggiore delay, aumentiamo sempre di 10 (valore sperimentale) la velocit√†
+		GlobalValues.CHARACTER_SPEED+=10; //in ligbdx, to have better delay, we always increase speed by 10(experimental value)†
 		batch = new SpriteBatch();
 		hardwareEvents = new HardwareEvents();
 		imagesToDraw = new ImagesManager();

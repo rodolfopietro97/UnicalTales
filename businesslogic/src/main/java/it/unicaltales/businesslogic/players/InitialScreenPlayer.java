@@ -29,6 +29,10 @@ import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 
 
+/**
+ * @author Camillo
+ * This class manages and represents the Opening windows and main menu of the game.
+ */
 public class InitialScreenPlayer extends Player {
 	/**
 	 * Background image of game
@@ -46,7 +50,7 @@ public class InitialScreenPlayer extends Player {
 	/**
 	 * Constructor with parameters
 	 * @param spriteDraw to use. For example Awt use Graphics
-	 * @param hardwareEvents that depend by framwrork
+	 * @param hardwareEvents that depends by framwrork
 	 */
 	public InitialScreenPlayer(SpriteDraw spriteDraw, HardwareEvents hardwareEvents) {
 		super(spriteDraw, hardwareEvents);
@@ -119,7 +123,7 @@ public class InitialScreenPlayer extends Player {
 
 
 	/**
-	 * Show the settings windows with the refleciton
+	 * Show settings windows with reflection
 	 */
 	private void showSettingsWindow() {
 		if (GlobalValues.IMPLEMENTATION != GlobalValues.JAVAFX_IMPLEMENTATION) { // con reflection
@@ -132,7 +136,7 @@ public class InitialScreenPlayer extends Player {
 				System.err.println("Impossibile avviare le impostazioni oppure le impostazioni sono appena state chiuse");
 			}
 		}
-		else { // senza reflection
+		else { // without reflection
 			try {
 				Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("SettingsGui.fxml"));
 				Stage primaryStage = new Stage();
