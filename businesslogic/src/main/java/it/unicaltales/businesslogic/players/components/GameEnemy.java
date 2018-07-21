@@ -39,8 +39,8 @@ public class GameEnemy extends MyImage{
 	public GameEnemy(String path) {
 		super(0, 
 			  0, 
-			  GlobalValues.SIZE_WINDOW.getWidth() / 10, 
-			  GlobalValues.SIZE_WINDOW.getHeight()/9, 
+			  GlobalValues.SIZE_WINDOW.getWidth() / 12, 
+			  GlobalValues.SIZE_WINDOW.getHeight()/10, 
 			  path);
 		xEnemy = 0;
 		yEnemy = 0;
@@ -126,8 +126,8 @@ public class GameEnemy extends MyImage{
 	 * Update the size and position of enemy
 	 */
 	public void update() {
-		setSize(GlobalValues.SIZE_WINDOW.getWidth() / 10,
-				GlobalValues.SIZE_WINDOW.getHeight()/9);
+		setSize(GlobalValues.SIZE_WINDOW.getWidth() / 12,
+				GlobalValues.SIZE_WINDOW.getHeight()/10);
 		setPosition(xEnemy, 
 					yEnemy);
 	}

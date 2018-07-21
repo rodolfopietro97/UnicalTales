@@ -9,6 +9,7 @@ import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 
+import it.unicaltales.businesslogic.bestscoresmanager.BestScoresManager;
 import it.unicaltales.businesslogic.core.Position;
 import it.unicaltales.businesslogic.core.Size;
 import it.unicaltales.businesslogic.drawer.SpriteDraw;
@@ -71,6 +72,7 @@ public class SingleGamePlayer extends Player {
 	 */
 	private void initGameTexts() {
 		putSprite("score", new MyText(30, 30, 10, "Scores: ", false));
+		putSprite("best-score", new MyText(50, 50, 10, "Best Score: ", false));
 
 		putSprite("pauseText",
 				new MyText(GlobalValues.SIZE_WINDOW.getWidth() - 200, 30, 10, "Press SPACE to pause", false));
@@ -82,7 +84,7 @@ public class SingleGamePlayer extends Player {
 				"PAUSE", true);
 
 		looseText = new MyText(GlobalValues.SIZE_WINDOW.getWidth() / 2, GlobalValues.SIZE_WINDOW.getHeight() / 2, 20,
-				"LOOSE :( (press SPACE to continue)", true);
+				"YOU LOSE... (press SPACE)", true);
 	}
 
 	/**
@@ -98,26 +100,29 @@ public class SingleGamePlayer extends Player {
 			break;
 
 		case MEDIUM:
-			GlobalValues.DIFFICULT_FACTOR = 2;
+			GlobalValues.DIFFICULT_FACTOR = 1;
 			putSprite("nemico", new GameEnemy(new GlobalValues().getAssetPath("Greco.png")));
 			putSprite("nemico2", new GameEnemy(new GlobalValues().getAssetPath("Scalzo.png")));
-			putSprite("nemico3", new GameEnemy(new GlobalValues().getAssetPath("Greco.png")));
-			putSprite("nemico4", new GameEnemy(new GlobalValues().getAssetPath("Scalzo.png")));
-			enemiesManager.putEemies((GameEnemy) getSprite("nemico"), (GameEnemy) getSprite("nemico2"),
-					(GameEnemy) getSprite("nemico3"), (GameEnemy) getSprite("nemico4"));
+			enemiesManager.putEemies((GameEnemy) getSprite("nemico"), (GameEnemy) getSprite("nemico2"));
 			break;
 
 		case HARD:
 			GlobalValues.DIFFICULT_FACTOR = 3;
 			putSprite("nemico", new GameEnemy(new GlobalValues().getAssetPath("Greco.png")));
 			putSprite("nemico2", new GameEnemy(new GlobalValues().getAssetPath("Scalzo.png")));
-			putSprite("nemico3", new GameEnemy(new GlobalValues().getAssetPath("Greco.png")));
-			putSprite("nemico4", new GameEnemy(new GlobalValues().getAssetPath("Scalzo.png")));
-			putSprite("nemico5", new GameEnemy(new GlobalValues().getAssetPath("Greco.png")));
-			putSprite("nemico6", new GameEnemy(new GlobalValues().getAssetPath("Scalzo.png")));
-			enemiesManager.putEemies((GameEnemy) getSprite("nemico"), (GameEnemy) getSprite("nemico2"),
-					(GameEnemy) getSprite("nemico3"), (GameEnemy) getSprite("nemico4"),
-					(GameEnemy) getSprite("nemico5"), (GameEnemy) getSprite("nemico6"));
+			enemiesManager.putEemies((GameEnemy) getSprite("nemico"), (GameEnemy) getSprite("nemico2"));
+			/*
+			 * uncomment if you want an 'impossible game with more enemies'
+			 */
+//			putSprite("nemico", new GameEnemy(new GlobalValues().getAssetPath("Greco.png")));
+//			putSprite("nemico2", new GameEnemy(new GlobalValues().getAssetPath("Scalzo.png")));
+//			putSprite("nemico3", new GameEnemy(new GlobalValues().getAssetPath("Greco.png")));
+//			putSprite("nemico4", new GameEnemy(new GlobalValues().getAssetPath("Scalzo.png")));
+//			putSprite("nemico5", new GameEnemy(new GlobalValues().getAssetPath("Greco.png")));
+//			putSprite("nemico6", new GameEnemy(new GlobalValues().getAssetPath("Scalzo.png")));
+//			enemiesManager.putEemies((GameEnemy) getSprite("nemico"), (GameEnemy) getSprite("nemico2"),
+//					(GameEnemy) getSprite("nemico3"), (GameEnemy) getSprite("nemico4"),
+//					(GameEnemy) getSprite("nemico5"), (GameEnemy) getSprite("nemico6"));
 			break;
 		}
 	}
@@ -171,6 +176,7 @@ public class SingleGamePlayer extends Player {
 	 */
 	private void updateScores() {
 		((MyText) getSprite("score")).setText("Scores: " + GlobalValues.SCORES);
+		((MyText) getSprite("best-score")).setText("Best Score: " + GlobalValues.BEST_SCORE);
 	}
 
 	/**
@@ -255,6 +261,10 @@ public class SingleGamePlayer extends Player {
 	 * When we loose the game
 	 */
 	void looseGame() {
+		if(GlobalValues.SCORES > GlobalValues.BEST_SCORE) {
+			GlobalValues.BEST_SCORE = GlobalValues.SCORES;
+			new BestScoresManager().setBestScoreFile();
+		}
 		if (!GlobalValues.LOOSE_GAME)
 			GlobalValues.LOOSE_GAME = true;
 	}

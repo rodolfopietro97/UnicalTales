@@ -21,6 +21,18 @@ public class GlobalValues implements Serializable {
 	//public static String SETTINGS_FILES_PATH = "/home/rodolfo/settingsfile";
 	//public String SETTINGS_FILES_PATH = getClass().getClassLoader().getResource("settingsfile").getPath();
 	public String SETTINGS_FILES_PATH = System.getProperty("user.home") + "/settingsfile";
+	
+	/**
+	 * Path of bests scores file
+	 */
+	//public static String SETTINGS_FILES_PATH = "/home/rodolfo/settingsfile";
+	//public String SETTINGS_FILES_PATH = getClass().getClassLoader().getResource("settingsfile").getPath();
+	public String BEST_SCORE_PATH = System.getProperty("user.home") + "/bestscore.txt";
+	
+	/**
+	 * Best scores of game
+	 */
+	public static int BEST_SCORE = 0;
 
 	
 	/**
@@ -133,9 +145,6 @@ public class GlobalValues implements Serializable {
 		if (GlobalValues.IMPLEMENTATION == LIBGDX_IMPLEMENTATION) {
 			if(DEFAULT_LAUNCHER) return "../businesslogic/src/main/imagesResources/";
 			else return "../../businesslogic/src/main/imagesResources/";	
-		}
-		else if(GlobalValues.IMPLEMENTATION == SWING_AWT_IMPLEMENTATION) {
-			return "../businesslogic/src/main/nonInterlaccedImagesResources/";
 		}
 		return "../businesslogic/src/main/imagesResources/";
 	}

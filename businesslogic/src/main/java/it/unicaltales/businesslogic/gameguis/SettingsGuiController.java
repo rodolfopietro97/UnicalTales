@@ -73,6 +73,7 @@ public class SettingsGuiController implements Initializable {
 	public void apply() {
 		writer.updateSettingsFile();
 		lblStatus.setText("Modifiche effettuate");
+		GlobalValues.EXIT_GAME = true;
 	}
 	
 }

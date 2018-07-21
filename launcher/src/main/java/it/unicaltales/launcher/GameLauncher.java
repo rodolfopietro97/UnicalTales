@@ -2,6 +2,7 @@ package it.unicaltales.launcher;
 
 import java.lang.reflect.Method;
 
+import it.unicaltales.businesslogic.bestscoresmanager.BestScoresManager;
 import it.unicaltales.businesslogic.gameinfo.GlobalValues;
 import it.unicaltales.businesslogic.settingsmanager.SettingsFileReader;
 
@@ -18,9 +19,13 @@ public class GameLauncher
      */
     public static void main( String[] args )
     {
-		// inizializza le globbalvalues
+		// inizializza le globbalvalues (IMPOSTAZIONI)
     	SettingsFileReader settingsFile = new SettingsFileReader();
     	settingsFile.setGlobalValues();
+		// inizializza le globbalvalues (BESTSCORES)
+    	BestScoresManager bestScores = new BestScoresManager();
+    	bestScores.setGlobalValues();
+    	
     	
     	// attiva il default launcher (per non avere problemi con l' asset path di libgdx)
     	GlobalValues.DEFAULT_LAUNCHER = true;

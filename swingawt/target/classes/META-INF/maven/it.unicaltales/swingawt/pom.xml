@@ -20,10 +20,10 @@
 	 l' interlacciamento delle immagini! -->
 		<resources>
 			<resource>
-				<directory>../businesslogic/src/main/nonInterlaccedImagesResources</directory>
+				<directory>../businesslogic/src/main/imagesResources</directory>
 			</resource>
 			<resource>
-				<directory>../businesslogic/src/main/nonInterlaccedImagesResources/characterRendering</directory>
+				<directory>../businesslogic/src/main/imagesResources/characterRendering</directory>
 			</resource>
 			<resource>
 				<directory>../businesslogic/src/main/audioResources</directory>
