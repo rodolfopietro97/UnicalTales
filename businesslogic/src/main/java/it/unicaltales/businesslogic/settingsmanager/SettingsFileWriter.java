@@ -114,7 +114,6 @@ public class SettingsFileWriter {
 			for (int i = 0; i < values.length; i++) {
 				writer.write(values[i] + "\n");
 			}
-			writer.close();
 		} catch (Exception e) {
 			System.out.println("Impossibile scrivere sul file delle impostazioni");
 		}

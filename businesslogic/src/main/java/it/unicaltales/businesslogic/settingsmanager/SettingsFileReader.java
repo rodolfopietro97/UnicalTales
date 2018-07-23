@@ -35,7 +35,6 @@ public class SettingsFileReader {
 			while ((current = reader.readLine()) != null) {
 				values[count++] = current;
 			}
-			reader.close();
 		} catch (Exception e) {
 			System.err.println("Impossibile leggere il file delle impostazioni!");
 		}

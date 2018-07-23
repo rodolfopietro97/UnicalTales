@@ -52,9 +52,9 @@ public class GameCharacter extends MyRendering{
 	 * Update the size and position of character
 	 */
 	public void update() {
-		setSize(GlobalValues.SIZE_WINDOW.getWidth() / 20,
-				  GlobalValues.SIZE_WINDOW.getHeight()/9);
-		setPosition(x, GlobalValues.SIZE_WINDOW.getHeight() - GlobalValues.SIZE_WINDOW.getHeight()/9-30 - jumpY);
+		setSize(GlobalValues.SIZE_WINDOW.getWidth() / 25,
+				  GlobalValues.SIZE_WINDOW.getHeight()/13);
+		setPosition(x, GlobalValues.SIZE_WINDOW.getHeight() - GlobalValues.SIZE_WINDOW.getHeight()/13-30 - jumpY);
 	}
 	
 	
@@ -121,6 +121,6 @@ public class GameCharacter extends MyRendering{
 	 * Reset the initial position of character
 	 */
 	public void resetPosition() {	
-		setPosition(0, GlobalValues.SIZE_WINDOW.getHeight() - GlobalValues.SIZE_WINDOW.getHeight()/9-30);
+		setPosition(0, GlobalValues.SIZE_WINDOW.getHeight() - GlobalValues.SIZE_WINDOW.getHeight()/13-30);
 	}
 }

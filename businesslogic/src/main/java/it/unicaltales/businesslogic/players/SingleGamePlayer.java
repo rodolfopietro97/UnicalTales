@@ -57,6 +57,7 @@ public class SingleGamePlayer extends Player {
 	 */
 	public SingleGamePlayer(SpriteDraw spriteDraw, HardwareEvents hardwareEvents) {
 		super(spriteDraw, hardwareEvents);
+		
 		// enemies
 		enemiesManager = new EnemiesManager();
 		setEnemiesByDifficult();
@@ -66,6 +67,9 @@ public class SingleGamePlayer extends Player {
 
 		// game's texts
 		initGameTexts();
+		
+		// update the speeds
+		updateSpeeds();
 	}
 
 	/**
@@ -109,7 +113,7 @@ public class SingleGamePlayer extends Player {
 			break;
 
 		case HARD:
-			GlobalValues.DIFFICULT_FACTOR = 3;
+			GlobalValues.DIFFICULT_FACTOR = 2;
 			putSprite("nemico", new GameEnemy(new GlobalValues().getAssetPathOfNonInterlaccedFile("Greco.png")));
 			putSprite("nemico2", new GameEnemy(new GlobalValues().getAssetPathOfNonInterlaccedFile("Scalzo.png")));
 			enemiesManager.putEemies((GameEnemy) getSprite("nemico"), (GameEnemy) getSprite("nemico2"));
@@ -187,29 +191,14 @@ public class SingleGamePlayer extends Player {
 	 * @see {the speeds are experimentally dependently by framework }
 	 */
 	private void updateSpeeds() {
-		switch (GlobalValues.IMPLEMENTATION) {
-		case GlobalValues.JAVAFX_IMPLEMENTATION:
-			GlobalValues.CHARACTER_SPEED = (int) (getSprite("personaggio").getSize().getHeight() / 25)
-					+ GlobalValues.DIFFICULT_FACTOR;
-			GlobalValues.ENEMY_SPEED = 1
-					+ GlobalValues.DIFFICULT_FACTOR;
-			break;
-
-		case GlobalValues.LIBGDX_IMPLEMENTATION:
-			GlobalValues.CHARACTER_SPEED = (int) (getSprite("personaggio").getSize().getHeight() / 5)
-					+ GlobalValues.DIFFICULT_FACTOR;
-			GlobalValues.ENEMY_SPEED = (int) (getSprite("nemico").getSize().getWidth() / 15)
-					+ GlobalValues.DIFFICULT_FACTOR;
-			break;
-			
-		case GlobalValues.SWING_AWT_IMPLEMENTATION:
-			GlobalValues.CHARACTER_SPEED = (int) (getSprite("personaggio").getSize().getHeight() / 7)
-					+ GlobalValues.DIFFICULT_FACTOR;
-			GlobalValues.ENEMY_SPEED = (int) (getSprite("nemico").getSize().getWidth() / 20)
-					+ GlobalValues.DIFFICULT_FACTOR;
-			break;
+		if(GlobalValues.IMPLEMENTATION != GlobalValues.LIBGDX_IMPLEMENTATION) {
+			GlobalValues.CHARACTER_SPEED = (int) (GlobalValues.SIZE_WINDOW.getWidth() / (GlobalValues.SIZE_WINDOW.getWidth()/2)) + GlobalValues.DIFFICULT_FACTOR;
+			GlobalValues.ENEMY_SPEED = (int) (GlobalValues.SIZE_WINDOW.getWidth() / (GlobalValues.SIZE_WINDOW.getWidth())) + GlobalValues.DIFFICULT_FACTOR;
 		}
-
+		else {
+			GlobalValues.CHARACTER_SPEED = (int) (GlobalValues.SIZE_WINDOW.getWidth() / (GlobalValues.SIZE_WINDOW.getWidth()/2)) + GlobalValues.DIFFICULT_FACTOR +10;
+			GlobalValues.ENEMY_SPEED = (int) (GlobalValues.SIZE_WINDOW.getWidth() / (GlobalValues.SIZE_WINDOW.getWidth())) + GlobalValues.DIFFICULT_FACTOR +10;
+		}
 	}
 
 	@Override
@@ -227,6 +216,12 @@ public class SingleGamePlayer extends Player {
 		getSprite("escText").setPosition(GlobalValues.SIZE_WINDOW.getWidth() - 200, 60);
 		pauseText.setPosition(GlobalValues.SIZE_WINDOW.getWidth() / 2, GlobalValues.SIZE_WINDOW.getHeight() / 2);
 		looseText.setPosition(GlobalValues.SIZE_WINDOW.getWidth() / 2, GlobalValues.SIZE_WINDOW.getHeight() / 2);
+		
+		/*
+		 * Update the speeds of character and
+		 * enemies
+		 */
+		updateSpeeds();
 	}
 
 	/**

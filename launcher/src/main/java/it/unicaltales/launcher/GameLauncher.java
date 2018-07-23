@@ -21,11 +21,9 @@ public class GameLauncher
     {
 
 		// inizializza le globbalvalues (IMPOSTAZIONI)
-    	SettingsFileReader settingsFile = new SettingsFileReader();
-    	settingsFile.setGlobalValues();
+    	new SettingsFileReader().setGlobalValues();
 		// inizializza le globbalvalues (BESTSCORES)
-    	BestScoresManager bestScores = new BestScoresManager();
-    	bestScores.setGlobalValues();
+    	new BestScoresManager().setGlobalValues();
     	
     	
     	// attiva il default launcher (per non avere problemi con l' asset path di libgdx)
