@@ -34,8 +34,9 @@ public class MyImage extends Sprite{
 	
 	/**
 	 * Constructor with parameters
-	 * @param width of image
-	 * @param height of image
+	 * 
+	 * @param position of image
+	 * @param size of image
 	 * @param path of image
 	 */
 	public MyImage(Position position, Size size, String path) {

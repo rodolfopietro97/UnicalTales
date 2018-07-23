@@ -94,7 +94,7 @@ public class SettingsFileWriter {
 	
 	/**
 	 * Set Audio on or off
-	 * @param implementation of game
+	 * @param audio true or false
 	 */
 	public void setAudio(Boolean audio) {
 		if(audio) {

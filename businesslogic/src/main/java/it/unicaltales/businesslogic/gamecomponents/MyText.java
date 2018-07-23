@@ -54,7 +54,7 @@ public class MyText extends Sprite{
 	/**
 	 * Parameter Constructor
 	 * @param position of the text
-	 * @param size of the font
+	 * @param fontSize of the font
 	 * @param text of text
 	 * @param centred if the text is centered
 	 */

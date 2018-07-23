@@ -51,7 +51,7 @@ public class LibGdx implements ApplicationListener {
 	public void create () {
 		GlobalValues.IMPLEMENTATION = GlobalValues.LIBGDX_IMPLEMENTATION;
 		
-		GlobalValues.CHARACTER_SPEED+=10; //in ligbdx, to have better delay, we always increase speed by 10(experimental value) 
+		GlobalValues.CHARACTER_SPEED+=10; //in ligbdx, to have better delay, we always increase speed by 10(experimental value)
 		batch = new SpriteBatch();
 		hardwareEvents = new HardwareEvents();
 		imagesToDraw = new ImagesManager();
@@ -90,7 +90,7 @@ public class LibGdx implements ApplicationListener {
 
 	@Override
 	public void render () {
-		/*
+		/**
 		 * Refresh the just pressed keys and click
 		 * @see { in libgdx we don't need the ciclically resetHardwareEvents }
 		 */

@@ -147,6 +147,9 @@ public class MyRendering extends Sprite{
 	
 	/**
 	 * the loop of rendering
+	 * 
+	 * @param spriteDraw to use
+	 * @param drawerComponent to use (it depends by framework)
 	 */
 	public void loop(SpriteDraw spriteDraw, Object drawerComponent) {
 		spriteDraw.drawImage(getCurrentImage(), drawerComponent);

@@ -33,9 +33,7 @@ public class GameCharacter extends MyRendering{
 
 	/**
 	 * Constructor with parameters
-	 * @param position
-	 * @param size
-	 * @param path
+	 * @param path of character
 	 */
 	public GameCharacter(String path) {
 		super(new Position(300,300), new Size(50,50), path);

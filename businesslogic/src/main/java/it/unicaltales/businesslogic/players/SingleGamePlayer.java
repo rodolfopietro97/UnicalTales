@@ -52,8 +52,8 @@ public class SingleGamePlayer extends Player {
 	/**
 	 * Constructor with parameters
 	 * 
-	 * @param spriteDraw
-	 * @param hardwareEvents
+	 * @param spriteDraw to use
+	 * @param hardwareEvents to use
 	 */
 	public SingleGamePlayer(SpriteDraw spriteDraw, HardwareEvents hardwareEvents) {
 		super(spriteDraw, hardwareEvents);

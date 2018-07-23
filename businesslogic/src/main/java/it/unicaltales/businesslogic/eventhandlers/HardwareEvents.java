@@ -10,7 +10,7 @@ package it.unicaltales.businesslogic.eventhandlers;
  *         a key is pressed, if mouse is clicked, ..., this class contains every
  *         events we need for game
  *         
- * @see { justPressed and pressed are different! }       
+ * justPressed and pressed are different!        
  * 
  * 
  */
@@ -48,7 +48,7 @@ public class HardwareEvents {
 	 * Reset of hardwareEvents. This is important if there isn't a reset, for
 	 * example when a key remains pressed all time
 	 * 
-	 * @see { THIS FUNCTION IS MOST IMPORTANT FOR justPress and click }
+	 * THIS FUNCTION IS MOST IMPORTANT FOR justPress and click 
 	 */
 	public void resetHardwareEvents() {
 		click = false;
@@ -127,8 +127,9 @@ public class HardwareEvents {
 	
 	/**
 	 * Release a key
-	 * @see {this function does not exists only for justKeys. In fact, justKeys,
-	 * 		 where handled by resetHardwareEvents() }
+	 * 
+	 * this function does not exists only for justKeys. In fact, justKeys,
+	 * where handled by resetHardwareEvents()
 	 * @param key to release
 	 */
 	public void relaseKey(MyKeys key) {
@@ -206,8 +207,7 @@ public class HardwareEvents {
 	}
 
 	/**
-	 * @param x
-	 *            the x to set of mouse/touch
+	 * @param x the x to set of mouse/touch
 	 */
 	public void setInputX(float x) {
 		this.x = x;
@@ -221,8 +221,7 @@ public class HardwareEvents {
 	}
 
 	/**
-	 * @param y
-	 *            the y to set of mouse/touch
+	 * @param y the y to set of mouse/touch
 	 */
 	public void setInputY(float y) {
 		this.y = y;

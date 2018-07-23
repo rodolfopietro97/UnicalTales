@@ -1,0 +1,17 @@
+it.unicaltales.businesslogic
+it.unicaltales.businesslogic.bestscoresmanager
+it.unicaltales.businesslogic.core
+it.unicaltales.businesslogic.drawer
+it.unicaltales.businesslogic.drawer.utils
+it.unicaltales.businesslogic.eventhandlers
+it.unicaltales.businesslogic.gamecomponents
+it.unicaltales.businesslogic.gameguis
+it.unicaltales.businesslogic.gameinfo
+it.unicaltales.businesslogic.players
+it.unicaltales.businesslogic.players.components
+it.unicaltales.businesslogic.settingsmanager
+it.unicaltales.javafx
+it.unicaltales.launcher
+it.unicaltales.libgdx.core
+it.unicaltales.libgdx.java
+it.unicaltales.swingawt
